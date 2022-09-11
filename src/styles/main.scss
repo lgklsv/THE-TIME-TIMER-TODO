@@ -8,7 +8,7 @@
 }
 
 html {
-    background-color: $backgroundColorPrimary;
+    background-color: var(--background-color-primary);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -21,7 +21,7 @@ html {
 // icons + text 
 .text-btn {
     font-size: 1.2rem;
-    color: $lightColor;
+    color: var(--light-color);
     display: flex;
     text-decoration: none;
     justify-content: center;
@@ -32,5 +32,9 @@ html {
 }
 
 .text-btn:hover {
-    color: $activeColor;
+    color: var(--active-color);
+}
+
+#themeSwither {
+    margin-top: 100px;
 }

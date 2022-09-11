@@ -6,20 +6,20 @@
     align-items: center;
 
     .logo {
-        color: $activeColor;
+        color: var(--active-color);
         font-size: 1.5rem;
 
         .logo-letter1 {
-            color: $logoLetter1;
+            color: var(--logo-letter1);
         }
         .logo-letter2 {
-            color: $logoLetter2;
+            color: var(--logo-letter2);
         }
         .logo-letter3 {
-            color: $logoLetter3;
+            color: var(--logo-letter3);
         }
         .logo-letter4 {
-            color: $logoLetter4;
+            color: var(--logo-letter4);
         }
     }
 

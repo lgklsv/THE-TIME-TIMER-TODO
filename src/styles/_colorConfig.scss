@@ -1,14 +1,32 @@
 // Color config
-$backgroundColorPrimary: #313231;
-$backgroundColorSecondary: #3A3B3B;
-$lightColor: #5E6263;
+[data-theme="dark"] {
+    --background-color-primary: #313231;
+    --background-color-secondary: #3A3B3B;
+    --light-color: #5E6263;
+    
+    --active-color: #F7F5F1;
+    --active-text-color: #313231;
+    
+    --circle-color: #F7F5F1;
+    
+    --logo-letter1: #ABBE60;
+    --logo-letter2: #BC9438;
+    --logo-letter3: #AA322A;
+    --logo-letter4: #92B5CB;
+}
 
-$activeColor: #F7F5F1;
-$activeTextColor: #313231;
-
-$circleColor: #F7F5F1;
-
-$logoLetter1: #ABBE60;
-$logoLetter2: #BC9438;
-$logoLetter3: #AA322A;
-$logoLetter4: #92B5CB;
+[data-theme="light"] {
+    --background-color-primary: #EEEEEE;
+    --background-color-secondary: #DDDDDD;
+    --light-color: #B2B2B2;
+    
+    --active-color: #444444;
+    --active-text-color: #EEEEEE;
+    
+    --circle-color: #444444;
+    
+    --logo-letter1: #444444;
+    --logo-letter2: #444444;
+    --logo-letter3: #444444;
+    --logo-letter4: #444444;
+}
