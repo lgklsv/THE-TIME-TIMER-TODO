@@ -1,0 +1,35 @@
+.navbar {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        color: $activeColor;
+        font-size: 1.5rem;
+
+        .logo-letter1 {
+            color: $logoLetter1;
+        }
+        .logo-letter2 {
+            color: $logoLetter2;
+        }
+        .logo-letter3 {
+            color: $logoLetter3;
+        }
+        .logo-letter4 {
+            color: $logoLetter4;
+        }
+    }
+
+    .menu-list {
+        list-style: none;
+        display: flex;
+    }
+}
+
+
+
+
+

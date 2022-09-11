@@ -1,9 +1,36 @@
 @import 'colorConfig';
+@import 'navbar';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 html {
     background-color: $backgroundColorPrimary;
+    font-family: 'Roboto', sans-serif;
 }
 
-h1 {
-    color: black;
+.container {
+    margin: 0 auto;
+    max-width: 1250px;
+    height: 100vh;
+}
+
+// icons + text 
+.text-btn {
+    font-size: 1.2rem;
+    color: $lightColor;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    height: 36px;
+    width: 36px;
+}
+
+.text-btn:hover {
+    color: $activeColor;
 }
