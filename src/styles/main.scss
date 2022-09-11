@@ -1,7 +1,9 @@
+@import 'colorConfig';
+
 html {
-    background-color: black;
+    background-color: $backgroundColorPrimary;
 }
 
 h1 {
-    color: white;
+    color: black;
 }
