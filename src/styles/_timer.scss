@@ -1,0 +1,28 @@
+// Top
+.timer-btns-top {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+
+    .timer-btn {
+        padding: 1rem;
+    }
+}
+
+// Middle
+.timer-container {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+    background: #eee;
+}
+.timer-container::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+// Bottom
+.timer-btns-bottom {
+    background-color: blue;
+}

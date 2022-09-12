@@ -1,13 +1,16 @@
 .navbar {
     height: 80px;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1.11fr 2fr;
+    gap: 2rem;
 
     .logo {
         color: var(--logo-color);
-        font-size: 1.5rem;
+        font-size: 1.4vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .logo-letter1 {
             color: var(--logo-letter1);
@@ -23,8 +26,14 @@
         }
     }
 
-    .menu-list {
-        list-style: none;
+    .menu {
         display: flex;
+        justify-content: end;
+        align-items: center;
+
+        .menu-list {
+            list-style: none;
+            display: flex;
+        }
     }
 }

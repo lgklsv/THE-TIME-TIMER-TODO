@@ -1,5 +1,6 @@
 @import 'colorConfig';
 @import 'navbar';
+@import 'timer';
 
 * {
     box-sizing: border-box;
@@ -14,7 +15,8 @@ html {
 
 .container {
     margin: 0 auto;
-    max-width: 1250px;
+    max-width: 1440px;
+    width: 80%;
     height: 100vh;
 }
 
@@ -44,6 +46,9 @@ html {
     .timer-section {
         background-color: red;
         height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     
     .task-section {
