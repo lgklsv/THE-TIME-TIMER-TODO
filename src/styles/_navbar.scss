@@ -2,15 +2,15 @@
     height: 80px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1.11fr 2fr;
+    grid-template-columns: 2fr 0.55fr;
     gap: 2rem;
 
     .logo {
         color: var(--logo-color);
-        font-size: 1.4vw;
+        font-size: 1.36rem;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
 
         .logo-letter1 {
             color: var(--logo-letter1);
