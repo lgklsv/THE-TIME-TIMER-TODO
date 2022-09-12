@@ -7,7 +7,7 @@
 
     .logo {
         color: var(--logo-color);
-        font-size: 1.36rem;
+        font-size: clamp(0.75rem, 1.53vw, 1.73rem);
         display: flex;
         align-items: center;
         justify-content: flex-start;
