@@ -2,6 +2,7 @@
 @import 'navbar';
 @import 'timer';
 
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -63,3 +64,5 @@ html {
         border-radius: 15px;
     }
 }
+
+@import 'mediaQueries';
