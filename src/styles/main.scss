@@ -35,6 +35,26 @@ html {
     color: var(--active-color);
 }
 
-#themeSwither {
-    margin-top: 100px;
+// Main app section 
+.app-container {
+    display: grid;
+    grid-template-columns: 1.15fr 1.3fr 0.7fr;
+    gap: 2rem;
+
+    .timer-section {
+        background-color: red;
+        height: 80vh;
+    }
+    
+    .task-section {
+        background-color: var(--background-color-secondary);
+        height: 80vh;
+        border-radius: 15px;
+    }
+    
+    .lists-section {
+        background-color: var(--background-color-secondary);
+        height: 80vh;
+        border-radius: 15px;
+    }
 }
