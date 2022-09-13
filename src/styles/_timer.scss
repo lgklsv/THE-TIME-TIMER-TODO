@@ -1,11 +1,30 @@
 // Top
 .timer-btns-top {
-    background-color: #fff;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
     .timer-btn {
         padding: 1rem;
+        box-shadow:inset 0px 0px 0px 1px var(--light-color);
+        border-radius: 25px;
+        button {
+            // font-size: clamp(0.75rem, 1.1vw, 1.5rem);
+            font-size: 1rem;
+            border: none;
+            color: var(--light-color);
+            background-color: var(--background-color-primary);
+            cursor: pointer;
+        }
+    }
+
+    .active-timer-btn {
+        box-shadow: 0px 0px 0px 5px var(--active-color);
+        background-color: var(--background-color-secondary);
+        button {
+            background-color: var(--background-color-secondary);
+            color: var(--active-color);
+        }
+        
     }
 }
 
@@ -14,7 +33,8 @@
     position: relative;
     width: 100%;
     margin: 20px auto;
-    background: #eee;
+    border-radius: 50%;
+    border: 7px solid var(--circle-color);
 }
 .timer-container::after {
     content: '';
