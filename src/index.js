@@ -9,7 +9,7 @@ function switchTheme(e) {
         document.documentElement.setAttribute('data-theme', 'dark');
     }
     else {
-        document.documentElement.setAttribute('data-theme', 'strawberry');
+        document.documentElement.setAttribute('data-theme', 'coffee');
     } 
 };
 

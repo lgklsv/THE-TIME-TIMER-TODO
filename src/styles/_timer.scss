@@ -8,6 +8,7 @@
     padding: 1rem;
     box-shadow:inset 0px 0px 0px 1px var(--light-color);
     border-radius: 25px;
+    cursor: pointer;
     button {
         // font-size: clamp(0.75rem, 1.1vw, 1.5rem);
         font-size: 1rem;
@@ -47,7 +48,7 @@
         position: absolute;
         top: 35%;
         left: 17%;
-        font-size: clamp(5rem, 7vw, 8rem);
+        font-size: clamp(6.3rem, 7vw, 8rem);
         color: var(--active-color);
     }
 }
@@ -75,6 +76,5 @@
         margin: auto 0px;
         margin-left: 15px;
         font-size: 2rem;
-        cursor: pointer;
     }
 }

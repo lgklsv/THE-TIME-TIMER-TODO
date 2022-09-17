@@ -1,0 +1,93 @@
+.tasks-lists-section-header {
+    height: 75px;
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    .tasks-lists-title {
+        color: var(--active-color);
+        font-weight: 200;
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
+}
+
+.task {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    border-bottom: 1px solid var(--light-color);
+    font-weight: 400;
+    .task-checkbox {
+        padding-right: 0.5rem;
+    }
+    .task-grid {
+        display: grid;
+        grid-template-columns: 3fr 0.5fr 0.5fr;
+        width: 100%;
+        .task-title {
+            font-size: 1rem;
+            color: var(--active-color);
+            font-weight: 100;
+        }
+        .task-subtitle {
+            font-size: 12px;
+            color: var(--light-color);
+        }
+        .task-settigs {
+            padding-top: 0;
+            padding-right: 0;
+            margin-right: -0.6rem;
+            margin-top: -0.2rem;
+            justify-self: end;
+        }
+        .task-settigs:hover {
+            color: var(--active-color);
+        }
+    }
+}
+.active-task {
+    border-radius: 5px;
+    border-bottom: none;
+    .task-grid {
+        .task-title {
+            color: var(--background-color-primary);
+            // font-weight: 400;
+        }
+        .task-settigs:hover {
+            color: var(--background-color-primary);
+        }
+    }
+    background-color: var(--active-color);
+}
+.task-counter {
+    color: var(--light-color);
+}
+.list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 35px;
+    width: 100%;
+    border-bottom: 1px solid var(--light-color);
+    .list-title  {
+        font-weight: 100;
+        color: var(--active-color);
+    }
+}
+
+.list-active {
+    border-radius: 5px;
+    border-bottom: none;
+    background-color: var(--active-color);
+    .list-title {
+        // font-weight: 400;
+        color: var(--background-color-primary);
+    }
+}

@@ -1,7 +1,7 @@
 @import 'colorConfig';
 @import 'navbar';
 @import 'timer';
-
+@import 'tasks';
 
 * {
     box-sizing: border-box;
@@ -34,6 +34,7 @@ html {
     padding: 0.5em;
     height: 36px;
     width: 36px;
+    cursor: pointer;
 }
 
 .text-btn:hover {
