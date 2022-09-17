@@ -2,29 +2,36 @@
 .timer-btns-top {
     display: flex;
     justify-content: space-evenly;
-
-    .timer-btn {
-        padding: 1rem;
-        box-shadow:inset 0px 0px 0px 1px var(--light-color);
-        border-radius: 25px;
-        button {
-            // font-size: clamp(0.75rem, 1.1vw, 1.5rem);
-            font-size: 1rem;
-            border: none;
-            color: var(--light-color);
-            background-color: var(--background-color-primary);
-            cursor: pointer;
-        }
+    margin-bottom: 1rem;
+}
+.timer-btn {
+    padding: 1rem;
+    box-shadow:inset 0px 0px 0px 1px var(--light-color);
+    border-radius: 25px;
+    button {
+        // font-size: clamp(0.75rem, 1.1vw, 1.5rem);
+        font-size: 1rem;
+        border: none;
+        color: var(--light-color);
+        background-color: var(--background-color-primary);
+        cursor: pointer;
     }
+}
 
-    .active-timer-btn {
-        box-shadow: 0px 0px 0px 5px var(--active-color);
+.active-timer-btn {
+    box-shadow: 0px 0px 0px 5px var(--active-color);
+    background-color: var(--background-color-secondary);
+    button {
         background-color: var(--background-color-secondary);
-        button {
-            background-color: var(--background-color-secondary);
-            color: var(--active-color);
-        }
-        
+        color: var(--active-color);
+    }
+}
+.timer-btn:hover {
+    background-color: var(--active-color);
+    box-shadow: 0px 0px 0px 1px var(--active-color);
+    button {
+        background-color: var(--active-color);
+        color: var(--background-color-primary);
     }
 }
 
@@ -35,6 +42,14 @@
     margin: 20px auto;
     border-radius: 50%;
     border: 7px solid var(--circle-color);
+
+    .timer{
+        position: absolute;
+        top: 35%;
+        left: 17%;
+        font-size: clamp(5rem, 7vw, 8rem);
+        color: var(--active-color);
+    }
 }
 .timer-container::after {
     content: '';
@@ -44,5 +59,22 @@
 
 // Bottom
 .timer-btns-bottom {
-    background-color: blue;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+
+    .timer-btn {
+        padding: 0.5rem;
+        width: 180px;
+        text-align: center;
+        button {
+            font-size: 1.6rem;
+        }
+    }
+    .timer-icons {
+        margin: auto 0px;
+        margin-left: 15px;
+        font-size: 2rem;
+        cursor: pointer;
+    }
 }
