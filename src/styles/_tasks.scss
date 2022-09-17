@@ -56,8 +56,7 @@
     border-bottom: none;
     .task-grid {
         .task-title {
-            color: var(--background-color-primary);
-            // font-weight: 400;
+            color: var(--active-text-color);
         }
         .task-settigs:hover {
             color: var(--background-color-primary);
@@ -87,7 +86,6 @@
     border-bottom: none;
     background-color: var(--active-color);
     .list-title {
-        // font-weight: 400;
-        color: var(--background-color-primary);
+        color: var(--active-text-color);
     }
 }
