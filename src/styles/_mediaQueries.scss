@@ -20,20 +20,20 @@
 }
 @media (max-width: 890px) {
   .app-container {
+    margin-top: 70px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 0.9fr 1fr;
     .timer-section {
       justify-self: center;
+      grid-column: span 2;
+      height: 58vh;
     }
   }
   .timer-container {
       width: 80%;
-      height: auto;
       width: 50vw;
   }
-  .timer-section {
-    grid-column: span 2;
-  }
+  
   .lists-section {
     position: relative;
     top: 0;
@@ -55,6 +55,7 @@
   .app-container {
     grid-template-columns: 1fr;
     grid-template-rows: none;
+    margin-top: 20px;
     .timer-section {
       grid-column: span 1;
     }
@@ -76,6 +77,9 @@
   }
 }
 @media (max-width: 500px) {
+  .app-container{
+    margin-top: 0;
+  }
   .timer-container {
     width: 70vw;
   }

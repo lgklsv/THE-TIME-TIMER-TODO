@@ -2,6 +2,7 @@
 @import 'navbar';
 @import 'timer';
 @import 'tasks';
+@import 'footer';
 
 * {
   box-sizing: border-box;
@@ -22,6 +23,9 @@ html {
   max-width: 1440px;
   width: 80%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 // icons + text
