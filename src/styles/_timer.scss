@@ -1,13 +1,17 @@
 // Top
 .timer-btns-top {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
   margin-bottom: 1rem;
+  align-items: center;
 }
 .timer-btn {
   padding: 1rem;
+  text-align: center;
   box-shadow: inset 0px 0px 0px 1px var(--light-color);
   border-radius: 25px;
+  width: 120px;
   cursor: pointer;
   button {
     // font-size: clamp(0.75rem, 1.1vw, 1.5rem);
@@ -40,6 +44,7 @@
 .timer-container {
   position: relative;
   width: 100%;
+  height: auto;
   margin: 20px auto;
   border-radius: 50%;
   border: 7px solid var(--circle-color);

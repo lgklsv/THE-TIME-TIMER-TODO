@@ -1,30 +1,51 @@
-@media (max-width: 1000px) {
+@media(max-width: 1200px) {
   .app-container {
-    grid-template-columns: 1fr;
-    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+  }
 
+  .lists-section {
+    position: absolute;
+    width: 35vw;
+    left: 58vw;
+    top: 8vh;
+    z-index: -1;
+    opacity: 50%;
+  }
+}
+
+@media (max-width: 1039px) {
+  .app-container {
+    justify-content: center;
+  }
+}
+@media (max-width: 890px) {
+  .app-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     .timer-section {
-      height: auto;
-      width: 65%;
       justify-self: center;
     }
   }
-}
-@media (max-width: 850px) {
-  .app-container {
-    .timer-section {
-      width: 75%;
-    }
+  .timer-container {
+      width: 80%;
+      height: auto;
+      width: 50vw;
+  }
+  .timer-section {
+    grid-column: span 2;
+  }
+  .lists-section {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 100%;
+    width: 100%;
   }
 }
 @media (max-width: 768px) {
-  .app-container {
-    .timer-section {
-      width: 85%;
-    }
-  }
-  .add-new-task-list-container {
-    height: 25%;
+  .timer-container {
+    width: 58vw;
   }
   .tasks-lists-section-header {
     padding-bottom: 0.5rem;
@@ -32,22 +53,40 @@
 }
 @media (max-width: 720px) {
   .app-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
     .timer-section {
-      width: 90%;
+      grid-column: span 1;
     }
     .task-section {
-      height: 40vh;
+      height: 60vh;
     }
 
     .lists-section {
-      height: 40vh;
+      height: 60vh;
     }
+  }
+  .add-new-task-list-container {
+    height: 10%;
   }
 }
 @media (max-width: 665px) {
-  .app-container {
-    .timer-section {
-      width: 100%;
-    }
+  .timer-container {
+    width: 60vw;
+  }
+}
+@media (max-width: 500px) {
+  .timer-container {
+    width: 70vw;
+  }
+}
+
+@media (max-height: 700px) {
+  .container {
+    height: 700px;
+    overflow-y: scroll;
+  }
+  .timer-section {
+    height: 700px;
   }
 }
