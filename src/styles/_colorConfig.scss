@@ -1,136 +1,136 @@
 // Color config
-[data-theme="dark"] {
-    --background-color-primary: #313231;
-    --background-color-secondary: #3A3B3B;
-    --light-color: #5E6263;
-    
-    --active-color: #F7F5F1;
-    --active-text-color: #313231;
-    
-    --circle-color: #F7F5F1;
-    
-    --logo-color: #F7F5F1;
-    --logo-letter1: #ABBE60;
-    --logo-letter2: #BC9438;
-    --logo-letter3: #AA322A;
-    --logo-letter4: #92B5CB;
+[data-theme='dark'] {
+  --background-color-primary: #313231;
+  --background-color-secondary: #3a3b3b;
+  --light-color: #5e6263;
+
+  --active-color: #f7f5f1;
+  --active-text-color: #313231;
+
+  --circle-color: #f7f5f1;
+
+  --logo-color: #f7f5f1;
+  --logo-letter1: #abbe60;
+  --logo-letter2: #bc9438;
+  --logo-letter3: #aa322a;
+  --logo-letter4: #92b5cb;
 }
 
-[data-theme="light"] {
-    --background-color-primary: #EEEEEE;
-    --background-color-secondary: #DDDDDD;
-    --light-color: #B2B2B2;
-    
-    --active-color: #444444;
-    --active-text-color: #EEEEEE;
-    
-    --circle-color: #444444;
-    
-    --logo-color: #444444;
-    --logo-letter1: #444444;
-    --logo-letter2: #444444;
-    --logo-letter3: #444444;
-    --logo-letter4: #444444;
+[data-theme='light'] {
+  --background-color-primary: #eeeeee;
+  --background-color-secondary: #dddddd;
+  --light-color: #b2b2b2;
+
+  --active-color: #444444;
+  --active-text-color: #eeeeee;
+
+  --circle-color: #444444;
+
+  --logo-color: #444444;
+  --logo-letter1: #444444;
+  --logo-letter2: #444444;
+  --logo-letter3: #444444;
+  --logo-letter4: #444444;
 }
 
-[data-theme="vscode"] {
-    --background-color-primary: #1E1E1E;
-    --background-color-secondary: #191919;
-    --light-color: #4D4D4D;
-    
-    --active-color: #D4D4D4;
-    --active-text-color: #1E1E1E;
-    
-    --circle-color: #3478C6;
-    
-    --logo-color: #D4D4D4;
-    --logo-letter1: #3478C6;
-    --logo-letter2: #3478C6;
-    --logo-letter3: #3478C6;
-    --logo-letter4: #3478C6;
+[data-theme='vscode'] {
+  --background-color-primary: #1e1e1e;
+  --background-color-secondary: #191919;
+  --light-color: #4d4d4d;
+
+  --active-color: #d4d4d4;
+  --active-text-color: #1e1e1e;
+
+  --circle-color: #3478c6;
+
+  --logo-color: #d4d4d4;
+  --logo-letter1: #3478c6;
+  --logo-letter2: #3478c6;
+  --logo-letter3: #3478c6;
+  --logo-letter4: #3478c6;
 }
 
-[data-theme="playingCards"] {
-    --background-color-primary: #FFFFFF;
-    --background-color-secondary: #ECECEC;
-    --light-color: #B7B7B7;
-    
-    --active-color: #000000;
-    --active-text-color: #FFFFFF;
-    
-    --circle-color: #EA3323;
-    
-    --logo-color: #000000;
-    --logo-letter1: #EA3323;
-    --logo-letter2: #EA3323;
-    --logo-letter3: #EA3323;
-    --logo-letter4: #EA3323;
+[data-theme='playingCards'] {
+  --background-color-primary: #ffffff;
+  --background-color-secondary: #ececec;
+  --light-color: #b7b7b7;
+
+  --active-color: #000000;
+  --active-text-color: #ffffff;
+
+  --circle-color: #ea3323;
+
+  --logo-color: #000000;
+  --logo-letter1: #ea3323;
+  --logo-letter2: #ea3323;
+  --logo-letter3: #ea3323;
+  --logo-letter4: #ea3323;
 }
 
-[data-theme="purple"] {
-    --background-color-primary: #D5D3D6;
-    --background-color-secondary: #C8BFC9;
-    --light-color: #B09DB3;
-    
-    --active-color: #55225C;
-    --active-text-color: #D5D3D6;
-    
-    --circle-color: #55225C;
-    
-    --logo-color: #55225C;
-    --logo-letter1: #ABBE60;
-    --logo-letter2: #BC9438;
-    --logo-letter3: #AA322A;
-    --logo-letter4: #92B5CB;
+[data-theme='purple'] {
+  --background-color-primary: #d5d3d6;
+  --background-color-secondary: #c8bfc9;
+  --light-color: #b09db3;
+
+  --active-color: #55225c;
+  --active-text-color: #d5d3d6;
+
+  --circle-color: #55225c;
+
+  --logo-color: #55225c;
+  --logo-letter1: #abbe60;
+  --logo-letter2: #bc9438;
+  --logo-letter3: #aa322a;
+  --logo-letter4: #92b5cb;
 }
 
-[data-theme="coffee"] {
-    --background-color-primary: #D9D3C3;
-    --background-color-secondary: #C7C3B5;
-    --light-color: #949082;
-    
-    --active-color: #1D1B17;
-    --active-text-color: #D9D3C3;
-    
-    --circle-color: #1D1B17;
-    
-    --logo-color: #1D1B17;
-    --logo-letter1: #1D1B17;
-    --logo-letter2: #1D1B17;
-    --logo-letter3: #1D1B17;
-    --logo-letter4: #1D1B17;
+[data-theme='coffee'] {
+  --background-color-primary: #d9d3c3;
+  --background-color-secondary: #c7c3b5;
+  --light-color: #949082;
+
+  --active-color: #1d1b17;
+  --active-text-color: #d9d3c3;
+
+  --circle-color: #1d1b17;
+
+  --logo-color: #1d1b17;
+  --logo-letter1: #1d1b17;
+  --logo-letter2: #1d1b17;
+  --logo-letter3: #1d1b17;
+  --logo-letter4: #1d1b17;
 }
 
-[data-theme="strawberry"] {
-    --background-color-primary: #F6CACE;
-    --background-color-secondary: #E9BCBE;
-    --light-color: #951D12;
-    
-    --active-color: #FFFFFF;
-    --active-text-color: #951D12;
-    
-    --circle-color: #FFFFFF;
-    
-    --logo-color: #FFFFFF;
-    --logo-letter1: #FFFFFF;
-    --logo-letter2: #FFFFFF;
-    --logo-letter3: #FFFFFF;
-    --logo-letter4: #FFFFFF;
+[data-theme='strawberry'] {
+  --background-color-primary: #f6cace;
+  --background-color-secondary: #e9bcbe;
+  --light-color: #951d12;
+
+  --active-color: #ffffff;
+  --active-text-color: #951d12;
+
+  --circle-color: #ffffff;
+
+  --logo-color: #ffffff;
+  --logo-letter1: #ffffff;
+  --logo-letter2: #ffffff;
+  --logo-letter3: #ffffff;
+  --logo-letter4: #ffffff;
 }
 
-[data-theme="oneDark"] {
-    --background-color-primary: #30343E;
-    --background-color-secondary: #272B33;
-    --light-color: #EDEFF4;
-    
-    --active-color: #74ADEA;
-    --active-text-color: #EDEFF4;
-    
-    --circle-color: #74ADEA;
-    
-    --logo-color: #EDEFF4;
-    --logo-letter1: #A1C281;
-    --logo-letter2: #A1C281;
-    --logo-letter3: #A1C281;
-    --logo-letter4: #A1C281;
+[data-theme='oneDark'] {
+  --background-color-primary: #30343e;
+  --background-color-secondary: #272b33;
+  --light-color: #edeff4;
+
+  --active-color: #74adea;
+  --active-text-color: #edeff4;
+
+  --circle-color: #74adea;
+
+  --logo-color: #edeff4;
+  --logo-letter1: #a1c281;
+  --logo-letter2: #a1c281;
+  --logo-letter3: #a1c281;
+  --logo-letter4: #a1c281;
 }

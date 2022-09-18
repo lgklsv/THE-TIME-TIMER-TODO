@@ -1,140 +1,170 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title><%= htmlWebpackPlugin.options.title %></title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <nav class="navbar">
-                <div class="logo">
-                    <h1 class="logo-text">THE TIME TIMER + <span class="logo-letter1">T</span><span class="logo-letter2">O</span><span class="logo-letter3">D</span><span class="logo-letter4">O</span></h1>
-                </div>
-                <div class="menu">
-                    <ul class="menu-list">
-                        <li class="menu-item">
-                            <a href="" class="text-btn info">
-                                <form action="">
-                                    <input type="checkbox" checked name="themeSwither" id="themeSwither">
-                                </form>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="" class="text-btn info">
-                                <div class="icon">
-                                    <i class="fa-solid fa-circle-info"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="" class="text-btn settings-general">
-                                <div class="icon">
-                                    <i class="fa-solid fa-gear"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="" class="text-btn signInOut">
-                                <div class="icon">
-                                    <i class="fa-solid fa-right-to-bracket"></i>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <div class="app-container">
-                <div class="timer-section">
-                    <div class="timer-btns-top">
-                        <div class="timer-btn active-timer-btn">
-                            <button>pomodoro</button>
-                        </div>
-                        <div class="timer-btn">
-                            <button>short break</button>
-                        </div>
-                        <div class="timer-btn">
-                            <button>long break</button>
-                        </div>
-                    </div>
-                    <div class="timer-container">
-                        <div class="timer">25:00</div>
-                    </div>
-                    <div class="timer-btns-bottom">
-                        <div class="start-stop-btn">
-                            <div class="timer-btn active-timer-btn">
-                                <button>start</button>
-                            </div>
-                        </div>
-                        <div class="text-btn icon timer-icons">
-                            <i class="fa-solid fa-rotate-right"></i>
-                        </div>
-                        <div class="text-btn icon timer-icons">
-                            <i class="fa-solid fa-gear"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="task-section">
-                    <div class="tasks-lists-section-header">
-                        <h2 class="tasks-lists-title">Today</h2>
-                        <h2 class="tasks-lists-title">3</h2>
-                    </div>
-                    <div class="tasks-container">
-                        <div class="task active-task">
-                            <div class="task-checkbox">
-                                <input type="checkbox" name="" id="">
-                            </div>
-                            <div class="task-grid">
-                                <div class="task-desc">
-                                    <p class="task-title">read e-book 100 pages</p>
-                                    <p class="task-subtitle">Daily</p>
-                                </div>
-                                <div class="task-counter">0/3</div>
-                                <div class="task-settigs text-btn icon">
-                                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task">
-                            <div class="task-checkbox">
-                                <input type="checkbox" name="" id="">
-                            </div>
-                            <div class="task-grid">
-                                <div class="task-desc">
-                                    <p class="task-title">read e-book 100 pages</p>
-                                    <p class="task-subtitle">Daily</p>
-                                </div>
-                                <div class="task-counter">0/3</div>
-                                <div class="task-settigs text-btn icon">
-                                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lists-section">
-                    <div class="tasks-lists-section-header">
-                        <h2 class="tasks-lists-title">My lists</h2>
-                        <h2 class="tasks-lists-title"></h2>
-                    </div>
-                    <div class="list-container">
-                        <div class="list list-active">
-                            <p class="list-title">Today</p>
-                            <p class="task-counter">3</p>
-                        </div>
-                        <div class="list">
-                            <p class="list-title">Goals 2022</p>
-                            <p class="task-counter">9</p>
-                        </div>
-                    </div>
-                </div>
+      <header>
+        <nav class="navbar">
+          <div class="logo">
+            <h1 class="logo-text">
+              THE TIME TIMER + <span class="logo-letter1">T</span
+              ><span class="logo-letter2">O</span
+              ><span class="logo-letter3">D</span
+              ><span class="logo-letter4">O</span>
+            </h1>
+          </div>
+          <div class="menu">
+            <ul class="menu-list">
+              <li class="menu-item">
+                <a href="" class="text-btn info">
+                  <form action="">
+                    <input
+                      type="checkbox"
+                      checked
+                      name="themeSwither"
+                      id="themeSwither"
+                    />
+                  </form>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="" class="text-btn info">
+                  <div class="icon">
+                    <i class="fa-solid fa-circle-info"></i>
+                  </div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="" class="text-btn settings-general">
+                  <div class="icon">
+                    <i class="fa-solid fa-gear"></i>
+                  </div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="" class="text-btn signInOut">
+                  <div class="icon">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div class="app-container">
+          <div class="timer-section">
+            <div class="timer-btns-top">
+              <div class="timer-btn active-timer-btn">
+                <button>pomodoro</button>
+              </div>
+              <div class="timer-btn">
+                <button>short break</button>
+              </div>
+              <div class="timer-btn">
+                <button>long break</button>
+              </div>
             </div>
-        </main>
+            <div class="timer-container">
+              <div class="timer">25:00</div>
+            </div>
+            <div class="timer-btns-bottom">
+              <div class="start-stop-btn">
+                <div class="timer-btn active-timer-btn">
+                  <button>start</button>
+                </div>
+              </div>
+              <div class="text-btn icon timer-icons">
+                <i class="fa-solid fa-rotate-right"></i>
+              </div>
+              <div class="text-btn icon timer-icons">
+                <i class="fa-solid fa-gear"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="task-section">
+            <div class="tasks-lists-section-header">
+              <h2 class="tasks-lists-title">Today</h2>
+              <h2 class="tasks-lists-title">3</h2>
+            </div>
+            <div class="tasks-container">
+              <div class="task active-task">
+                <label class="checkbox" for="taskCheckbox0">
+                  <input
+                    class="checkbox-input"
+                    type="checkbox"
+                    name="taskCheckboxName"
+                    id="taskCheckbox0"
+                  />
+                  <div class="checkbox-box checkbox-box-active"></div>
+                </label>
+                <div class="task-grid">
+                  <div class="task-desc">
+                    <p class="task-title">read e-book 100 pages</p>
+                    <p class="task-subtitle">Daily</p>
+                  </div>
+                  <div class="task-counter">0/3</div>
+                  <div class="task-settigs text-btn icon">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="task">
+                <label class="checkbox" for="taskCheckbox1">
+                  <input
+                    class="checkbox-input"
+                    type="checkbox"
+                    name="taskCheckboxName"
+                    id="taskCheckbox1"
+                  />
+                  <div class="checkbox-box"></div>
+                </label>
+                <div class="task-grid">
+                  <div class="task-desc">
+                    <p class="task-title">read e-book 100 pages</p>
+                    <p class="task-subtitle">Daily</p>
+                  </div>
+                  <div class="task-counter">0/3</div>
+                  <div class="task-settigs text-btn icon">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lists-section">
+            <div class="tasks-lists-section-header">
+              <h2 class="tasks-lists-title">My lists</h2>
+              <h2 class="tasks-lists-title"></h2>
+            </div>
+            <div class="list-container">
+              <div class="list list-active">
+                <p class="list-title">Today</p>
+                <p class="task-counter">3</p>
+              </div>
+              <div class="list">
+                <p class="list-title">Goals 2022</p>
+                <p class="task-counter">9</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-</body>
+  </body>
 </html>

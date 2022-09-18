@@ -1,47 +1,47 @@
-@media (max-width: 1000px){
-    .app-container {
-        grid-template-columns: 1fr;
-        justify-content: center;
+@media (max-width: 1000px) {
+  .app-container {
+    grid-template-columns: 1fr;
+    justify-content: center;
 
-        .timer-section {
-            height: auto;
-            width: 65%;
-            justify-self: center;
-        }
+    .timer-section {
+      height: auto;
+      width: 65%;
+      justify-self: center;
     }
+  }
 }
-@media (max-width: 850px){
-    .app-container {
-        .timer-section {
-            width: 75%;
-        }
+@media (max-width: 850px) {
+  .app-container {
+    .timer-section {
+      width: 75%;
     }
+  }
 }
-@media (max-width: 768px){
-    .app-container {
-        .timer-section {
-            width: 85%;
-        }
+@media (max-width: 768px) {
+  .app-container {
+    .timer-section {
+      width: 85%;
     }
+  }
 }
-@media (max-width: 720px){
-    .app-container {
-        .timer-section {
-            width: 90%;
-        }
-        .task-section {
-            height: 40vh;
-        }
-        
-        .lists-section {
-            height: 40vh;
-        }
+@media (max-width: 720px) {
+  .app-container {
+    .timer-section {
+      width: 90%;
     }
+    .task-section {
+      height: 40vh;
+    }
+
+    .lists-section {
+      height: 40vh;
+    }
+  }
 }
-@media (max-width: 665px){
-    .app-container {
-        .timer-section {
-            width: 100%;
-        }
+@media (max-width: 665px) {
+  .app-container {
+    .timer-section {
+      width: 100%;
     }
+  }
 }

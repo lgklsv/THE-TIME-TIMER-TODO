@@ -4,67 +4,67 @@
 @import 'tasks';
 
 * {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    background-color: var(--background-color-primary);
-    font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color-primary);
+  font-family: 'Roboto', sans-serif;
 }
 
 .container {
-    margin: 0 auto;
-    max-width: 1440px;
-    width: 80%;
-    height: 100vh;
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 80%;
+  height: 100vh;
 }
 
-// icons + text 
+// icons + text
 .text-btn {
-    font-size: 1.2rem;
-    color: var(--light-color);
-    display: flex;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5em;
-    height: 36px;
-    width: 36px;
-    cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--light-color);
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+  height: 36px;
+  width: 36px;
+  cursor: pointer;
 }
 
 .text-btn:hover {
-    color: var(--active-color);
+  color: var(--active-color);
 }
 
-// Main app section 
+// Main app section
 .app-container {
-    display: grid;
-    grid-template-columns: 1.15fr 1.3fr 0.7fr;
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: 1.15fr 1.3fr 0.7fr;
+  gap: 2rem;
 
-    .timer-section {
-        height: 80vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .task-section {
-        background-color: var(--background-color-secondary);
-        height: 80vh;
-        border-radius: 15px;
-    }
-    
-    .lists-section {
-        background-color: var(--background-color-secondary);
-        height: 80vh;
-        border-radius: 15px;
-    }
+  .timer-section {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .task-section {
+    background-color: var(--background-color-secondary);
+    height: 80vh;
+    border-radius: 15px;
+  }
+
+  .lists-section {
+    background-color: var(--background-color-secondary);
+    height: 80vh;
+    border-radius: 15px;
+  }
 }
 
 @import 'mediaQueries';
