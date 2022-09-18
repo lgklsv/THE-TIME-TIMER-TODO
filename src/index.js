@@ -6,10 +6,10 @@ const toggleSwitch = document.querySelector('#themeSwither');
 
 function switchTheme(e) {
     if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.setAttribute('data-theme', 'vscode');
     }
     else {
-        document.documentElement.setAttribute('data-theme', 'coffee');
+        document.documentElement.setAttribute('data-theme', 'playingCards');
     } 
 };
 

@@ -58,12 +58,25 @@ html {
     background-color: var(--background-color-secondary);
     height: 80vh;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tasks-container {
+    overflow-y: scroll;
+    height: 68vh;
   }
 
   .lists-section {
     background-color: var(--background-color-secondary);
     height: 80vh;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  .lists-container {
+    overflow-y: scroll;
+    height: 68vh;
   }
 }
 
