@@ -51,6 +51,7 @@
     }
   }
 }
+
 .active-task {
   border-radius: 5px;
   border-bottom: none;
@@ -64,9 +65,11 @@
   }
   background-color: var(--active-color);
 }
+
 .task-counter {
   color: var(--light-color);
 }
+
 .list {
   display: flex;
   justify-content: space-between;
@@ -91,10 +94,6 @@
 }
 
 // CUSTOM CHECKBOX
-.checkbox {
-  cursor: pointer;
-}
-
 .checkbox-input {
   display: none;
 }
@@ -124,6 +123,7 @@
     background-color: var(--background-color-secondary);
 }
 
+// Trigers with js
 .task-title-checked {
     color: var(--light-color) !important;
     text-decoration: line-through;
@@ -140,7 +140,6 @@
         border: none;
         background-color: var(--background-color-secondary);
         color: var(--light-color);
-        cursor: pointer;
     }
 }
 .add-new-task-list-container {

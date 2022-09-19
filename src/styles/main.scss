@@ -18,6 +18,13 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
+button,
+.text-btn,
+.timer-btn,
+.checkbox {
+  cursor: pointer;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1440px;
@@ -39,7 +46,6 @@ html {
   padding: 0.5em;
   height: 36px;
   width: 36px;
-  cursor: pointer;
 }
 
 .text-btn:hover {
