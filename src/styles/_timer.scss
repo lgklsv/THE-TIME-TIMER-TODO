@@ -45,21 +45,21 @@
   align-items: center;
 }
 
-//   .timer {
-//     position: absolute;
-//     top: 35%;
-//     left: 17%;
-//     font-size: clamp(6.3rem, 7vw, 8rem);
-//     color: var(--active-color);
-//   }
-// }
-// .timer-container::after {
-//   content: '';
-//   display: block;
-//   padding-top: 100%;
-// }
+.progressbar-ring {
+  stroke: var(--circle-color);
+  stroke-width: 7px;
+}
 
+.progressbar-ring-circle {
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 0.3s;
+}
 
+// HERE WILL BE TIMER
+.percent-test {
+  position: absolute;
+}
 // Bottom
 .timer-btns-bottom {
   display: flex;
