@@ -18,20 +18,13 @@
     justify-content: center;
   }
 }
-@media (max-width: 890px) {
+@media (max-width: 934px) {
+  .container {
+    width: 95%;
+  }
   .app-container {
-    margin-top: 70px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.9fr 1fr;
-    .timer-section {
-      justify-self: center;
-      grid-column: span 2;
-      height: 58vh;
-    }
-  }
-  .timer-container {
-      width: 80%;
-      width: 50vw;
   }
   
   .lists-section {
@@ -42,11 +35,11 @@
     opacity: 100%;
     width: 100%;
   }
+  footer {
+    padding: 10px 0;
+  }
 }
 @media (max-width: 768px) {
-  .timer-container {
-    width: 58vw;
-  }
   .tasks-lists-section-header {
     padding-bottom: 0.5rem;
   }
@@ -55,9 +48,9 @@
   .app-container {
     grid-template-columns: 1fr;
     grid-template-rows: none;
-    margin-top: 20px;
     .timer-section {
       grid-column: span 1;
+      justify-self: center;
     }
     .task-section {
       height: 60vh;
@@ -69,28 +62,5 @@
   }
   .add-new-task-list-container {
     height: 10%;
-  }
-}
-@media (max-width: 665px) {
-  .timer-container {
-    width: 60vw;
-  }
-}
-@media (max-width: 500px) {
-  .app-container{
-    margin-top: 0;
-  }
-  .timer-container {
-    width: 70vw;
-  }
-}
-
-@media (max-height: 700px) {
-  .container {
-    height: 700px;
-    overflow-y: scroll;
-  }
-  .timer-section {
-    height: 700px;
   }
 }

@@ -40,26 +40,25 @@
 
 // Middle
 .timer-container {
-  position: relative;
-  width: 100%;
-  height: auto;
-  margin: 20px auto;
-  border-radius: 50%;
-  border: 7px solid var(--circle-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .timer {
-    position: absolute;
-    top: 35%;
-    left: 17%;
-    font-size: clamp(6.3rem, 7vw, 8rem);
-    color: var(--active-color);
-  }
-}
-.timer-container::after {
-  content: '';
-  display: block;
-  padding-top: 100%;
-}
+//   .timer {
+//     position: absolute;
+//     top: 35%;
+//     left: 17%;
+//     font-size: clamp(6.3rem, 7vw, 8rem);
+//     color: var(--active-color);
+//   }
+// }
+// .timer-container::after {
+//   content: '';
+//   display: block;
+//   padding-top: 100%;
+// }
+
 
 // Bottom
 .timer-btns-bottom {
