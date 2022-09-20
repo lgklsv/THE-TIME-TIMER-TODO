@@ -1,4 +1,6 @@
 import './styles/main.scss';
+import * as model from './model.js';
+
 
 // REFACTOR ASAP
 // //////////////////////////////////////////////////////////
