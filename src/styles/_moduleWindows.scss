@@ -1,0 +1,28 @@
+.hidden {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.add-list-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    background-color: white;
+    width: 500px;
+    height: 200px;
+    z-index: 10;
+}
+
+.active {
+    transform: translate(-50%, -50%) scale(1);
+}

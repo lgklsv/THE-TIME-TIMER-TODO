@@ -360,7 +360,7 @@
               </div>
             </div>
             <div class="add-new-task-list-container">
-              <button>+ Add List</button>
+              <button id="addListBtn">+ Add List</button>
             </div>
           </div>
         </div>
@@ -374,6 +374,17 @@
           &#169 2022
         </div>
       </footer>
+    </div>
+
+    <div class="overlay hidden"></div>
+    <div class="add-list-window">
+      <form class="upload">
+        <h3 class="upload-heading">New list</h3>
+        <label>Name</label>
+        <input type="text" required name="list-name">
+        <button class="cancel-btn">Cancel</button>
+        <button class="upload-btn">Ok</button>
+      </form>
     </div>
   </body>
 </html>

@@ -1,5 +1,26 @@
 import './styles/main.scss';
 import * as model from './model.js';
+import addListView from './views/addListView';
+
+
+
+
+
+
+
+
+
+
+
+
+
+const controlAddLists = function() {
+
+}
+
+
+
+
 
 
 // REFACTOR ASAP
@@ -61,3 +82,9 @@ resetBtn.addEventListener('click', function() {
         resetBtn.classList.remove('rotate');
     }, 500);
 })
+
+
+const init = function() {
+    addListView._addHandlerUploadNewList();
+}
+init();
