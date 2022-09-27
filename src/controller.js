@@ -2,18 +2,18 @@ import './styles/main.scss';
 import * as model from './model.js';
 import addListView from './views/addListView';
 import listView from './views/listView';
+import previewListView from './views/previewListView';
 import { MODAL_CLOSE_SEC } from './config';
 
 
 
-
-
-
-
-
 const controlAddLists = function(newList) {
-    console.log(newList);
-    listView.render(newList);
+
+    // Add list to the state
+    model.addList(newList)
+
+    // Render lists on the page
+    listView.render(model.state.lists);
 
     // Close form window
     setTimeout(function() {

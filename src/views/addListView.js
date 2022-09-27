@@ -39,7 +39,6 @@ class AddListView extends View {
             if(!data.listName) return;
 
             handler(data);
-            console.log(data);
         })
     }
 }

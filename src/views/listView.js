@@ -1,15 +1,11 @@
 import View from "./View";
+import previewListView from "./previewListView";
 
 class ListView extends View {
     _parentElement = document.querySelector('.lists-container');
 
     _generateMarkup() {
-        return ` 
-            <div class="list">
-                <p class="list-title">${this._data.listName}</p>
-                <p class="task-counter">0</p>
-            </div>
-        `;
+        return this._data.map(list => previewListView.render(list, false)).join('');
     }
 }
 
