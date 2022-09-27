@@ -17,6 +17,7 @@ class AddListView extends View {
     toggleWindow() {
         this._window.classList.toggle('active');
         this._overlay.classList.toggle('hidden');
+        this._inputField.value = '';
         setTimeout(() => this._inputField.focus(), 100);
     }
 
@@ -34,7 +35,10 @@ class AddListView extends View {
             e.preventDefault();
             const dataArr = [...new FormData(this)];
             const data = Object.fromEntries(dataArr);
-            // handler(data);
+
+            if(!data.listName) return;
+
+            handler(data);
             console.log(data);
         })
     }

@@ -1,6 +1,8 @@
 import './styles/main.scss';
 import * as model from './model.js';
 import addListView from './views/addListView';
+import listView from './views/listView';
+import { MODAL_CLOSE_SEC } from './config';
 
 
 
@@ -9,13 +11,14 @@ import addListView from './views/addListView';
 
 
 
+const controlAddLists = function(newList) {
+    console.log(newList);
+    listView.render(newList);
 
-
-
-
-
-const controlAddLists = function() {
-
+    // Close form window
+    setTimeout(function() {
+        addListView.toggleWindow();
+    }, MODAL_CLOSE_SEC * 1000);
 }
 
 
@@ -85,6 +88,6 @@ resetBtn.addEventListener('click', function() {
 
 
 const init = function() {
-    addListView._addHandlerUploadNewList();
+    addListView._addHandlerUploadNewList(controlAddLists);
 }
 init();
