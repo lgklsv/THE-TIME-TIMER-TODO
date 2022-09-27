@@ -6,6 +6,7 @@ class AddListView extends View {
     _overlay = document.querySelector('.overlay');
     _btnOpen = document.querySelector('#addListBtn');
     _btnClose = document.querySelector('.cancel-btn');
+    _inputField = document.querySelector('#list-name-input');
 
     constructor() {
         super();
@@ -16,6 +17,7 @@ class AddListView extends View {
     toggleWindow() {
         this._window.classList.toggle('active');
         this._overlay.classList.toggle('hidden');
+        setTimeout(() => this._inputField.focus(), 100);
     }
 
     _addHandlerShowWindow() {

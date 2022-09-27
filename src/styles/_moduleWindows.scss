@@ -1,14 +1,22 @@
-.hidden {
-    display: none;
-}
-
 .overlay {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    opacity: 1;
+    transition: 200ms ease-in-out;
     background-color: rgba(0, 0, 0, .5);
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+input[type="text"]:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--circle-color);
 }
 
 .add-list-window {
@@ -17,12 +25,57 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     transition: 200ms ease-in-out;
-    background-color: white;
-    width: 500px;
-    height: 200px;
+    background-color: var(--background-color-primary);
+    width: 480px;
+    height: auto;
+    border-radius: 15px;
     z-index: 10;
 }
 
 .active {
     transform: translate(-50%, -50%) scale(1);
+}
+
+.upload {
+    padding: 20px;
+}
+
+.upload-heading {
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--active-color);
+}
+
+.name-input {
+    width: 84.6%;
+    margin-bottom: 10px;
+    background: var(--background-color-secondary);
+    color: var(--active-color);
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+    padding-left: 5px;
+}
+
+#list-imput-label {
+    color: var(--active-color);
+    margin-right: 10px;
+}
+
+.add-list-control-btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.list-name-btn {
+    width: 60px;
+    height: 21px;
+    border: 1px solid var(--light-color);
+    border-radius: 5px;
+    margin-right: 5px;
+    background-color: var(--background-color-secondary);
+    color: var(--active-color);
+    text-align: center;
 }

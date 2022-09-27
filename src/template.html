@@ -378,12 +378,14 @@
 
     <div class="overlay hidden"></div>
     <div class="add-list-window">
-      <form class="upload">
-        <h3 class="upload-heading">New list</h3>
-        <label>Name</label>
-        <input type="text" required name="list-name">
-        <button class="cancel-btn">Cancel</button>
-        <button class="upload-btn">Ok</button>
+      <form class="upload" novalidate>
+        <h3 class="upload-heading">New List</h3>
+        <label id="list-imput-label">Name:</label>
+        <input id="list-name-input" class="name-input" type="text" required name="list-name" autofocus>
+        <div class="add-list-control-btns">
+          <button class="list-name-btn cancel-btn">Cancel</button>
+          <button class="list-name-btn upload-btn">Ok</button>
+        </div>
       </form>
     </div>
   </body>
