@@ -5,9 +5,9 @@ class PreviewListView extends View {
 
     _generateMarkup() {
         return ` 
-            <div class="list">
+            <div class="list" id="${this._data.id}">
                 <p class="list-title">${this._data.listName}</p>
-                <p class="task-counter">0</p>
+                <p class="task-counter">${this._data.tasks.length}</p>
             </div>
         `;
     }

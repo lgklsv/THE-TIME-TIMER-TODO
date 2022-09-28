@@ -28,6 +28,14 @@ export const state = {
 
 export const addList = function(list) {
     list.tasks = [];
+    list.id = Math.random().toString(36);
     state.lists.push(list);
     console.log(state.lists);
+}
+
+
+
+export const loadTasks = function(id) {
+    const data = state.lists.find(obj => obj.id === id);
+    return data;
 }

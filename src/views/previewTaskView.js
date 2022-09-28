@@ -6,19 +6,18 @@ class PreviewTaskView extends View {
     _generateMarkup() {
         return ` 
             <div class="task">
-                <label class="checkbox" for="taskCheckbox1">
+                <label class="checkbox" for="taskCheckbox${this._data.id}">
                     <input
                         class="checkbox-input"
                         type="checkbox"
                         name="taskCheckboxName"
-                        id="taskCheckbox1"
+                        id="taskCheckbox${this._data.id}"
                     />
                 <div class="checkbox-box"></div>
                 </label>
                 <div class="task-grid">
                     <div class="task-desc">
-                        <p class="task-title">read e-book 100 pages</p>
-                        <p class="task-subtitle">Daily</p>
+                        <p class="task-title">${this._data.taskTitle}</p>
                     </div>
                     <div class="task-counter">0/3</div>
                     <div class="task-settigs text-btn icon">
