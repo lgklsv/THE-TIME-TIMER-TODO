@@ -25,7 +25,7 @@ input[type="text"]:focus {
     box-shadow: 0 0 0 2px var(--circle-color);
 }
 
-.add-list-window {
+.add-list-window, .add-task-window {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -42,7 +42,7 @@ input[type="text"]:focus {
     transform: translate(-50%, -50%) scale(1);
 }
 
-.upload {
+.upload, .uploadTask {
     padding: 20px;
 }
 
@@ -64,18 +64,18 @@ input[type="text"]:focus {
     padding-left: 5px;
 }
 
-#list-imput-label {
+#list-imput-label, #task-imput-label {
     color: var(--active-color);
     margin-right: 10px;
 }
 
-.add-list-control-btns {
+.add-list-control-btns, .add-task-control-btns {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.list-name-btn {
+.list-name-btn, .task-name-btn{
     width: 60px;
     height: 21px;
     border: 1px solid var(--light-color);

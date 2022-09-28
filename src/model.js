@@ -2,7 +2,7 @@ export const state = {
     task: {},
     pomodoro: 1500,
     lists: [],
-    theme: 'vscode'
+    theme: 'vscode',
 }
 
 // const createTaskObj = function(data) {
@@ -27,15 +27,30 @@ export const state = {
 // }
 
 export const addList = function(list) {
+    if (state.lists.length == 0) {
+        list.active = true;
+    } else {
+        list.active = false;
+    }
     list.tasks = [];
     list.id = Math.random().toString(36);
     state.lists.push(list);
-    console.log(state.lists);
+    // console.log(state.lists);
+}
+
+export const addTask = function(task) {
+
 }
 
 
 
 export const loadTasks = function(id) {
+    const prevActive = state.lists.find(obj => obj.active === true);
+    if (prevActive) {
+        prevActive.active = false;
+    };
     const data = state.lists.find(obj => obj.id === id);
+    data.active = true;
+
     return data;
 }

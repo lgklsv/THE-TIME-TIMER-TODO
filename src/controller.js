@@ -27,9 +27,14 @@ const controlRenderTasks = function(id) {
     // console.log(id);
     // console.log(model.loadTasks(id));
     tasksView.render(model.loadTasks(id));
+    listView.update(model.state.lists);
+    
 }
 
-// REFACTOR ASAP
+const controlAddTask = function(newTask) {
+    model.addTask(newTask);
+}
+
 // //////////////////////////////////////////////////////////
 // Task line-through
 const taskBox = document.querySelector('.tasks-container');

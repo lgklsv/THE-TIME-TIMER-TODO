@@ -5,7 +5,7 @@ class PreviewListView extends View {
 
     _generateMarkup() {
         return ` 
-            <div class="list" id="${this._data.id}">
+            <div class="list ${this._data.active ? 'list-active' : ''}" id="${this._data.id}">
                 <p class="list-title">${this._data.listName}</p>
                 <p class="task-counter">${this._data.tasks.length}</p>
             </div>
