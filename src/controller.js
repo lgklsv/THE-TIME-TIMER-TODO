@@ -4,6 +4,7 @@ import addListView from './views/addListView';
 import listView from './views/listView';
 import previewListView from './views/previewListView';
 import { MODAL_CLOSE_SEC } from './config';
+import tasksView from './views/tasksView';
 
 
 

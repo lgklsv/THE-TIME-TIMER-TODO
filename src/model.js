@@ -1,6 +1,5 @@
 export const state = {
     task: {},
-    list: {},
     pomodoro: 1500,
     lists: [],
     theme: 'vscode'
@@ -28,6 +27,7 @@ export const state = {
 // }
 
 export const addList = function(list) {
+    list.tasks = [];
     state.lists.push(list);
     console.log(state.lists);
 }

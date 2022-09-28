@@ -15,7 +15,9 @@
 }
 
 #hidden-submit {
-    display: none;
+    visibility: hidden;
+    width: 0;
+    height: 0;
 }
 
 input[type="text"]:focus {
@@ -52,7 +54,7 @@ input[type="text"]:focus {
 }
 
 .name-input {
-    width: 84.6%;
+    width: 83%;
     margin-bottom: 10px;
     background: var(--background-color-secondary);
     color: var(--active-color);
