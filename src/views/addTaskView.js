@@ -3,9 +3,9 @@ import View from "./View";
 class AddTaskView extends View {
     _parentElement = document.querySelector('.uploadTask');
     _window = document.querySelector('.add-task-window');
-    _overlay = document.querySelector('.overlay');
+    _overlay = document.querySelector('.taskOverlay');
     _btnOpen = document.querySelector('#addTaskBtn');
-    _btnClose = document.querySelector('.cancel-btn');
+    _btnClose = document.querySelector('.cancel-addTask-btn');
     _inputField = document.querySelector('#task-name-input');
 
     constructor() {
@@ -36,10 +36,10 @@ class AddTaskView extends View {
             const dataArr = [...new FormData(this)];
             const data = Object.fromEntries(dataArr);
 
-            if(!data.listName) return;
+            if(!data.taskName) return;
 
             console.log(data);
-            // handler(data);
+            handler(data);
         })
     }
 }

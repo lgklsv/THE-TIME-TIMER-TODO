@@ -1,5 +1,7 @@
+import listView from "./views/listView";
+import tasksView from "./views/tasksView";
+
 export const state = {
-    task: {},
     pomodoro: 1500,
     lists: [],
     theme: 'vscode',
@@ -38,8 +40,12 @@ export const addList = function(list) {
     // console.log(state.lists);
 }
 
-export const addTask = function(task) {
-
+export const addTask = function(taskObj) {
+    const activeList = state.lists.find(obj => obj.active === true);
+    console.log(taskObj, activeList);
+    activeList.tasks.push(taskObj);
+    
+    return activeList;
 }
 
 

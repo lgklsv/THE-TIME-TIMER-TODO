@@ -1,18 +1,18 @@
 import View from "./View";
 
 class TasksView extends View {
-    _parentElement = document.querySelector('.task-section');
-    // _listTitle = document.querySelector('.list-title');
-    // _listLength = document.querySelector('.list-length');
+    _parentElement = document.querySelector('.tasks-container');
+    _listTitle = document.querySelector('.list-title');
+    _listLength = document.querySelector('.list-length');
+
 
 
     _generateMarkup() {
+
+        this._listTitle.textContent = this._data.listName;
+        this._listLength.textContent = this._data.tasks.length;
+
         return `
-        <div class="tasks-lists-section-header">
-          <h2 class="tasks-lists-title list-title">${this._data.listName}</h2>
-          <h2 class="tasks-lists-title list-length">${this._data.tasks.length}</h2>
-        </div>
-        <div class="tasks-container">
             <div class="task">
                 <label class="checkbox" for="taskCheckbox1">
                     <input
@@ -26,6 +26,7 @@ class TasksView extends View {
                 <div class="task-grid">
                     <div class="task-desc">
                         <p class="task-title">TEST TASK</p>
+                        <p class="task-subtitle">Daily</p>
                     </div>
                     <div class="task-counter">0/3</div>
                     <div class="task-settigs text-btn icon">
@@ -33,12 +34,7 @@ class TasksView extends View {
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="add-new-task-list-container">
-          <button>+ Add Task</button>
-        </div>
-      </div>
-        `
+        `;
         // return this._data.map(task => previewListView.render(task, false)).join('');
     }
 
