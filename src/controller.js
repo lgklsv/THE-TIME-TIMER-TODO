@@ -40,14 +40,29 @@ const controlRenderTasks = function(id) {
     // console.log(model.loadTasks(id));
     tasksView.render(model.loadTasks(id));
     listView.update(model.state.lists);
+}
+
+const controlActivateTask = function(id) {
+    
+    tasksView.render(model.activateTask(id));
     
 }
 
+// ///////////////
+// TEMPORARY INIT
+const initRendelLists = function() {
+    model.initLists();
+    listView.render(model.state.lists);
+    tasksView.render(model.state.lists[0]);
+}
+
+
 
 const init = function() {
+    initRendelLists();
     addListView._addHandlerUploadNewList(controlAddLists);
-    
     addTaskView._addHandlerUploadNewTask(controlAddTask);
     listView.addHandlerRenderTasks(controlRenderTasks);
+    tasksView.addHandlerActivateTask(controlActivateTask);
 }
 init();
