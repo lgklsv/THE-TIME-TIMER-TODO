@@ -36,16 +36,16 @@ const controlAddTask = function(newTask) {
 }
 
 const controlRenderTasks = function(id) {
-    // console.log(id);
-    // console.log(model.loadTasks(id));
     tasksView.render(model.loadTasks(id));
     listView.update(model.state.lists);
 }
 
-const controlActivateTask = function(id) {
-    
+const controlActivateTask = function(id) {  
     tasksView.render(model.activateTask(id));
-    
+}
+
+const controlCheckedTask = function(id, check) {
+    tasksView.update(model.checkTask(id, check));
 }
 
 // ///////////////
@@ -61,6 +61,7 @@ const init = function() {
     addListView._addHandlerUploadNewList(controlAddLists);
     addTaskView._addHandlerUploadNewTask(controlAddTask);
     listView.addHandlerRenderTasks(controlRenderTasks);
+    tasksView.addHandlerCheckedTask(controlCheckedTask);
     tasksView.addHandlerActivateTask(controlActivateTask);
 }
 init();

@@ -55,8 +55,7 @@ export const addTask = function(taskObj) {
     activeList.tasks.length == 0 ? taskObj.active = true : taskObj.active = false;
 
     taskObj.id = Math.random().toString(36);
-
-    console.log(taskObj, activeList);
+    taskObj.checked = false;
 
     activeList.tasks.push(taskObj);
     
@@ -81,5 +80,12 @@ export const activateTask = function(id) {
     };
     const data = activeListObj.tasks.find(taskObj => taskObj.id === id);
     data.active = true;
+    return activeListObj;
+}
+
+export const checkTask = function(id, check) {
+    const activeListObj = state.lists.find(obj => obj.active === true);
+    const data = activeListObj.tasks.find(taskObj => taskObj.id === id);
+    data.checked = check;
     return activeListObj;
 }

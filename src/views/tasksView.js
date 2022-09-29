@@ -7,10 +7,17 @@ class TasksView extends View {
 
     addHandlerActivateTask(handler) {
         this._parentElement.addEventListener('click', function(e) {
-            if (e.target.classList == 'task-title') {
-                console.log(e.target.closest('.task').id);
+            if (e.target.classList.contains('task-title')) {
                 handler(e.target.closest('.task').id);
             }
+        })
+    }
+
+    addHandlerCheckedTask(handler) {
+        this._parentElement.addEventListener('change', function(e) {
+            e.target.checked 
+            ? handler(e.target.parentElement.parentElement.id, true) 
+            : handler(e.target.parentElement.parentElement.id, false); 
         })
     }
 
@@ -26,19 +33,19 @@ class TasksView extends View {
 
     _generateMarkupTask(task) {
         return `
-            <div class="task ${task.active ? 'active-task' : ''}" id="${task.id}">
+            <div class="task${task.active ? ' active-task' : ''}" id="${task.id}">
                 <label class="checkbox" for="taskCheckbox${task.id}">
-                    <input
+                    <input ${task.checked ? 'checked' : ''}
                         class="checkbox-input"
                         type="checkbox"
                         name="taskCheckboxName"
                         id="taskCheckbox${task.id}"
                     />
-                <div class="checkbox-box"></div>
+                <div class="checkbox-box ${task.checked ? 'checkbox-box-active' : ''}"></div>
                 </label>
                 <div class="task-grid">
                     <div class="task-desc">
-                        <p class="task-title">${task.taskName}</p>
+                        <p class="task-title${task.checked ? ' task-title-checked' : ''}">${task.taskName}</p>
                         <p class="task-subtitle">${task.subName}</p>
                     </div>
                     <div class="task-counter">0/3</div>
