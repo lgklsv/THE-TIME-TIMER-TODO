@@ -56,8 +56,6 @@ const initRendelLists = function() {
     tasksView.render(model.state.lists[0]);
 }
 
-
-
 const init = function() {
     initRendelLists();
     addListView._addHandlerUploadNewList(controlAddLists);

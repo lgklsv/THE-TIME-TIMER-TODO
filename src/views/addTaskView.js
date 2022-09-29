@@ -7,6 +7,7 @@ class AddTaskView extends View {
     _btnOpen = document.querySelector('#addTaskBtn');
     _btnClose = document.querySelector('.cancel-addTask-btn');
     _inputField = document.querySelector('#task-name-input');
+    _subinputField = document.querySelector('#task-subName-input');
 
     constructor() {
         super();
@@ -18,6 +19,7 @@ class AddTaskView extends View {
         this._window.classList.toggle('active');
         this._overlay.classList.toggle('hidden');
         this._inputField.value = '';
+        this._subinputField.value = '';
         setTimeout(() => this._inputField.focus(), 100);
     }
 

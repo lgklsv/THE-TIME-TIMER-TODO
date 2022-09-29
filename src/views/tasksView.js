@@ -39,7 +39,7 @@ class TasksView extends View {
                 <div class="task-grid">
                     <div class="task-desc">
                         <p class="task-title">${task.taskName}</p>
-                        <p class="task-subtitle">Daily</p>
+                        <p class="task-subtitle">${task.subName}</p>
                     </div>
                     <div class="task-counter">0/3</div>
                     <div class="task-settigs text-btn icon">
