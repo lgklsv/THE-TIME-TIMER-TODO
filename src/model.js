@@ -3,6 +3,8 @@ import tasksView from "./views/tasksView";
 
 export const state = {
     pomodoro: 1500,
+    shortBreak: 300,
+    longBreak: 600,
     lists: [],
     theme: 'vscode',
 
@@ -60,7 +62,6 @@ export const addTask = function(taskObj) {
     
     return activeList;
 }
-
 
 export const loadTasks = function(id) {
     const prevActiveList = state.lists.find(obj => obj.active === true);
