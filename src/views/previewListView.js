@@ -7,7 +7,12 @@ class PreviewListView extends View {
         return ` 
             <div class="list ${this._data.active ? 'list-active' : ''}" id="${this._data.id}">
                 <p class="list-title">${this._data.listName}</p>
-                <p class="task-counter">${this._data.tasks.length}</p>
+                <div class="list-settigs text-btn icon">
+                    <div class="list-settings-icon">
+                        <i class="fa-solid fa-circle-info"></i> 
+                    </div>
+                    <p class="task-counter">${this._data.tasks.length}</p>
+                </div>
             </div>
         `;
     }

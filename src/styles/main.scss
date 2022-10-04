@@ -48,10 +48,9 @@ button,
   padding: 0.5em;
   height: 36px;
   width: 36px;
-}
-
-.text-btn:hover {
-  color: var(--active-color);
+  &:hover {
+    color: var(--active-color);
+  }
 }
 
 // Main app section

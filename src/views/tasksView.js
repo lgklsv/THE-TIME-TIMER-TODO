@@ -41,7 +41,7 @@ class TasksView extends View {
                         name="taskCheckboxName"
                         id="taskCheckbox${task.id}"
                     />
-                <div class="checkbox-box ${task.checked ? 'checkbox-box-active' : ''}"></div>
+                <div class="checkbox-box ${task.active ? 'checkbox-box-active' : ''}"></div>
                 </label>
                 <div class="task-grid">
                     <div class="task-desc">
