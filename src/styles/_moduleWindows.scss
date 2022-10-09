@@ -1,4 +1,4 @@
-.overlay, .taskOverlay {
+.overlay, .taskOverlay, .transparentOverlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -6,6 +6,13 @@
     right: 0;
     opacity: 1;
     transition: 200ms ease-in-out;
+}
+
+.overlay, .taskOverlay {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.transparentOverlay {
     background-color: rgba(0, 0, 0, .5);
 }
 
@@ -14,7 +21,7 @@
     pointer-events: none;
 }
 
-#hidden-submit {
+.hidden-submit {
     visibility: hidden;
     width: 0;
     height: 0;
@@ -50,6 +57,11 @@ input[type="text"]:focus {
     padding: 20px;
 }
 
+.formUp {
+    position: relative;
+    z-index: 10;
+}
+
 .upload-heading {
     font-weight: 400;
     font-size: 1rem;
@@ -57,15 +69,30 @@ input[type="text"]:focus {
     color: var(--active-color);
 }
 
-.name-input {
+.name-input, .edit-list-input, .edit-list-input_active {
     width: 83%;
-    margin-bottom: 10px;
-    background: var(--background-color-secondary);
-    color: var(--active-color);
     border: none;
     border-radius: 5px;
     padding: 3px;
     padding-left: 5px;
+    font-size: 16px;
+    z-index: 10;
+}
+
+.edit-list-input {
+    background: var(--background-color-secondary);
+    color: var(--active-color);
+}
+
+.edit-list-input_active {
+    background: var(--active-color);
+    color: var(--active-text-color);
+}
+
+.name-input {
+    margin-bottom: 10px;
+    background: var(--background-color-secondary);
+    color: var(--active-color);
 }
 
 .sub-input {

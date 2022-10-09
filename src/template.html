@@ -123,6 +123,7 @@
             <div class="add-new-task-list-container">
               <button id="addListBtn">+ Add List</button>
             </div>
+            <div class="transparentOverlay hidden"></div>
           </div>
         </div>
         
@@ -142,7 +143,7 @@
       <form class="upload" novalidate>
         <h3 class="upload-heading">New List</h3>
         <label id="list-imput-label">Name:</label>
-        <input type="submit" id="hidden-submit">
+        <input type="submit" class="hidden-submit">
         <input id="list-name-input" class="name-input" type="text" required name="listName" autofocus>
         <div class="add-list-control-btns">
           <button class="list-name-btn cancel-btn">Cancel</button>
@@ -155,7 +156,7 @@
       <form class="uploadTask" novalidate>
         <h3 class="upload-heading">New Task</h3>
         <label id="task-imput-label">Name:</label>
-        <input type="submit" id="hidden-submit">
+        <input type="submit" class="hidden-submit">
         <input id="task-name-input" class="name-input" type="text" required name="taskName" autofocus>
         <label id="task-imput-label">Notes:</label>
         <input id="task-subName-input" class="name-input sub-input" type="text" name="subName" >

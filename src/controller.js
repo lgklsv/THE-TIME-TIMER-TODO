@@ -49,6 +49,11 @@ const controlCheckedTask = function(id, check) {
     tasksView.update(model.checkTask(id, check));
 }
 
+
+
+// const controlEditList = function(id) {
+//     console.log(id);
+// }
 // ///////////////
 // TEMPORARY INIT
 const initRendelLists = function() {
@@ -61,7 +66,9 @@ const init = function() {
     initRendelLists();
     addListView._addHandlerUploadNewList(controlAddLists);
     addTaskView._addHandlerUploadNewTask(controlAddTask);
+
     listView.addHandlerRenderTasks(controlRenderTasks);
+
     tasksView.addHandlerCheckedTask(controlCheckedTask);
     tasksView.addHandlerActivateTask(controlActivateTask);
 }
