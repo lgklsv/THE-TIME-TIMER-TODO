@@ -50,10 +50,11 @@ const controlCheckedTask = function(id, check) {
 }
 
 
+const controlEditList = function(data) {
+    console.log('we have got the data', data);
+}
 
-// const controlEditList = function(id) {
-//     console.log(id);
-// }
+
 // ///////////////
 // TEMPORARY INIT
 const initRendelLists = function() {
@@ -68,6 +69,7 @@ const init = function() {
     addTaskView._addHandlerUploadNewTask(controlAddTask);
 
     listView.addHandlerRenderTasks(controlRenderTasks);
+    listView._addHandlerEditList(controlEditList);
 
     tasksView.addHandlerCheckedTask(controlCheckedTask);
     tasksView.addHandlerActivateTask(controlActivateTask);

@@ -1,5 +1,6 @@
 import View from "./View";
 import previewListView from "./previewListView";
+import arrive from 'arrive';
 
 class ListView extends View {
     _parentElement = document.querySelector('.lists-container');
@@ -9,7 +10,7 @@ class ListView extends View {
         super();
         this._addHandlerShowListSettings();
         this._addHandlerHideListSettings();
-        this._addHanderShowEditInput();
+        this._addHandlerShowEditInput();
     }
 
     addHandlerRenderTasks(handler) {
@@ -46,44 +47,30 @@ class ListView extends View {
     showEditInput(e) {
         if(e.target.classList.contains('edit-list')) {
             const parentList = e.target.closest('.list');
-            let prevValue = parentList.firstElementChild.innerHTML;
+            parentList.firstElementChild.outerHTML = this._generateMarkupEditListForm(parentList);
 
-            parentList.firstElementChild.outerHTML = `
-            <form class="formUp" novalidate>
-                <input name="editedValue" type="text" value="${prevValue}" class="list-title edit-list-input${parentList.classList.contains('list-active') ? '_active' : ''}">
-                <input type="submit" class="hidden-submit">
-            </form>
-            `;
             const input = parentList.firstElementChild.firstElementChild;
             const end = input.value.length;
-            const editForm = parentList.firstElementChild;
             input.setSelectionRange(end, end);
             input.focus();
-            // this._overlay.classList.toggle('hidden');
-            this.toggleListSettings(e);
-
-            this._overlay.addEventListener('click', function() {
-                console.log(parentList);
-            })
-
             
-            editForm.addEventListener('submit', (e) => {
-
-                e.preventDefault();
-                console.log(e.target);
-                const dataArr = [...new FormData(e.target)];
-                const data = Object.fromEntries(dataArr);
-
-                if(!data.editedValue) return;
-                console.log(data);
-            })
+            this._overlay.classList.toggle('hidden');
+            this.toggleListSettings(e);
         }
     }
 
     _addHandlerEditList(handler) {
+        this._parentElement.arrive('.formUp', function(){
+            this.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const dataArr = [...new FormData(e.target)];
+                const data = Object.fromEntries(dataArr);
 
+                if(!data.editedValue) return;
+                handler(data);
+            })
+        })
     }
-
 
     _addHandlerShowListSettings() {
         this._parentElement.addEventListener('click', this.toggleListSettings.bind(this));
@@ -93,12 +80,21 @@ class ListView extends View {
         this._overlay.addEventListener('click', this.toggleListSettings.bind(this));
     }
 
-    _addHanderShowEditInput() {
+    _addHandlerShowEditInput() {
         this._parentElement.addEventListener('click', this.showEditInput.bind(this));
     }
 
     _generateMarkup() {
         return this._data.map(list => previewListView.render(list, false)).join('');
+    }
+
+    _generateMarkupEditListForm(parentList) {
+        return `
+            <form class="formUp" novalidate>
+                <input name="editedValue" type="text" value="${parentList.firstElementChild.innerHTML}" class="list-title edit-list-input${parentList.classList.contains('list-active') ? '_active' : ''}">
+                <input type="submit" value="" class="hidden-submit whole-screen-submit">
+            </form>
+        `;
     }
 }
 
