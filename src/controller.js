@@ -49,9 +49,10 @@ const controlCheckedTask = function(id, check) {
     tasksView.update(model.checkTask(id, check));
 }
 
-
 const controlEditList = function(data) {
-    console.log('we have got the data', data);
+    const curList = model.editList(data);
+    curList.active ? tasksView.update(curList) : '';
+    listView.render(model.state.lists);
 }
 
 

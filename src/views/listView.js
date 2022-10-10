@@ -60,12 +60,16 @@ class ListView extends View {
     }
 
     _addHandlerEditList(handler) {
-        this._parentElement.arrive('.formUp', function(){
+        this._parentElement.arrive('.formUpList', function(){
+
+            const curListID = this.parentElement.id;
+
             this.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const dataArr = [...new FormData(e.target)];
                 const data = Object.fromEntries(dataArr);
-
+                data.id = curListID;
+                
                 if(!data.editedValue) return;
                 handler(data);
             })
@@ -90,7 +94,7 @@ class ListView extends View {
 
     _generateMarkupEditListForm(parentList) {
         return `
-            <form class="formUp" novalidate>
+            <form class="formUpList" novalidate>
                 <input name="editedValue" type="text" value="${parentList.firstElementChild.innerHTML}" class="list-title edit-list-input${parentList.classList.contains('list-active') ? '_active' : ''}">
                 <input type="submit" value="" class="hidden-submit whole-screen-submit">
             </form>

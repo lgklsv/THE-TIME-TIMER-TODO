@@ -13,7 +13,7 @@
 }
 
 .transparentOverlay {
-    background-color: rgba(0, 0, 0, .5);
+    background-color: transparent;
 }
 
 .hidden {
@@ -57,7 +57,7 @@ input[type="text"]:focus {
     padding: 20px;
 }
 
-.formUp {
+.formUpList {
     position: relative;
     z-index: 10;
 }

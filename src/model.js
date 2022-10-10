@@ -47,7 +47,6 @@ export const addList = function(list) {
     list.tasks = [];
     list.id = Math.random().toString(36);
     state.lists.push(list);
-    console.log(state.lists);
 }
 
 export const addTask = function(taskObj) {
@@ -88,4 +87,10 @@ export const checkTask = function(id, check) {
     const data = activeListObj.tasks.find(taskObj => taskObj.id === id);
     data.checked = check;
     return activeListObj;
+}
+
+export const editList = function(data) {
+    const curList = state.lists.find(obj => obj.id === data.id);
+    curList.listName = data.editedValue;
+    return curList;
 }
