@@ -93,12 +93,20 @@
     margin-right: 15px;
     color: var(--light-color);
   }
+  .list-settings-disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
   .opacityToggle {
     opacity: 0;
   }
   &:hover .list-settings-icon {
     opacity: 100%;
     cursor: pointer;
+  }
+  &:hover .list-settings-disabled {
+    opacity: 0;
+    cursor: none;
   }
 }
 

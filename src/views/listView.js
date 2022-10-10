@@ -27,7 +27,7 @@ class ListView extends View {
             this._overlay.classList.toggle('hidden');
             e.target.parentElement.parentElement.nextElementSibling.classList.toggle('hidden');
         }
-        else if (e.target.classList.contains('transparentOverlay') || e.target.classList.contains('edit-list')) {
+        else if (e.target.classList.contains('transparentOverlay') || e.target.classList.contains('edit-list') || e.target.classList.contains('delete-list')) {
             this._overlay.classList.toggle('hidden');
             const allListSettings = document.querySelectorAll('.dropdown-list-settings');
             const allSettingsIcons = document.querySelectorAll('.list-settings-icon');
@@ -73,6 +73,14 @@ class ListView extends View {
                 if(!data.editedValue) return;
                 handler(data);
             })
+        })
+    }
+
+    _addHandlerDeleteList(handler) {
+        this._parentElement.addEventListener('click', function(e) {
+            if(e.target.classList.contains('delete-list')) {
+                handler(e.target.closest('.list').id);
+            }
         })
     }
 

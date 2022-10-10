@@ -55,6 +55,13 @@ const controlEditList = function(data) {
     listView.render(model.state.lists);
 }
 
+const controlDeleteList = function(id) {
+    const delListRes = model.deleteList(id);
+    if (typeof delListRes !== 'undefined') {
+        tasksView.render(delListRes);
+    }
+    listView.render(model.state.lists);
+}
 
 // ///////////////
 // TEMPORARY INIT
@@ -71,6 +78,7 @@ const init = function() {
 
     listView.addHandlerRenderTasks(controlRenderTasks);
     listView._addHandlerEditList(controlEditList);
+    listView._addHandlerDeleteList(controlDeleteList);
 
     tasksView.addHandlerCheckedTask(controlCheckedTask);
     tasksView.addHandlerActivateTask(controlActivateTask);

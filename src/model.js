@@ -39,12 +39,14 @@ export const initLists = function() {
         active: true,
         tasks: [],
         id: Math.random().toString(36),
+        initialList: true,
     });
 }
 
 export const addList = function(list) {
     state.lists.length == 0 ? list.active = true : list.active = false;
     list.tasks = [];
+    list.initialList = false;
     list.id = Math.random().toString(36);
     state.lists.push(list);
 }
@@ -55,7 +57,7 @@ export const addTask = function(taskObj) {
 
     taskObj.id = Math.random().toString(36);
     taskObj.checked = false;
-
+    
     activeList.tasks.push(taskObj);
     
     return activeList;
@@ -93,4 +95,17 @@ export const editList = function(data) {
     const curList = state.lists.find(obj => obj.id === data.id);
     curList.listName = data.editedValue;
     return curList;
+}
+
+export const deleteList = function(id) {
+    const listToDelete = state.lists.find(obj => obj.id === id);
+    const indexToDelete = state.lists.indexOf(listToDelete);
+    const prevList = state.lists[indexToDelete - 1];
+    if (indexToDelete - 1 >= 0 && (listToDelete.active || prevList.active)) {
+        prevList.active = true;
+        state.lists.splice(indexToDelete, 1);
+        return prevList;
+    } else {
+        state.lists.splice(indexToDelete, 1);
+    }
 }
