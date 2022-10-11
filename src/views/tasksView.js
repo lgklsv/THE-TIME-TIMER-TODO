@@ -48,9 +48,12 @@ class TasksView extends View {
                         <p class="task-title${task.checked ? ' task-title-checked' : ''}">${task.taskName}</p>
                         <p class="task-subtitle">${task.subName}</p>
                     </div>
-                    <div class="task-counter">0/3</div>
+                    <div class="task-counter">0/${task.estPom}</div>
                     <div class="task-settigs text-btn icon">
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <i class="far fa-edit"></i>
+                    </div>
+                    <div class="task-settigs text-btn icon">
+                        <i class="far fa-trash-alt"></i>
                     </div>
                 </div>
             </div>
