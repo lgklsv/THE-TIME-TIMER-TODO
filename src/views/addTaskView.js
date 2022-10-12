@@ -22,14 +22,18 @@ class AddTaskView extends View {
         this._overlay.classList.toggle('hidden');
         this._inputField.value = '';
         this._subinputField.value = '';
+        this._estPomInputField.value = 1;
         setTimeout(() => this._inputField.focus(), 100);
     }
 
     controlEstPomInput(e) {
+        const input = this._estPomInputField;
         if (e.target.classList.contains('control-up')) {
-            this._estPomInputField.value++;
-        } else if (e.target.classList.contains('control-down') &&  this._estPomInputField.value > 0) {
-            this._estPomInputField.value--;
+            input.value++;
+            input.focus();
+        } else if (e.target.classList.contains('control-down') &&  input.value > 0) {
+            input.value--;
+            input.focus();
         }
     }
 
@@ -60,8 +64,8 @@ class AddTaskView extends View {
             const data = Object.fromEntries(dataArr);
 
             if(!data.taskName) return;
-
-            console.log(data);
+            if(!data.estPom) return;
+            // console.log(data);
             handler(data);
         })
     }

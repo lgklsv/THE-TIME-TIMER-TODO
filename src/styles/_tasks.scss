@@ -22,7 +22,6 @@
   align-items: center;
   padding: 1rem 2rem;
   border-bottom: 1px solid var(--light-color);
-
   .task-checkbox {
     padding-right: 0.5rem;
   }
@@ -44,7 +43,7 @@
     .task-settigs {
       padding-top: 0;
       padding-right: 0;
-      margin-right: -0.6rem;
+      margin-right: -0.3rem;
       margin-top: -0.2rem;
       justify-self: end;
       &:hover {

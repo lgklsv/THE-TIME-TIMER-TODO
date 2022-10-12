@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="vscode">
+<html lang="en" data-theme="purple">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -111,6 +111,7 @@
             <div class="add-new-task-list-container">
               <button id="addTaskBtn">+ Add Task</button>
             </div>
+            <div class="transparentOverlayTasks hidden"></div>
           </div>
 
           <div class="lists-section">
@@ -161,7 +162,7 @@
         <label id="task-imput-label">Notes:</label>
         <input id="task-subName-input" class="name-input sub-input" type="text" name="subName">
         <label id="task-est-pomodoros">Est Pomodoros:</label>
-        <input type="number" value="1" min="0" class="name-input est-pom-input" name="estPom">
+        <input type="number" value="1" min="0" class="name-input est-pom-input" required name="estPom">
         <button type="button" class="est-pom-controls control-up"><i class="fa-solid fa-caret-up"></i></button>
         <button type="button" class="est-pom-controls control-down"><i class="fa-solid fa-caret-down"></i></button>
         <div class="add-task-control-btns">

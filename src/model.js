@@ -10,27 +10,6 @@ export const state = {
 
 }
 
-// const createTaskObj = function(data) {
-//     const {task} = data;
-//     return state.task = {
-//         id: task.id,
-//         title: task.title,
-//         subtitle: task.subtitle,
-//         done: task.done,
-//         pomreq: task.pomreq,
-//         pomdone: task.pomdone,
-//     }
-// }
-
-// const createListObj = function(data) {
-//     const { lists } = data;
-//     return state.lists = {
-//         id: lists.id,
-//         title: lists.title,
-//         tasks: lists.tasks,
-//     }
-// }
-
 // ///////////////
 // TEMPORARY INIT
 export const initLists = function() {
@@ -93,7 +72,7 @@ export const checkTask = function(id, check) {
 
 export const editList = function(data) {
     const curList = state.lists.find(obj => obj.id === data.id);
-    curList.listName = data.editedValue;
+    curList.listName = data.editedListValue;
     return curList;
 }
 
@@ -108,4 +87,13 @@ export const deleteList = function(id) {
     } else {
         state.lists.splice(indexToDelete, 1);
     }
+}
+
+export const editTask = function(data) {
+    const curList = state.lists.find(obj => obj.active === true);
+    const taskToEdit = curList.tasks.find(taskObj => taskObj.id === data.id);
+    taskToEdit.taskName = data.editedTaskValue;
+    taskToEdit.subName = data.editedTaskSubtitleValue;
+    taskToEdit.estPom = data.estPom;
+    return curList;
 }

@@ -44,7 +44,7 @@ class ListView extends View {
         }
     }
 
-    showEditInput(e) {
+    showEditListInput(e) {
         if(e.target.classList.contains('edit-list')) {
             const parentList = e.target.closest('.list');
             parentList.firstElementChild.outerHTML = this._generateMarkupEditListForm(parentList);
@@ -70,7 +70,7 @@ class ListView extends View {
                 const data = Object.fromEntries(dataArr);
                 data.id = curListID;
                 
-                if(!data.editedValue) return;
+                if(!data.editedListValue) return;
                 handler(data);
             })
         })
@@ -93,7 +93,7 @@ class ListView extends View {
     }
 
     _addHandlerShowEditInput() {
-        this._parentElement.addEventListener('click', this.showEditInput.bind(this));
+        this._parentElement.addEventListener('click', this.showEditListInput.bind(this));
     }
 
     _generateMarkup() {
@@ -103,7 +103,7 @@ class ListView extends View {
     _generateMarkupEditListForm(parentList) {
         return `
             <form class="formUpList" novalidate>
-                <input name="editedValue" type="text" value="${parentList.firstElementChild.innerHTML}" class="list-title edit-list-input${parentList.classList.contains('list-active') ? '_active' : ''}">
+                <input name="editedListValue" type="text" value="${parentList.firstElementChild.innerHTML}" class="list-title edit-list-input${parentList.classList.contains('list-active') ? '_active' : ''}">
                 <input type="submit" value="" class="hidden-submit whole-screen-submit">
             </form>
         `;

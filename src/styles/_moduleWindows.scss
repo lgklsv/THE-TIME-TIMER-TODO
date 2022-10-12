@@ -10,10 +10,11 @@
 
 .overlay, .taskOverlay {
     background-color: rgba(0, 0, 0, .5);
+    z-index: 6;
 }
 
 .transparentOverlay {
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, .5);
 }
 
 .hidden {
@@ -72,6 +73,7 @@ input[type="text"]:focus {
     z-index: -1;
     opacity: 1;
     outline: none;
+    pointer-events: all;
 }
 .upload-heading {
     font-weight: 400;
@@ -80,7 +82,7 @@ input[type="text"]:focus {
     color: var(--active-color);
 }
 
-.name-input, .edit-list-input, .edit-list-input_active {
+.name-input, .edit-list-input, .edit-list-input_active, .edit-task-input, .edit-task-Subtitle-input, .edit-task-Subtitle-input_active, .edit-task-input_active, .edit-est-pom-input, .edit-est-pom-input_active {
     width: 83%;
     border: none;
     border-radius: 5px;
@@ -88,6 +90,31 @@ input[type="text"]:focus {
     padding-left: 5px;
     font-size: 16px;
     z-index: 10;
+    pointer-events: all;
+}
+
+.edit-task-input, .edit-task-input_active {
+    background: var(--light-color);
+    color: var(--active-color);
+}
+
+.edit-task-Subtitle-input, .edit-task-Subtitle-input_active {
+    background: var(--light-color);
+    color: var(--active-color);
+    height: 15px;
+    margin-top: 3px;
+    width: 50%;
+    font-size: 12px;
+}
+
+.edit-task-input_active:focus, .edit-task-Subtitle-input_active:focus, .edit-est-pom-input_active:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--background-color-primary) !important;
+}
+
+.edit-est-pom-input, .edit-est-pom-input_active {
+    background: var(--light-color);
+    color: var(--active-color);
 }
 
 .edit-list-input {
@@ -110,12 +137,26 @@ input[type="text"]:focus {
     margin-left: 6px;
 }
 
-.est-pom-input {
+.est-pom-input, .edit-est-pom-input, .edit-est-pom-input_active {
     outline: none;
     width: 15%;
-    padding-bottom: 5px;
-    
+    padding-bottom: 5px;  
 }
+
+.edit-est-pom-input {
+    width: 20%;
+    &:focus {
+        box-shadow: 0 0 0 2px var(--circle-color);
+    }
+}
+
+.edit-est-pom-input_active {
+    width: 20%;
+    &:focus {
+        box-shadow: 0 0 0 2px var(--background-color-primary) !important;
+    }
+}
+
 .est-pom-input:focus {
     box-shadow: 0 0 0 2px var(--circle-color);
 }
@@ -131,8 +172,12 @@ input[type="text"]:focus {
     color: var(--light-color);
 }
 
-.fa-caret-down, .fa-caret-up {
+.fa-caret-down, .fa-caret-up, .fa-edit {
     pointer-events: none;
+}
+
+.fa-trash-alt, .fa-check {
+    pointer-events: all;
 }
 
 .est-pom-controls:active {
@@ -192,7 +237,7 @@ input::-webkit-inner-spin-button {
 
         &:hover {
             background-color: var(--circle-color);
-            color: #f7f5f1;
+            color: var(--active-text-color);
         }
 
         &:first-child {
@@ -209,4 +254,31 @@ input::-webkit-inner-spin-button {
         border: 10px solid;
         border-color: transparent transparent var(--background-color-secondary) transparent;
     }
+}
+
+// edit task
+.formUpTask {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.task-grid_mod {
+    grid-template-columns: 3fr 0.35fr !important;
+}
+
+.edit-task_mod  {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#confirm-edit-task {
+    background: none;
+    border: none;
+    padding-bottom: 0;
+}
+
+#delete-task_mod {
+    padding-bottom: 0;
 }
