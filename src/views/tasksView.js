@@ -26,7 +26,6 @@ class TasksView extends View {
                 ? handler(e.target.parentElement.parentElement.id, true) 
                 : handler(e.target.parentElement.parentElement.id, false); 
             }
-            
         })
     }
 
@@ -70,6 +69,14 @@ class TasksView extends View {
 
     _addHandlerShowEditInput() {
         this._parentElement.addEventListener('click', this.showEditTaskInput.bind(this));
+    }
+
+    _addHandlerDeleteTask(handler) {
+        this._parentElement.addEventListener('click', function(e) {
+            if(e.target.classList.contains('delete-task')) {
+                handler(e.target.closest('.task').id);
+            }
+        })
     }
 
     _generateMarkup() {

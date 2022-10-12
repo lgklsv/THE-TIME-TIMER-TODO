@@ -97,3 +97,18 @@ export const editTask = function(data) {
     taskToEdit.estPom = data.estPom;
     return curList;
 }
+
+export const deleteTask = function(id) {
+    const curList = state.lists.find(obj => obj.active === true);
+    const taskToDelete = curList.tasks.find(taskObj => taskObj.id === id);
+    const indexToDelete = curList.tasks.indexOf(taskToDelete);
+    if (indexToDelete - 1 >= 0 && taskToDelete.active) {
+        const prevTask = curList.tasks[indexToDelete - 1];
+        prevTask.active = true;
+    } else if (indexToDelete == 0 && taskToDelete.active && curList.tasks.length > 1){
+        const nextTask = curList.tasks[indexToDelete + 1];
+        nextTask.active = true;
+    }
+    curList.tasks.splice(indexToDelete, 1);
+    return curList;
+}

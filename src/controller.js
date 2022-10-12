@@ -68,6 +68,11 @@ const controlEditTask = function(data) {
     tasksView.render(curList);
 }
 
+const controlDeleteTask = function(id) {
+    const curList = model.deleteTask(id);
+    tasksView.render(curList);
+}
+
 // ///////////////
 // TEMPORARY INIT
 const initRendelLists = function() {
@@ -88,6 +93,7 @@ const init = function() {
     tasksView.addHandlerCheckedTask(controlCheckedTask);
     tasksView.addHandlerActivateTask(controlActivateTask);
     tasksView._addHandlerEditTask(controlEditTask);
+    tasksView._addHandlerDeleteTask(controlDeleteTask);
 
 }
 init();
