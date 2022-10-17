@@ -2,9 +2,13 @@ import listView from "./views/listView";
 import tasksView from "./views/tasksView";
 
 export const state = {
-    pomodoro: 1500,
-    shortBreak: 300,
-    longBreak: 600,
+    pomodoro: 25 * 60,
+    counter: -1,
+    counterValue() {
+        return this.pomodoro;
+    },
+    shortBreak: 5 * 60,
+    longBreak: 10 * 60,
     lists: [],
     theme: 'vscode',
 
@@ -133,4 +137,23 @@ export const deleteCompleted = function() {
     curList.tasks = clearedTasks;
     curList.completed = 0;
     return curList;
+}
+
+export const startTimer = function(seconds, minutes, indicator) {
+    let counterValueValue = state.counterValue();
+    if (state.counter == -1 && counterValueValue > 0) {
+        state.counter = setInterval(() => {
+            let rest = --counterValueValue;
+            let min = Math.floor(rest / 60);
+            let sec = Math.floor(rest % 60);
+            seconds.textContent = sec.toString().padStart(2, '0');
+            minutes.textContent = min.toString().padStart(2, '0');
+            indicator.style.strokeDashoffset = 600 - (rest / state.pomodoro) * 600;
+
+            if (rest == 0) {
+                clearInterval(state.counter);
+            }
+
+        }, 1000);
+    }
 }

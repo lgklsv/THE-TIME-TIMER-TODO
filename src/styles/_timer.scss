@@ -61,7 +61,7 @@ svg {
 circle {
   display: block;
   fill: transparent;
-  stroke: var(--circle-color);
+  // stroke: var(--circle-color);
   stroke-linecap: round;
   stroke-dasharray: 600;
   stroke-dashoffset: 0;
@@ -79,6 +79,7 @@ circle {
   font-size: 5rem ;
   font-weight: 500;
   position: absolute;
+  z-index: -1;
 }
 
 .clock {
@@ -86,6 +87,7 @@ circle {
   justify-content: center;
   align-items: center;
   position: relative;
+  color: var(--light-color);
   width: 100%;
   height: 100%;
 }

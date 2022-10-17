@@ -7,6 +7,7 @@ import { MODAL_CLOSE_SEC } from './config';
 import tasksView from './views/tasksView';
 import * as helpers from './helpers.js';
 import addTaskView from './views/addTaskView';
+import timerView from './views/timerView';
 
 
 
@@ -80,6 +81,12 @@ const controlDeleteAllCompleted = function() {
     listView.update(model.state.lists);
 }
 
+const conrtolStartTimer = function(seconds, minutes, indicator) {
+    console.log(seconds, minutes, indicator);
+    model.startTimer(seconds, minutes, indicator);
+}
+
+
 // ///////////////
 // TEMPORARY INIT
 const initRendelLists = function() {
@@ -103,5 +110,6 @@ const init = function() {
     tasksView._addHandlerDeleteTask(controlDeleteTask);
     tasksView._addHandlerDeleteAllCompleted(controlDeleteAllCompleted);
 
+    timerView._addHandlerStartTimer(conrtolStartTimer);
 }
 init();
