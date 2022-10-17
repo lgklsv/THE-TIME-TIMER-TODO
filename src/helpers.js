@@ -3,7 +3,7 @@
 const toggleSwitch = document.querySelector('#themeSwitcher');
 function switchTheme(e) {
     if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'purple');
+        document.documentElement.setAttribute('data-theme', 'vscode');
     }
     else {
         document.documentElement.setAttribute('data-theme', 'playingCards');

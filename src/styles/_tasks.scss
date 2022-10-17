@@ -14,6 +14,26 @@
   }
 }
 
+.tasks-comleted {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 2rem;
+  padding-bottom: 10px;
+  .tasks-comleted_text {
+    color: var(--light-color);
+    margin-right: 5px;
+    
+  }
+  .tasks-comleted_btn {
+    cursor: pointer;
+    color: var(--light-color);
+    &:hover {
+      color: var(--active-color);
+    }
+  }
+}
+
 .task {
   min-height: 70px;
   width: 100%;

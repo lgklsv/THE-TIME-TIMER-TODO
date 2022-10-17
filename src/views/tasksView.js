@@ -5,7 +5,8 @@ class TasksView extends View {
     _parentElement = document.querySelector('.tasks-container');
     _listTitle = document.querySelector('.list-title');
     _listLength = document.querySelector('.list-length');
-
+    _completedCounter = document.querySelector('.tasks-comleted_counter');
+    _deleteCompletedBtn = document.querySelector('.tasks-comleted_btn');
     constructor() {
         super();
         this._addHandlerShowEditInput();
@@ -45,7 +46,6 @@ class TasksView extends View {
         this._parentElement.arrive('.formUpTask', function(){
             const curTaskID = this.parentElement.parentElement.id;
             const input = document.querySelector('.edit-est-pom-input_active') ? document.querySelector('.edit-est-pom-input_active') : document.querySelector('.edit-est-pom-input');
-            console.log(input);
 
             input.addEventListener('keyup', function(e) {
                 if (e.keyCode == 189) {
@@ -79,9 +79,18 @@ class TasksView extends View {
         })
     }
 
+    _addHandlerDeleteAllCompleted(handler) {
+        this._deleteCompletedBtn.addEventListener('click', function(e) {
+            console.log(e.target);
+            handler();
+
+        })
+    }
+ 
     _generateMarkup() {
         this._listTitle.textContent = this._data.listName;
         this._listLength.textContent = this._data.tasks.length;
+        this._completedCounter.textContent = this._data.completed;
         return `
             ${this._data.tasks ? `${this._data.tasks
                 .map(this._generateMarkupTask)

@@ -19,6 +19,7 @@ export const initLists = function() {
         tasks: [],
         id: Math.random().toString(36),
         initialList: true,
+        completed: 0,
     });
 }
 
@@ -27,6 +28,7 @@ export const addList = function(list) {
     list.tasks = [];
     list.initialList = false;
     list.id = Math.random().toString(36);
+    list.completed = 0;
     state.lists.push(list);
 }
 
@@ -66,7 +68,15 @@ export const activateTask = function(id) {
 export const checkTask = function(id, check) {
     const activeListObj = state.lists.find(obj => obj.active === true);
     const data = activeListObj.tasks.find(taskObj => taskObj.id === id);
+    
     data.checked = check;
+    let countCompleted = 0;
+    activeListObj.tasks.forEach(task => {
+        if (task.checked) {
+            countCompleted++;
+        }
+    })
+    activeListObj.completed = countCompleted;
     return activeListObj;
 }
 
@@ -101,6 +111,9 @@ export const editTask = function(data) {
 export const deleteTask = function(id) {
     const curList = state.lists.find(obj => obj.active === true);
     const taskToDelete = curList.tasks.find(taskObj => taskObj.id === id);
+    if (taskToDelete.checked) {
+        curList.completed--;
+    }
     const indexToDelete = curList.tasks.indexOf(taskToDelete);
     if (indexToDelete - 1 >= 0 && taskToDelete.active) {
         const prevTask = curList.tasks[indexToDelete - 1];
@@ -110,5 +123,14 @@ export const deleteTask = function(id) {
         nextTask.active = true;
     }
     curList.tasks.splice(indexToDelete, 1);
+    return curList;
+}
+
+export const deleteCompleted = function() {
+    const curList = state.lists.find(obj => obj.active === true);
+    console.log(curList);
+    const clearedTasks = curList.tasks.filter(el => el.checked == false);
+    curList.tasks = clearedTasks;
+    curList.completed = 0;
     return curList;
 }

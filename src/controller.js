@@ -71,6 +71,13 @@ const controlEditTask = function(data) {
 const controlDeleteTask = function(id) {
     const curList = model.deleteTask(id);
     tasksView.render(curList);
+    listView.update(model.state.lists);
+}
+
+const controlDeleteAllCompleted = function() {
+    const curList = model.deleteCompleted();
+    tasksView.render(curList);
+    listView.update(model.state.lists);
 }
 
 // ///////////////
@@ -94,6 +101,7 @@ const init = function() {
     tasksView.addHandlerActivateTask(controlActivateTask);
     tasksView._addHandlerEditTask(controlEditTask);
     tasksView._addHandlerDeleteTask(controlDeleteTask);
+    tasksView._addHandlerDeleteAllCompleted(controlDeleteAllCompleted);
 
 }
 init();
