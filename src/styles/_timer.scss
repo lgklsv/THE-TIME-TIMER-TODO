@@ -12,6 +12,7 @@
   box-shadow: inset 0px 0px 0px 1px var(--light-color);
   border-radius: 25px;
   width: 120px;
+  justify-self: center;
   button {
     // font-size: clamp(0.75rem, 1.1vw, 1.5rem);
     font-size: 1rem;
@@ -43,22 +44,50 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 63%;
 }
 
-.progressbar-ring {
+.indicator {
   stroke: var(--circle-color);
-  stroke-width: 7px;
+  z-index: 2;
 }
 
-.progressbar-ring-circle {
-  transform-origin: center;
-  transform: rotate(-90deg);
-  transition: stroke-dashoffset 0.3s;
-}
-
-// HERE WILL BE TIMER
-.percent-test {
+svg {
+  width: 100%;
+  height: 100%;
   position: absolute;
+}
+
+circle {
+  display: block;
+  fill: transparent;
+  stroke: var(--circle-color);
+  stroke-linecap: round;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 0;
+  stroke-width: 5px;
+  transform-origin: 50% 50%;
+  transform: rotate(-90deg);
+}
+
+.timer-numbers-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem ;
+  font-weight: 500;
+  position: absolute;
+}
+
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 // Bottom
 .timer-btns-bottom {

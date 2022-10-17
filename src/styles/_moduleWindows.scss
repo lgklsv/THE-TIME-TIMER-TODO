@@ -14,7 +14,7 @@
 }
 
 .transparentOverlay {
-    background-color: rgba(0, 0, 0, .5);
+    background-color: transparent;
 }
 
 .hidden {
@@ -102,7 +102,7 @@ input[type="text"]:focus {
     background: var(--light-color);
     color: var(--active-color);
     height: 15px;
-    margin-top: 3px;
+    margin-top: 5px;
     width: 50%;
     font-size: 12px;
 }
@@ -245,15 +245,15 @@ input::-webkit-inner-spin-button {
         }
     }
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: -20px;
-        left: 60%;
-        transform: translateX(-50%);
-        border: 10px solid;
-        border-color: transparent transparent var(--background-color-secondary) transparent;
-    }
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: -20px;
+    //     left: 60%;
+    //     transform: translateX(-50%);
+    //     border: 10px solid;
+    //     border-color: transparent transparent var(--background-color-secondary) transparent;
+    // }
 }
 
 // edit task

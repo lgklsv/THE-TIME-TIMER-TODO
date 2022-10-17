@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="vscode">
+<html lang="en" data-theme="coffee">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -80,10 +80,29 @@
               </div>
             </div>
             <div class="timer-container">
-              <input type="number" class="percent-test" value="100">
-              <svg class="progressbar-ring" width="400" height="400">
-                <circle class="progressbar-ring-circle" cx="200" cy="200" r="190" fill="transparent"/>
-              </svg>
+              <!-- <input type="number" class="percent-test" value="100"> -->
+              <div class="clock">
+                <svg viewBox="0 0 220 220">
+                  <circle
+                    shape-rendering="geometricPrecision"
+                    cx="110"
+                    cy="110"
+                    r="96"
+                  />
+                  <circle
+                    shape-rendering="geometricPrecision"
+                    class="indicator"
+                    cx="110"
+                    cy="110"
+                    r="96"
+                  />
+                </svg>
+              </div>
+              <div class="timer-numbers-container">
+                <span class="minutes">25</span>
+                :
+                <span class="seconds">00</span>
+              </div>
             </div>
             
             <div class="timer-btns-bottom">
