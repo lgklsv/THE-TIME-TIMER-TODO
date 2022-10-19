@@ -7,6 +7,7 @@ export const state = {
     counterValue: 25 * 60,
     shortBreak: 5 * 60,
     longBreak: 10 * 60,
+    mode: 'pomodoro',
     lists: [],
     theme: 'vscode',
 
@@ -136,7 +137,23 @@ export const deleteCompleted = function() {
     return curList;
 }
 
+const checkMode = function() {
+    let curTimer;
+    if(state.mode == 'pomodoro') {
+        curTimer = state.pomodoro;
+    }
+    if(state.mode == 'short-break') {
+        curTimer = state.shortBreak;
+    }
+    if(state.mode == 'long-break') {
+        curTimer = state.longBreak;
+    }
+    return curTimer;
+}
+
 export const startTimer = function(seconds, minutes, indicator) {
+    let curTimer = checkMode();
+
     if (state.counter == -1 && state.counterValue > 0) {
         state.counter = setInterval(() => {
             let rest = --state.counterValue;
@@ -144,7 +161,7 @@ export const startTimer = function(seconds, minutes, indicator) {
             let sec = Math.floor(rest % 60);
             seconds.textContent = sec.toString().padStart(2, '0');
             minutes.textContent = min.toString().padStart(2, '0');
-            indicator.style.strokeDashoffset = 600 - (rest / state.pomodoro) * 600;
+            indicator.style.strokeDashoffset = 600 - (rest / curTimer) * 600;
 
             if (rest == 0) {
                 clearInterval(state.counter);
@@ -155,17 +172,32 @@ export const startTimer = function(seconds, minutes, indicator) {
 }
 
 export const resetTimer = function(seconds, minutes, indicator) {
+    let curTimer = checkMode();
+
     clearInterval(state.counter);
     state.counter = -1;
-    state.counterValue = state.pomodoro;
+    state.counterValue = curTimer;
     let min = Math.floor(state.counterValue / 60);
     let sec = Math.floor(state.counterValue % 60);
     seconds.textContent = sec.toString().padStart(2, '0');
     minutes.textContent = min.toString().padStart(2, '0');
-    indicator.style.strokeDashoffset = 600 - (state.counterValue / state.pomodoro) * 600;
+    indicator.style.strokeDashoffset = 600 - (state.counterValue / curTimer) * 600;
 }
 
 export const pauseTimer = function() {
     clearInterval(state.counter);
     state.counter = -1;
 }
+
+export const setMode =  function(mode) {
+    state.mode = mode;
+    if(mode == 'pomodoro') {
+        state.counterValue = state.pomodoro;
+    }
+    if(mode == 'short-break') {
+        state.counterValue = state.shortBreak;
+    }
+    if(mode == 'long-break') {
+        state.counterValue = state.longBreak;
+    }
+} 

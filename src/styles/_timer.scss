@@ -13,12 +13,14 @@
   border-radius: 25px;
   width: 120px;
   justify-self: center;
+  cursor: pointer;
   button {
     // font-size: clamp(0.75rem, 1.1vw, 1.5rem);
     font-size: 1rem;
     border: none;
     color: var(--light-color);
     background-color: var(--background-color-primary);
+    pointer-events: none;
   }
 }
 

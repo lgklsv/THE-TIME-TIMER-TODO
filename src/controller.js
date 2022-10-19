@@ -82,7 +82,6 @@ const controlDeleteAllCompleted = function() {
 }
 
 const conrtolStartTimer = function(seconds, minutes, indicator) {
-    // console.log(seconds, minutes, indicator);
     model.startTimer(seconds, minutes, indicator);
 }
 
@@ -92,6 +91,21 @@ const controlResetTimer = function(seconds, minutes, indicator) {
 
 const controlPauseTimer = function() {
     model.pauseTimer();
+}
+
+const controleTimerMode = function(mode, seconds, minutes, indicator) {
+    model.setMode(mode);
+    model.resetTimer(seconds, minutes, indicator);
+
+    if(mode == 'pomodoro') {
+        minutes.textContent = (model.state.pomodoro / 60).toString().padStart(2, '0');
+    }
+    if(mode == 'short-break') {
+        minutes.textContent = (model.state.shortBreak / 60).toString().padStart(2, '0');
+    }
+    if(mode == 'long-break') {
+        minutes.textContent = (model.state.longBreak / 60).toString().padStart(2, '0');
+    }
 }
 
 
@@ -121,5 +135,6 @@ const init = function() {
     timerView._addHandlerStartTimer(conrtolStartTimer);
     timerView._addHandlerResetTimer(controlResetTimer);
     timerView._addHandlerPauseTimer(controlPauseTimer);
+    timerView._addHandlerChangeMode(controleTimerMode);
 }
 init();
