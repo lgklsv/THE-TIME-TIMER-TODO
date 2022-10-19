@@ -4,9 +4,7 @@ import tasksView from "./views/tasksView";
 export const state = {
     pomodoro: 25 * 60,
     counter: -1,
-    counterValue() {
-        return this.pomodoro;
-    },
+    counterValue: 25 * 60,
     shortBreak: 5 * 60,
     longBreak: 10 * 60,
     lists: [],
@@ -132,7 +130,6 @@ export const deleteTask = function(id) {
 
 export const deleteCompleted = function() {
     const curList = state.lists.find(obj => obj.active === true);
-    console.log(curList);
     const clearedTasks = curList.tasks.filter(el => el.checked == false);
     curList.tasks = clearedTasks;
     curList.completed = 0;
@@ -140,10 +137,9 @@ export const deleteCompleted = function() {
 }
 
 export const startTimer = function(seconds, minutes, indicator) {
-    let counterValueValue = state.counterValue();
-    if (state.counter == -1 && counterValueValue > 0) {
+    if (state.counter == -1 && state.counterValue > 0) {
         state.counter = setInterval(() => {
-            let rest = --counterValueValue;
+            let rest = --state.counterValue;
             let min = Math.floor(rest / 60);
             let sec = Math.floor(rest % 60);
             seconds.textContent = sec.toString().padStart(2, '0');
@@ -156,4 +152,20 @@ export const startTimer = function(seconds, minutes, indicator) {
 
         }, 1000);
     }
+}
+
+export const resetTimer = function(seconds, minutes, indicator) {
+    clearInterval(state.counter);
+    state.counter = -1;
+    state.counterValue = state.pomodoro;
+    let min = Math.floor(state.counterValue / 60);
+    let sec = Math.floor(state.counterValue % 60);
+    seconds.textContent = sec.toString().padStart(2, '0');
+    minutes.textContent = min.toString().padStart(2, '0');
+    indicator.style.strokeDashoffset = 600 - (state.counterValue / state.pomodoro) * 600;
+}
+
+export const pauseTimer = function() {
+    clearInterval(state.counter);
+    state.counter = -1;
 }

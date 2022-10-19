@@ -82,8 +82,16 @@ const controlDeleteAllCompleted = function() {
 }
 
 const conrtolStartTimer = function(seconds, minutes, indicator) {
-    console.log(seconds, minutes, indicator);
+    // console.log(seconds, minutes, indicator);
     model.startTimer(seconds, minutes, indicator);
+}
+
+const controlResetTimer = function(seconds, minutes, indicator) {
+    model.resetTimer(seconds, minutes, indicator);
+}
+
+const controlPauseTimer = function() {
+    model.pauseTimer();
 }
 
 
@@ -111,5 +119,7 @@ const init = function() {
     tasksView._addHandlerDeleteAllCompleted(controlDeleteAllCompleted);
 
     timerView._addHandlerStartTimer(conrtolStartTimer);
+    timerView._addHandlerResetTimer(controlResetTimer);
+    timerView._addHandlerPauseTimer(controlPauseTimer);
 }
 init();

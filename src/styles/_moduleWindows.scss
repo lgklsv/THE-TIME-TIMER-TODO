@@ -22,6 +22,10 @@
     pointer-events: none;
 }
 
+.really-hidden {
+    display: none;
+}
+
 .hidden-submit {
     opacity: 0;
     width: 0;

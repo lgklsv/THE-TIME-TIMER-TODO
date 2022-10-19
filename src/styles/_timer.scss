@@ -50,6 +50,7 @@
 .indicator {
   stroke: var(--circle-color);
   z-index: 2;
+  transition: all 0.5s ease-in-out;
 }
 
 svg {
@@ -96,6 +97,9 @@ circle {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+  .start-stop-btn {
+    cursor: pointer;
+  }
 
   .timer-btn {
     padding: 0.5rem;
@@ -103,6 +107,7 @@ circle {
     text-align: center;
     button {
       font-size: 1.6rem;
+      pointer-events: none;
     }
   }
   .timer-icons {
