@@ -2,9 +2,9 @@ import listView from "./views/listView";
 import tasksView from "./views/tasksView";
 
 export const state = {
-    pomodoro: 25 * 60,
+    pomodoro: 0.1 * 60,
     counter: -1,
-    counterValue: 25 * 60,
+    counterValue: 0.1 * 60,
     shortBreak: 5 * 60,
     longBreak: 10 * 60,
     mode: 'pomodoro',
@@ -24,6 +24,8 @@ export const initLists = function() {
         initialList: true,
         completed: 0,
     });
+    document.querySelector('.minutes').textContent = state.pomodoro < 60 ? '00' : (Math.floor(state.pomodoro / 60)).toString().padStart(2, '0');
+    document.querySelector('.seconds').textContent = state.pomodoro < 60 ? (Math.floor(state.pomodoro)).toString().padStart(2, '0') : '00';
 }
 
 export const addList = function(list) {
@@ -41,6 +43,7 @@ export const addTask = function(taskObj) {
 
     taskObj.id = Math.random().toString(36);
     taskObj.checked = false;
+    taskObj.completedPom = 0;
     
     activeList.tasks.push(taskObj);
     
@@ -165,6 +168,15 @@ export const startTimer = function(seconds, minutes, indicator) {
 
             if (rest == 0) {
                 clearInterval(state.counter);
+                const curList = state.lists.find(obj => obj.active === true);
+                if(curList.tasks.length > 0) {
+                    const activeTask = curList.tasks.find(taskObj => taskObj.active === true);
+                    activeTask.completedPom++;
+                    tasksView.update(curList);
+                }
+                document.querySelector('.pause-btn').classList.add('really-hidden');
+                document.querySelector('.start-btn').classList.remove('really-hidden');
+                resetTimer(seconds, minutes, indicator);
             }
 
         }, 1000);

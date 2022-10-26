@@ -138,7 +138,7 @@ class TasksView extends View {
                         <p class="task-title${task.checked ? ' task-title-checked' : ''}">${task.taskName}</p>
                         <p class="task-subtitle">${task.subName}</p>
                     </div>
-                    <div class="task-counter">0/${task.estPom}</div>
+                    <div class="task-counter">${task.completedPom}/${task.estPom}</div>
                     <div class="task-settigs text-btn icon edit-task">
                         <i class="far fa-edit"></i>
                     </div>
