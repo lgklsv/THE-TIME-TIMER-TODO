@@ -9,7 +9,8 @@ export const state = {
     longBreak: 10 * 60,
     mode: 'pomodoro',
     lists: [],
-    theme: 'vscode',
+    theme: 'dark',
+    themes: ['dark', 'light', 'vscode', 'oneDark', 'playingCards', 'purple', 'coffee', 'strawberry'],
 
 }
 

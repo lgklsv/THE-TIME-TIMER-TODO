@@ -1,12 +1,6 @@
-// //////////////////////////////////////////////////////////
-// Theme switcher
-const toggleSwitch = document.querySelector('#themeSwitcher');
-function switchTheme(e) {
-    if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'coffee');
-    }
-    else {
-        document.documentElement.setAttribute('data-theme', 'playingCards');
-    } 
-};
-toggleSwitch.addEventListener('change', switchTheme, false);
+export const formatFromCamel = function(name) {
+    let formatedName = name.replace(/([A-Z])/g, ' $1');
+    formatedName = formatedName.toLowerCase();
+    formatedName = formatedName[0].toUpperCase() + formatedName.slice(1);
+    return formatedName;
+}

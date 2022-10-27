@@ -6,6 +6,7 @@
   margin-bottom: 1rem;
   align-items: center;
 }
+
 .timer-btn {
   padding: 1rem;
   text-align: center;
@@ -14,6 +15,7 @@
   width: 120px;
   justify-self: center;
   cursor: pointer;
+
   button {
     // font-size: clamp(0.75rem, 1.1vw, 1.5rem);
     font-size: 1rem;
@@ -27,6 +29,7 @@
 .active-timer-btn {
   box-shadow: 0px 0px 0px 5px var(--active-color);
   background-color: var(--background-color-secondary);
+
   button {
     background-color: var(--background-color-secondary);
     color: var(--active-color);
@@ -35,6 +38,7 @@
 .timer-btn:hover {
   background-color: var(--active-color);
   box-shadow: 0px 0px 0px 1px var(--active-color);
+
   button {
     background-color: var(--active-color);
     color: var(--background-color-primary);
@@ -43,9 +47,7 @@
 
 // Middle
 .timer-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   height: 63%;
 }
 
@@ -74,21 +76,18 @@ circle {
 }
 
 .timer-numbers-container {
+  @include flex-center;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 5rem ;
   font-weight: 500;
   position: absolute;
   z-index: -1;
+  color: var(--active-color);
 }
 
 .clock {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   position: relative;
   color: var(--light-color);
   width: 100%;
@@ -99,6 +98,7 @@ circle {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+
   .start-stop-btn {
     cursor: pointer;
   }
@@ -107,11 +107,13 @@ circle {
     padding: 0.5rem;
     width: 180px;
     text-align: center;
+
     button {
       font-size: 1.6rem;
       pointer-events: none;
     }
   }
+
   .timer-icons {
     margin: auto 0px;
     margin-left: 15px;

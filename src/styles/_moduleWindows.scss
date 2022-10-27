@@ -86,7 +86,15 @@ input[type="text"]:focus {
     color: var(--active-color);
 }
 
-.name-input, .edit-list-input, .edit-list-input_active, .edit-task-input, .edit-task-Subtitle-input, .edit-task-Subtitle-input_active, .edit-task-input_active, .edit-est-pom-input, .edit-est-pom-input_active {
+.name-input, 
+.edit-list-input, 
+.edit-list-input_active, 
+.edit-task-input, 
+.edit-task-Subtitle-input, 
+.edit-task-Subtitle-input_active, 
+.edit-task-input_active, 
+.edit-est-pom-input, 
+.edit-est-pom-input_active {
     width: 83%;
     border: none;
     border-radius: 5px;
@@ -97,12 +105,14 @@ input[type="text"]:focus {
     pointer-events: all;
 }
 
-.edit-task-input, .edit-task-input_active {
+.edit-task-input, 
+.edit-task-input_active {
     background: var(--light-color);
     color: var(--active-color);
 }
 
-.edit-task-Subtitle-input, .edit-task-Subtitle-input_active {
+.edit-task-Subtitle-input, 
+.edit-task-Subtitle-input_active {
     background: var(--light-color);
     color: var(--active-color);
     height: 15px;
@@ -111,12 +121,15 @@ input[type="text"]:focus {
     font-size: 12px;
 }
 
-.edit-task-input_active:focus, .edit-task-Subtitle-input_active:focus, .edit-est-pom-input_active:focus {
+.edit-task-input_active:focus, 
+.edit-task-Subtitle-input_active:focus, 
+.edit-est-pom-input_active:focus {
     outline: none !important;
     box-shadow: 0 0 0 2px var(--background-color-primary) !important;
 }
 
-.edit-est-pom-input, .edit-est-pom-input_active {
+.edit-est-pom-input, 
+.edit-est-pom-input_active {
     background: var(--light-color);
     color: var(--active-color);
 }
@@ -141,7 +154,9 @@ input[type="text"]:focus {
     margin-left: 6px;
 }
 
-.est-pom-input, .edit-est-pom-input, .edit-est-pom-input_active {
+.est-pom-input, 
+.edit-est-pom-input, 
+.edit-est-pom-input_active {
     outline: none;
     width: 15%;
     padding-bottom: 5px;  
@@ -176,7 +191,10 @@ input[type="text"]:focus {
     color: var(--light-color);
 }
 
-.fa-caret-down, .fa-caret-up, .fa-edit, .fa-trash-alt {
+.fa-caret-down, 
+.fa-caret-up, 
+.fa-edit, 
+.fa-trash-alt {
     pointer-events: none;
 }
 
@@ -194,18 +212,22 @@ input::-webkit-inner-spin-button {
     margin: 0; 
 }
 
-#list-imput-label, #task-imput-label, #task-est-pomodoros {
+#list-imput-label, 
+#task-imput-label, 
+#task-est-pomodoros {
     color: var(--active-color);
     margin-right: 10px;
 }
 
-.add-list-control-btns, .add-task-control-btns {
+.add-list-control-btns, 
+.add-task-control-btns {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.list-name-btn, .task-name-btn{
+.list-name-btn, 
+.task-name-btn{
     width: 60px;
     height: 21px;
     border: 1px solid var(--light-color);
@@ -218,46 +240,14 @@ input::-webkit-inner-spin-button {
 
 // LIST DROPDOWN MENU
 .dropdown-list-settings {
-    list-style: none;
-    width: 49%;
-    background-color: var(--background-color-secondary);
-    border: 1px solid var(--light-color);
-    border-radius: 5px;
-    color: white;
-    position: absolute;
+    @include dropdown;
     top: 40px;
+    width: 49%;
     left: 50%;
-    padding: 5px;
-    z-index: 10;
 
     .list-setting {
-        color: var(--active-color);
-        font-size: 0.8rem;
-        margin-top: 5px;
-        padding: 2px;
-        padding-left: 5px;
-        border-radius: 5px;
-        cursor: pointer;
-
-        &:hover {
-            background-color: var(--circle-color);
-            color: var(--active-text-color);
-        }
-
-        &:first-child {
-            margin-top: 0;
-        }
+        @include dropdown-item;
     }
-
-    // &::before {
-    //     content: '';
-    //     position: absolute;
-    //     top: -20px;
-    //     left: 60%;
-    //     transform: translateX(-50%);
-    //     border: 10px solid;
-    //     border-color: transparent transparent var(--background-color-secondary) transparent;
-    // }
 }
 
 // edit task
@@ -286,4 +276,15 @@ input::-webkit-inner-spin-button {
 #delete-task_mod {
     padding-bottom: 0;
     pointer-events: all;
+}
+
+.dropdown-themes {
+    @include dropdown;
+    width: 200px;
+    left: 76.1%;
+    top: 60px;
+
+    .theme-item {
+        @include dropdown-item;
+    }
 }

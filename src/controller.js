@@ -8,7 +8,7 @@ import tasksView from './views/tasksView';
 import * as helpers from './helpers.js';
 import addTaskView from './views/addTaskView';
 import timerView from './views/timerView';
-
+import menuView from './views/menuView';
 
 
 const controlAddLists = function(newList) {
@@ -93,25 +93,36 @@ const controlPauseTimer = function() {
     model.pauseTimer();
 }
 
-const controleTimerMode = function(mode, seconds, minutes, indicator) {
+const controlTimerMode = function(mode, seconds, minutes, indicator) {
     model.setMode(mode);
     model.resetTimer(seconds, minutes, indicator);
 
     if(mode == 'pomodoro') {
-        minutes.textContent = (model.state.pomodoro / 60).toString().padStart(2, '0');
+        minutes.textContent = model.state.pomodoro < 60 ? '00' : (Math.floor(model.state.pomodoro / 60)).toString().padStart(2, '0');
+        seconds.textContent = model.state.pomodoro < 60 ? (Math.floor(model.state.pomodoro)).toString().padStart(2, '0') : '00';
     }
     if(mode == 'short-break') {
-        minutes.textContent = (model.state.shortBreak / 60).toString().padStart(2, '0');
+        minutes.textContent = model.state.shortBreak < 60 ? '00' : (Math.floor(model.state.shortBreak / 60)).toString().padStart(2, '0');
+        seconds.textContent = model.state.shortBreak < 60 ? (Math.floor(model.state.shortBreak)).toString().padStart(2, '0') : '00';
     }
     if(mode == 'long-break') {
-        minutes.textContent = (model.state.longBreak / 60).toString().padStart(2, '0');
+        minutes.textContent = model.state.longBreak < 60 ? '00' : (Math.floor(model.state.longBreak / 60)).toString().padStart(2, '0');
+        seconds.textContent = model.state.longBreak < 60 ? (Math.floor(model.state.longBreak)).toString().padStart(2, '0') : '00';
     }
 }
 
+const controlThemeSwitch = function() {
+    menuView.render(model.state.themes);
+}
 
+const controlChangeTheme = function(theme) {
+    model.state.theme = theme;
+}
+ 
 // ///////////////
 // TEMPORARY INIT
 const initRendelLists = function() {
+    document.documentElement.setAttribute('data-theme', model.state.theme);
     model.initLists();
     listView.render(model.state.lists);
     tasksView.render(model.state.lists[0]);
@@ -135,6 +146,11 @@ const init = function() {
     timerView._addHandlerStartTimer(conrtolStartTimer);
     timerView._addHandlerResetTimer(controlResetTimer);
     timerView._addHandlerPauseTimer(controlPauseTimer);
-    timerView._addHandlerChangeMode(controleTimerMode);
+    timerView._addHandlerChangeMode(controlTimerMode);
+
+    menuView._addHandlerShowThemes(controlThemeSwitch);
+    menuView._addHandlerChangeTheme(controlChangeTheme);
+
+
 }
 init();

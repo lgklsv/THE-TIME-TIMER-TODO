@@ -1,4 +1,5 @@
 @import 'colorConfig';
+@import 'snippets';
 @import 'navbar';
 @import 'timer';
 @import 'tasks';
@@ -20,6 +21,10 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
+body {
+  overflow: hidden;
+}
+
 button,
 .text-btn,
 .timer-btn,
@@ -39,12 +44,10 @@ button,
 
 // icons + text
 .text-btn {
+  @include flex-center;
   font-size: 1.2rem;
   color: var(--light-color);
-  display: flex;
   text-decoration: none;
-  justify-content: center;
-  align-items: center;
   padding: 0.5em;
   height: 36px;
   width: 36px;

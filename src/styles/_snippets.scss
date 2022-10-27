@@ -1,0 +1,35 @@
+@mixin dropdown {
+    list-style: none;
+    background-color: var(--background-color-secondary);
+    border: 1px solid var(--light-color);
+    border-radius: 5px;
+    color: white;
+    position: absolute;
+    padding: 5px;
+    z-index: 10;
+}
+
+@mixin dropdown-item {
+    color: var(--active-color);
+    font-size: 0.8rem;
+    margin-top: 5px;
+    padding: 2px;
+    padding-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--circle-color);
+        color: var(--active-text-color);
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

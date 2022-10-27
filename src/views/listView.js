@@ -27,10 +27,16 @@ class ListView extends View {
             this._overlay.classList.toggle('hidden');
             e.target.parentElement.parentElement.nextElementSibling.classList.toggle('hidden');
         }
-        else if (e.target.classList.contains('transparentOverlay') || e.target.classList.contains('edit-list') || e.target.classList.contains('delete-list')) {
+        else if (e.target.classList.contains('transparentOverlay') 
+        || e.target.classList.contains('edit-list') 
+        || e.target.classList.contains('delete-list')
+        ){
             this._overlay.classList.toggle('hidden');
+            document.querySelector('.dropdown-themes').classList.add('hidden');
+
             const allListSettings = document.querySelectorAll('.dropdown-list-settings');
             const allSettingsIcons = document.querySelectorAll('.list-settings-icon');
+            
             allListSettings.forEach(item => {
                 if(!item.classList.contains('hidden')) {
                     item.classList.add('hidden');
