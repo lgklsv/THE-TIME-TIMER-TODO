@@ -65,7 +65,6 @@ class AddTaskView extends View {
 
             if(!data.taskName) return;
             if(!data.estPom) return;
-            // console.log(data);
             handler(data);
         })
     }

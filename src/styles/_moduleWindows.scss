@@ -1,6 +1,7 @@
 .overlay, 
 .taskOverlay, 
-.transparentOverlay {
+.transparentOverlay,
+.settings-overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -10,7 +11,9 @@
     transition: 200ms ease-in-out;
 }
 
-.overlay, .taskOverlay {
+.overlay, 
+.taskOverlay,
+.settings-overlay{
     background-color: rgba(0, 0, 0, .5);
     z-index: 6;
 }
@@ -43,7 +46,9 @@ input[type="text"]:focus {
     box-shadow: 0 0 0 2px var(--circle-color);
 }
 
-.add-list-window, .add-task-window {
+.add-list-window, 
+.add-task-window, 
+.add-settings-window {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -60,7 +65,9 @@ input[type="text"]:focus {
     transform: translate(-50%, -50%) scale(1);
 }
 
-.upload, .uploadTask {
+.upload, 
+.uploadTask,
+.upload-settings {
     padding: 20px;
 }
 
@@ -81,9 +88,10 @@ input[type="text"]:focus {
     outline: none;
     pointer-events: all;
 }
+
 .upload-heading {
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-bottom: 15px;
     color: var(--active-color);
 }
@@ -216,7 +224,8 @@ input::-webkit-inner-spin-button {
 
 #list-imput-label, 
 #task-imput-label, 
-#task-est-pomodoros {
+#task-est-pomodoros,
+.timers-settings__heading {
     color: var(--active-color);
     margin-right: 10px;
 }
@@ -228,8 +237,7 @@ input::-webkit-inner-spin-button {
     align-items: center;
 }
 
-.list-name-btn, 
-.task-name-btn{
+.upload-btn {
     width: 60px;
     height: 21px;
     border: 1px solid var(--light-color);
@@ -289,4 +297,42 @@ input::-webkit-inner-spin-button {
     .theme-item {
         @include dropdown-item;
     }
+}
+
+.timers-settings__numbers {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.timers-settings  {
+    @include flex-center;
+}
+
+.timers-settings__input {
+    margin-top: 8px;
+    width: 50%;
+    outline: none;
+    margin-bottom: 5px;
+    &:focus {
+        box-shadow: 0 0 0 2px var(--circle-color);
+    }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        background: var(--light-color) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAKUlEQVQYlWNgwAT/sYhhKPiPT+F/LJgEsHv37v+EMGkmkuImoh2NoQAANlcun/q4OoYAAAAASUVORK5CYII=) no-repeat center center;
+        width: 1.1rem;
+        opacity: .5;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+    }
+}
+
+.timers-settings__subheading {
+    color: var(--light-color);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
 }
