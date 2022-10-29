@@ -190,25 +190,25 @@
       </form>
     </div>
 
-    <div class="settings-overlay"></div>
-    <div class="add-settings-window active">
+    <div class="settings-overlay hidden"></div>
+    <div class="add-settings-window">
       <form class="upload-settings" novalidate>
         <h3 class="upload-heading">Timers:</h3>
 
         <div class="timers-settings"> 
           <div class="timers-settings__numbers">
             <label class="timers-settings__heading">Pomodoro</label>
-            <input type="number" value="25" min="0" class="name-input timers-settings__input" required name="pomodoro">
+            <input id="pomodoro-input" type="number" value="25" min="0" class="name-input timers-settings__input" required name="pomodoro">
             <label class="timers-settings__subheading">minutes</label>
           </div>
           <div class="timers-settings__numbers">
             <label class="timers-settings__heading">Short Break</label>
-            <input type="number" value="5" min="0" class="name-input timers-settings__input" required name="shortBreak">
+            <input id="shortbreak-input" type="number" value="5" min="0" class="name-input timers-settings__input" required name="shortBreak">
             <label class="timers-settings__subheading">minutes</label>
           </div>
           <div class="timers-settings__numbers">
             <label class="timers-settings__heading">Long Break</label>
-            <input type="number" value="10" min="0" class="name-input timers-settings__input" required name="longBreak">
+            <input id="longbreak-input" type="number" value="10" min="0" class="name-input timers-settings__input" required name="longBreak">
             <label class="timers-settings__subheading">minutes</label>
           </div>
         </div>
@@ -217,7 +217,7 @@
 
         <div class="add-task-control-btns">
           <button class="settings-name-btn cancel-settings-btn upload-btn">Cancel</button>
-          <button type="submit" class="settings-name-btn upload-btn">Ok</button>
+          <button type="submit" class="settings-name-btn submit-settings-btn upload-btn">Ok</button>
         </div>
       </form>
     </div>

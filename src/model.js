@@ -179,7 +179,6 @@ export const startTimer = function(seconds, minutes, indicator) {
                 document.querySelector('.start-btn').classList.remove('really-hidden');
                 resetTimer(seconds, minutes, indicator);
             }
-
         }, 1000);
     }
 }
@@ -214,3 +213,10 @@ export const setMode =  function(mode) {
         state.counterValue = state.longBreak;
     }
 } 
+
+export const setSettings = function(data) {
+    state.pomodoro = +data.pomodoro * 60;
+    state.counterValue = +data.pomodoro * 60;
+    state.shortBreak = +data.shortBreak * 60;
+    state.longBreak = +data.longBreak * 60;
+}
