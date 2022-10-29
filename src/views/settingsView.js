@@ -20,7 +20,6 @@ class SettingsView extends View {
     }
 
     toggleWindow(e) {
-        console.log(e.target);
         this._btnOpen.classList.add('rotate');
         setTimeout(() => this._btnOpen.classList.remove('rotate'), 500);
         if(e.target.classList.contains('fa-gear')) {
@@ -68,6 +67,8 @@ class SettingsView extends View {
             let seconds = document.querySelector('.seconds');
             let minutes = document.querySelector('.minutes');
             let indicator = document.querySelector('.indicator');
+            document.querySelector('.pause-btn').classList.add('really-hidden');
+            document.querySelector('.start-btn').classList.remove('really-hidden');
             if(!data.pomodoro) return;
             if(!data.shortBreak) return;
             if(!data.longBreak) return;

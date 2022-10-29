@@ -1,5 +1,6 @@
 import listView from "./views/listView";
 import tasksView from "./views/tasksView";
+import * as helpers from './helpers.js';
 
 export const state = {
     pomodoro: 0.1 * 60,
@@ -155,6 +156,19 @@ const checkMode = function() {
     return curTimer;
 }
 
+export const setMode =  function(mode) {
+    state.mode = mode;
+    if(mode == 'pomodoro') {
+        state.counterValue = state.pomodoro;
+    }
+    if(mode == 'short-break') {
+        state.counterValue = state.shortBreak;
+    }
+    if(mode == 'long-break') {
+        state.counterValue = state.longBreak;
+    }
+} 
+
 export const startTimer = function(seconds, minutes, indicator) {
     let curTimer = checkMode();
 
@@ -174,6 +188,14 @@ export const startTimer = function(seconds, minutes, indicator) {
                     const activeTask = curList.tasks.find(taskObj => taskObj.active === true);
                     activeTask.completedPom++;
                     tasksView.update(curList);
+                }
+                if (state.mode == 'pomodoro') {
+                    state.mode = 'short-break';
+                    helpers.activateTimerBtn(document.getElementById('short-break'));
+                }
+                else if (state.mode == 'short-break') {
+                    state.mode = 'pomodoro';
+                    helpers.activateTimerBtn(document.getElementById('pomodoro'));
                 }
                 document.querySelector('.pause-btn').classList.add('really-hidden');
                 document.querySelector('.start-btn').classList.remove('really-hidden');
@@ -200,19 +222,6 @@ export const pauseTimer = function() {
     clearInterval(state.counter);
     state.counter = -1;
 }
-
-export const setMode =  function(mode) {
-    state.mode = mode;
-    if(mode == 'pomodoro') {
-        state.counterValue = state.pomodoro;
-    }
-    if(mode == 'short-break') {
-        state.counterValue = state.shortBreak;
-    }
-    if(mode == 'long-break') {
-        state.counterValue = state.longBreak;
-    }
-} 
 
 export const setSettings = function(data) {
     state.pomodoro = +data.pomodoro * 60;
