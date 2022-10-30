@@ -26,6 +26,14 @@ export const state = {
 
 // ///////////////
 // TEMPORARY INIT
+const getMin = function(timer) {
+    return timer < 60 ? '00' : (Math.floor(timer / 60)).toString().padStart(2, '0')
+}
+
+const getSec = function(timer) {
+    return timer < 60 ? (Math.floor(timer)).toString().padStart(2, '0') : '00'
+}
+
 export const initLists = function() {
     state.lists.push({
         listName: 'Today',
@@ -35,8 +43,8 @@ export const initLists = function() {
         initialList: true,
         completed: 0,
     });
-    document.querySelector('.minutes').textContent = state.pomodoro < 60 ? '00' : (Math.floor(state.pomodoro / 60)).toString().padStart(2, '0');
-    document.querySelector('.seconds').textContent = state.pomodoro < 60 ? (Math.floor(state.pomodoro)).toString().padStart(2, '0') : '00';
+    document.querySelector('.minutes').textContent = getMin(state.pomodoro);
+    document.querySelector('.seconds').textContent = getSec(state.pomodoro);
 }
 
 export const addList = function(list) {
@@ -169,14 +177,23 @@ export const setMode =  function(mode) {
     state.mode = mode;
     if(mode == 'pomodoro') {
         state.counterValue = state.pomodoro;
+        setTitle(getSec(state.pomodoro), getMin(state.pomodoro));
     }
     if(mode == 'short-break') {
         state.counterValue = state.shortBreak;
+        setTitle(getSec(state.shortBreak), getMin(state.shortBreak));
     }
     if(mode == 'long-break') {
         state.counterValue = state.longBreak;
+        setTitle(getSec(state.longBreak), getMin(state.longBreak));
     }
 } 
+
+export const setTitle = function(sec, min) {
+    let formatedSec = sec.toString().padStart(2, '0');
+    let formatedMin = min.toString().padStart(2, '0');
+    document.title = `${formatedMin}:${formatedSec} | THE TIME TIMER + TODO`;
+}
 
 export const startTimer = function(seconds, minutes, indicator) {
     let curTimer = checkMode();
@@ -186,6 +203,7 @@ export const startTimer = function(seconds, minutes, indicator) {
             let rest = --state.counterValue;
             let min = Math.floor(rest / 60);
             let sec = Math.floor(rest % 60);
+            setTitle(sec, min);
             seconds.textContent = sec.toString().padStart(2, '0');
             minutes.textContent = min.toString().padStart(2, '0');
             indicator.style.strokeDashoffset = 600 - (rest / curTimer) * 600;
@@ -243,6 +261,7 @@ export const resetTimer = function(seconds, minutes, indicator) {
     state.counterValue = curTimer;
     let min = Math.floor(state.counterValue / 60);
     let sec = Math.floor(state.counterValue % 60);
+    setTitle(sec, min);
     seconds.textContent = sec.toString().padStart(2, '0');
     minutes.textContent = min.toString().padStart(2, '0');
     indicator.style.strokeDashoffset = 600 - (state.counterValue / curTimer) * 600;
@@ -258,5 +277,4 @@ export const setSettings = function(data) {
     state.counterValue = +data.pomodoro * 60;
     state.shortBreak = +data.shortBreak * 60;
     state.longBreak = +data.longBreak * 60;
-    
 }
