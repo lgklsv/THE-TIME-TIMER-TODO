@@ -1,6 +1,7 @@
 import listView from "./views/listView";
 import tasksView from "./views/tasksView";
 import * as helpers from './helpers.js';
+import audio from './audio/pomodoro-complete.mp3';
 
 export const state = {
     pomodoro: 0.1 * 60,
@@ -14,6 +15,7 @@ export const state = {
     themes: ['dark', 'light', 'vscode', 'oneDark', 'playingCards', 'purple', 'coffee', 'strawberry'],
     dots: 0,
     longBreakCounter: 4,
+    completeAudio: new Audio(audio),
 }
 
 // ///////////////
@@ -194,6 +196,7 @@ export const startTimer = function(seconds, minutes, indicator) {
                 if (state.mode == 'pomodoro' && state.dots != 4) {
                     state.mode = 'short-break';
                     state.dots++;
+                    state.completeAudio.play();
                     console.log(state.dots);
                     for(let i = 0; i < state.dots; i++) {
                         dotsArr[i].classList.add('dot_active');
@@ -202,15 +205,22 @@ export const startTimer = function(seconds, minutes, indicator) {
                 }
                 else if (state.mode == 'short-break') {
                     state.mode = 'pomodoro';
+                    state.completeAudio.play();
                     helpers.activateTimerBtn(document.getElementById('pomodoro'));
                 }
                 else if (state.mode == 'pomodoro' && state.dots == state.longBreakCounter) {
                     state.mode = 'long-break';
+                    state.completeAudio.play();
                     helpers.activateTimerBtn(document.getElementById('long-break'));
                     for(let i = 0; i < state.dots; i++) {
                         dotsArr[i].classList.remove('dot_active');
                     }
                     state.dots = 0; 
+                }
+                else if (state.mode == 'long-break') {
+                    state.mode = 'pomodoro';
+                    state.completeAudio.play();
+                    helpers.activateTimerBtn(document.getElementById('pomodoro'));
                 }
                 document.querySelector('.pause-btn').classList.add('really-hidden');
                 document.querySelector('.start-btn').classList.remove('really-hidden');

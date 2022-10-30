@@ -217,8 +217,24 @@
             <label class="timers-settings__subheading">minutes</label>
           </div>
         </div>
-        <h3 class="upload-heading">Sounds:</h3>
-        <h3 class="timers-settings__subheading">COMING SOON...</h3>
+        <h3 class="upload-heading sounds-heading">Sounds:</h3>
+        <div class="timer-sounds">
+          <h3 class="timers-settings__heading">Select alarm sound:</h3>
+          <select name="sound" id="timer-sound" class="timers-settings__sound">
+            <option value="first">First</option>
+            <option value="sec">sec</option>
+            <option value="third">third</option>
+            <option value="forth">forth</option>
+          </select>
+          <div class="timer-volume">
+            <div class="timer-volume__container">
+              <h3 class="timers-settings__heading">Alarm volume:</h3><span class="timer-volume__cur">53</span>
+            </div>
+            <input type="range" id="timer-volume">
+          </div>
+        </div>
+        
+        
 
         <div class="add-task-control-btns">
           <button class="settings-name-btn cancel-settings-btn upload-btn">Cancel</button>
