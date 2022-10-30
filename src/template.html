@@ -221,21 +221,19 @@
         <div class="timer-sounds">
           <h3 class="timers-settings__heading">Select alarm sound:</h3>
           <select name="sound" id="timer-sound" class="timers-settings__sound">
-            <option value="first">First</option>
-            <option value="sec">sec</option>
-            <option value="third">third</option>
-            <option value="forth">forth</option>
+            <option value="0">Original</option>
+            <option value="1">Doorbell</option>
+            <option value="2">Done</option>
+            <option value="3">Clicking</option>
           </select>
           <div class="timer-volume">
             <div class="timer-volume__container">
-              <h3 class="timers-settings__heading">Alarm volume:</h3><span class="timer-volume__cur">53</span>
+              <h3 class="timers-settings__heading">Alarm volume:</h3><span class="timer-volume__cur"></span>
             </div>
-            <input type="range" id="timer-volume">
+            <input type="range" id="timer-volume" value="50">
           </div>
         </div>
         
-        
-
         <div class="add-task-control-btns">
           <button class="settings-name-btn cancel-settings-btn upload-btn">Cancel</button>
           <button type="submit" class="settings-name-btn submit-settings-btn upload-btn">Ok</button>

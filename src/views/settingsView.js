@@ -11,12 +11,17 @@ class SettingsView extends View {
     _pomodoroInput = document.getElementById('pomodoro-input');
     _shortBreakInput = document.getElementById('shortbreak-input');
     _longBreakInput = document.getElementById('longbreak-input');
+    _volumeInput = document.getElementById('timer-volume');
+    _curVolumeIndic = document.querySelector('.timer-volume__cur');
+    _selectVolumeInput = document.getElementById('timer-sound');
 
     constructor() {
         super();
         this._addHandlerShowWindow();
         this._addHandlerHideWindow();
         this._addHanderInputControls();
+        this._addHandlerVolume();
+        this._addHandlerChangeSound();
     }
 
     toggleWindow(e) {
@@ -56,6 +61,27 @@ class SettingsView extends View {
         this._pomodoroInput.addEventListener('keyup', this.validateInput.bind(this, pomInput));
         this._shortBreakInput.addEventListener('keyup', this.validateInput.bind(this, shortInput));
         this._longBreakInput.addEventListener('keyup', this.validateInput.bind(this, longInput));
+    }
+
+    showVolumeChange(e) {
+        let curVolumeValue = e.target.value;
+        this._curVolumeIndic.textContent = curVolumeValue;
+        
+        state.completeAudio.volume = curVolumeValue / 100;
+        state.completeAudio.play();
+    }
+
+    _addHandlerVolume() {
+        this._volumeInput.addEventListener('input', this.showVolumeChange.bind(this));
+    }
+
+    _addHandlerChangeSound() {
+        this._selectVolumeInput.addEventListener('change', function(e) {
+            let sound = e.target.value;
+            if(!state.audios[+sound]) return;
+            state.completeAudio = state.audios[+sound];
+            state.completeAudio.play();
+        })
     }
 
     _addHandlerUploadNewTask(handler) {

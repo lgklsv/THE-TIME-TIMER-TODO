@@ -115,7 +115,15 @@ const controlSettings = function(data, seconds, minutes, indicator) {
 // ///////////////
 // TEMPORARY INIT
 const initRendelLists = function() {
+    // timer alarm init
+    model.state.completeAudio.volume = model.state.alarmVolume / 100;
+    document.getElementById('timer-volume').value = model.state.alarmVolume;
+    document.querySelector('.timer-volume__cur').textContent = model.state.alarmVolume;
+
+    // theme init
     document.documentElement.setAttribute('data-theme', model.state.theme);
+
+    // lists init
     model.initLists();
     listView.render(model.state.lists);
     tasksView.render(model.state.lists[0]);

@@ -1,7 +1,11 @@
 import listView from "./views/listView";
 import tasksView from "./views/tasksView";
 import * as helpers from './helpers.js';
-import audio from './audio/pomodoro-complete.mp3';
+import original from './audio/original.mp3';
+import doorbell from './audio/doorbell.mp3';
+import done from './audio/done.mp3';
+import clicking from './audio/clicking.mp3';
+
 
 export const state = {
     pomodoro: 0.1 * 60,
@@ -15,7 +19,9 @@ export const state = {
     themes: ['dark', 'light', 'vscode', 'oneDark', 'playingCards', 'purple', 'coffee', 'strawberry'],
     dots: 0,
     longBreakCounter: 4,
-    completeAudio: new Audio(audio),
+    completeAudio: new Audio(original),
+    audios: [new Audio(original), new Audio(doorbell), new Audio(done), new Audio(clicking)],
+    alarmVolume: 100,
 }
 
 // ///////////////
@@ -197,7 +203,6 @@ export const startTimer = function(seconds, minutes, indicator) {
                     state.mode = 'short-break';
                     state.dots++;
                     state.completeAudio.play();
-                    console.log(state.dots);
                     for(let i = 0; i < state.dots; i++) {
                         dotsArr[i].classList.add('dot_active');
                     }
@@ -253,4 +258,5 @@ export const setSettings = function(data) {
     state.counterValue = +data.pomodoro * 60;
     state.shortBreak = +data.shortBreak * 60;
     state.longBreak = +data.longBreak * 60;
+    
 }

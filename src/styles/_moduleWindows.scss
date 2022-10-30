@@ -356,7 +356,7 @@ input::-webkit-inner-spin-button {
     margin-left: 10px;
     background: var(--light-color) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAKUlEQVQYlWNgwAT/sYhhKPiPT+F/LJgEsHv37v+EMGkmkuImoh2NoQAANlcun/q4OoYAAAAASUVORK5CYII=) no-repeat 95% 50%;
     background-color: var(--background-color-secondary);
-    height: 24px;
+    height: 30px;
     border: none;
     border-radius: 5px;
     width: 20%;
@@ -372,7 +372,9 @@ input::-webkit-inner-spin-button {
     margin-left: 1rem;
 
     .timer-volume__container {
-        @include flex-center;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
 
         .timer-volume__cur {
             color: var(--active-color);
@@ -381,13 +383,13 @@ input::-webkit-inner-spin-button {
 
     #timer-volume {
         -webkit-appearance: none; 
-        width: 100%; 
+        width: 130px; 
         background: transparent; 
         &::-webkit-slider-thumb {
             -webkit-appearance: none; 
         }
         &::-ms-track {
-            width: 100%;
+            width: 130px; 
             cursor: pointer;
             background: transparent; 
             border-color: transparent;
