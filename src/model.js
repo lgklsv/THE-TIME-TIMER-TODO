@@ -1,10 +1,10 @@
 import listView from "./views/listView";
 import tasksView from "./views/tasksView";
 import * as helpers from './helpers.js';
-import original from './audio/original.mp3';
-import doorbell from './audio/doorbell.mp3';
-import done from './audio/done.mp3';
-import clicking from './audio/clicking.mp3';
+import original from './assets/audio/original.mp3';
+import doorbell from './assets/audio/doorbell.mp3';
+import done from './assets/audio/done.mp3';
+import clicking from './assets/audio/clicking.mp3';
 
 
 export const state = {
