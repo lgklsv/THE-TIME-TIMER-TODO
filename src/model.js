@@ -12,7 +12,8 @@ export const state = {
     lists: [],
     theme: 'light',
     themes: ['dark', 'light', 'vscode', 'oneDark', 'playingCards', 'purple', 'coffee', 'strawberry'],
-
+    dots: 0,
+    longBreakCounter: 4,
 }
 
 // ///////////////
@@ -184,18 +185,32 @@ export const startTimer = function(seconds, minutes, indicator) {
             if (rest == 0) {
                 clearInterval(state.counter);
                 const curList = state.lists.find(obj => obj.active === true);
+                const dotsArr = Array.from(document.querySelectorAll('.dot'));
                 if(curList.tasks.length > 0) {
                     const activeTask = curList.tasks.find(taskObj => taskObj.active === true);
                     activeTask.completedPom++;
                     tasksView.update(curList);
                 }
-                if (state.mode == 'pomodoro') {
+                if (state.mode == 'pomodoro' && state.dots != 4) {
                     state.mode = 'short-break';
+                    state.dots++;
+                    console.log(state.dots);
+                    for(let i = 0; i < state.dots; i++) {
+                        dotsArr[i].classList.add('dot_active');
+                    }
                     helpers.activateTimerBtn(document.getElementById('short-break'));
                 }
                 else if (state.mode == 'short-break') {
                     state.mode = 'pomodoro';
                     helpers.activateTimerBtn(document.getElementById('pomodoro'));
+                }
+                else if (state.mode == 'pomodoro' && state.dots == state.longBreakCounter) {
+                    state.mode = 'long-break';
+                    helpers.activateTimerBtn(document.getElementById('long-break'));
+                    for(let i = 0; i < state.dots; i++) {
+                        dotsArr[i].classList.remove('dot_active');
+                    }
+                    state.dots = 0; 
                 }
                 document.querySelector('.pause-btn').classList.add('really-hidden');
                 document.querySelector('.start-btn').classList.remove('really-hidden');

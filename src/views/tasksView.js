@@ -81,9 +81,7 @@ class TasksView extends View {
 
     _addHandlerDeleteAllCompleted(handler) {
         this._deleteCompletedBtn.addEventListener('click', function(e) {
-            console.log(e.target);
             handler();
-
         })
     }
  
