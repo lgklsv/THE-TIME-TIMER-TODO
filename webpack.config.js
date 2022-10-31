@@ -7,9 +7,11 @@ module.exports = {
     mode: 'development',
     entry: {
         bundle: path.resolve(__dirname, 'src/controller.js'),
+        about: path.resolve(__dirname, 'src/about.js')
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
+        publicPath: "/",
         filename: '[name][contenthash].js' ,
         clean: true,
         assetModuleFilename: '[name][ext]',
@@ -52,14 +54,21 @@ module.exports = {
             {
                 test:/\.mp3$/,
                 use: ['file-loader'],
-            }
+            },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin ({
             title: 'THE TIME TIMER + TODO',
             filename: 'index.html',
-            template: 'src/template.html',
+            template: 'src/pages/app.html',
+            chunks: ['bundle']
+        }),
+        new HtmlWebpackPlugin ({
+            title: 'THE TIME TIMER + TODO',
+            filename: 'about.html',
+            template: 'src/pages/about.html',
+            chunks: ['about']
         }),
         new MiniCssExtractPlugin(),
         new FaviconsWebpackPlugin({
