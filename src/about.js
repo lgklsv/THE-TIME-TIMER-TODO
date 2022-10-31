@@ -25,10 +25,8 @@ const controlChangeTheme = function(theme) {
 
 const init = function() {
     const storage = localStorage.getItem('theme');
-    console.log(storage);
     if(storage)  {
         themeState.theme = JSON.parse(storage);
-        console.log(themeState.theme);
     }
     const storage2 = localStorage.getItem('themes');
     if(storage)  {

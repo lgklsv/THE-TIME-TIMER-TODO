@@ -4,28 +4,7 @@
   display: grid;
   grid-template-columns: 2fr 0.55fr;
   gap: 2rem;
-
-  .logo {
-    color: var(--logo-color);
-    font-size: clamp(0.75rem, 1.53vw, 1.73rem);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    .logo-letter1 {
-      color: var(--logo-letter1);
-    }
-    .logo-letter2 {
-      color: var(--logo-letter2);
-    }
-    .logo-letter3 {
-      color: var(--logo-letter3);
-    }
-    .logo-letter4 {
-      color: var(--logo-letter4);
-    }
-  }
-
+  
   .menu {
     display: flex;
     justify-content: end;
@@ -35,5 +14,26 @@
       list-style: none;
       display: flex;
     }
+  }
+}
+
+.logo {
+  color: var(--logo-color);
+  font-size: clamp(0.75rem, 1.53vw, 1.73rem);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .logo-letter1 {
+    color: var(--logo-letter1);
+  }
+  .logo-letter2 {
+    color: var(--logo-letter2);
+  }
+  .logo-letter3 {
+    color: var(--logo-letter3);
+  }
+  .logo-letter4 {
+    color: var(--logo-letter4);
   }
 }

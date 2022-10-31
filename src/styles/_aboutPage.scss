@@ -1,5 +1,48 @@
+#about {
+    overflow: scroll;
+}
+
+#container_about {
+    justify-content: flex-start;
+}
+
 .logo-link {
     margin-top: auto;
     margin-bottom: auto;
     text-decoration: none;
+}
+
+.logo-text_about {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-bottom: 2rem;
+}
+
+.article {
+    margin: 0 auto;
+    max-width: 620px;
+    height: 100%;
+}
+
+.article__header {
+    color: var(--article-header-text-color);
+    font-size: 34px;
+    margin-bottom: 2rem;
+}
+
+.article__header_mid {
+    color: var(--article-header-text-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.article__text,
+.article-list__item {
+    color: var(--darken-color);
+    margin-bottom: 1rem;
+    line-height: 2rem;
+}
+
+.article-list {
+    margin-left: 2rem;
 }

@@ -3,9 +3,11 @@
   --background-color-primary: #313231;
   --background-color-secondary: #3a3b3b;
   --light-color: #5e6263;
+  --darken-color: hsl(192, 3%, 50%);
 
   --active-color: #f7f5f1;
   --active-text-color: #313231;
+  --article-header-text-color: #f7f5f1;
 
   --circle-color: #f7f5f1;
 
@@ -20,9 +22,11 @@
   --background-color-primary: #eeeeee;
   --background-color-secondary: #dddddd;
   --light-color: #b2b2b2;
+  --darken-color: hsl(0, 0%, 50%);
 
   --active-color: #444444;
   --active-text-color: #eeeeee;
+  --article-header-text-color: #444444;
 
   --circle-color: #444444;
 
@@ -37,9 +41,11 @@
   --background-color-primary: #1e1e1e;
   --background-color-secondary: #191919;
   --light-color: #4d4d4d;
+  --darken-color: hsl(0, 0%, 50%);
 
   --active-color: #d4d4d4;
   --active-text-color: #1e1e1e;
+  --article-header-text-color: #d4d4d4;
 
   --circle-color: #3478c6;
 
@@ -54,9 +60,11 @@
   --background-color-primary: #ffffff;
   --background-color-secondary: #ececec;
   --light-color: #b7b7b7;
+  --darken-color: hsl(0, 0%, 50%);
 
   --active-color: #000000;
   --active-text-color: #ffffff;
+  --article-header-text-color: #000000;
 
   --circle-color: #ea3323;
 
@@ -71,9 +79,11 @@
   --background-color-primary: #d5d3d6;
   --background-color-secondary: #c8bfc9;
   --light-color: #b09db3;
+  --darken-color: hsl(292, 13%, 50%);
 
   --active-color: #55225c;
   --active-text-color: #d5d3d6;
+  --article-header-text-color: #55225c;
 
   --circle-color: #55225c;
 
@@ -88,9 +98,11 @@
   --background-color-primary: #d9d3c3;
   --background-color-secondary: #c7c3b5;
   --light-color: #949082;
+  --darken-color: hsl(47, 8%, 50%);
 
   --active-color: #1d1b17;
   --active-text-color: #d9d3c3;
+  --article-header-text-color: #1d1b17;
 
   --circle-color: #1d1b17;
 
@@ -105,9 +117,11 @@
   --background-color-primary: #f6cace;
   --background-color-secondary: #e9bcbe;
   --light-color: #951d12;
+  --darken-color: hsl(5, 78%, 25%);
 
   --active-color: #ffffff;
   --active-text-color: #951d12;
+  --article-header-text-color: #ffffff;
 
   --circle-color: #ffffff;
 
@@ -122,9 +136,11 @@
   --background-color-primary: #30343e;
   --background-color-secondary: #272b33;
   --light-color: #edeff4;
-
+  --darken-color:	hsl(211, 74%, 69%);
+  
   --active-color: #74adea;
   --active-text-color: #edeff4;
+  --article-header-text-color: #edeff4;
 
   --circle-color: #74adea;
 

@@ -115,7 +115,13 @@ const controlSettings = function(data, seconds, minutes, indicator) {
  
 // ///////////////
 // TEMPORARY INIT
-const initRendelLists = function() {
+const initState = function() {
+    // Set theme form themeState
+    const storage = localStorage.getItem('theme');
+    if(storage)  {
+        model.state.theme = JSON.parse(storage);
+    }
+    
     // timer alarm init
     model.state.completeAudio.volume = model.state.alarmVolume / 100;
     document.getElementById('timer-volume').value = model.state.alarmVolume;
@@ -132,7 +138,7 @@ const initRendelLists = function() {
 }
 
 const init = function() {
-    initRendelLists();
+    initState();
     addListView._addHandlerUploadNewList(controlAddLists);
     addTaskView._addHandlerUploadNewTask(controlAddTask);
 

@@ -13,17 +13,15 @@
     />
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
-<body>
-    <div class="container">
+<body id="about">
+    <div class="container" id="container_about">
       <header>
         <nav class="navbar">
           <a href="/" class="logo-link" >
             <div class="logo">
               <h1 class="logo-text">
-                THE TIME TIMER + <span class="logo-letter1">T</span
-                ><span class="logo-letter2">O</span
-                ><span class="logo-letter3">D</span
-                ><span class="logo-letter4">O</span>
+                <i class="fa-solid fa-arrow-left"></i>
+                back to the app
               </h1>
             </div>
           </a>
@@ -39,10 +37,51 @@
                 </ul>
                 <div class="transparentOverlay hidden"></div>
               </li>
+              <li class="menu-item">
+                <a href="https://github.com/lgklsv/THE-TIME-TIMER-TODO" target="_blank" class="text-btn info">
+                  <div class="icon">
+                    <i class="fa-brands fa-github"></i>
+                  </div>
+                </a>
+              </li>
             </ul>
           </div>
         </nav>
       </header>
+      <main>
+        <div class="article">
+          <div class="logo">
+            <h1 class="logo-text logo-text_about">
+              THE TIME TIMER + <span class="logo-letter1">T</span
+              ><span class="logo-letter2">O</span
+              ><span class="logo-letter3">D</span
+              ><span class="logo-letter4">O</span>
+              - simple, minimalistic, aesthetic tool to boost your productivity
+            </h1>
+          </div>
+          <h3 class="article__header_mid">What is this app ?</h3>
+          <p class="article__text">THE TIME TIMER + TODO is a 2 in 1 app that has all the fucnctionality that is needed to get you into deep work state. This app is inspired by the book Atomic Habits by James Clear and the amazing products and aesthetic of Apple, Ye, Monkeytype and Balenciaga.</p>
+          <h3 class="article__header_mid">What is pomodoro technique ?</h3>
+          <p class="article__text">The Pomodoro Technique was developed in the late 1980s by then university student Francesco Cirillo. Cirillo was struggling to focus on his studies and complete assignments. Feeling overwhelmed, he asked himself to commit to just 10 minutes of focused study time. Encouraged by the challenge, he found a tomato (pomodoro in Italian) shaped kitchen timer, and the Pomodoro technique was born.</p>
+          <h3 class="article__header_mid">How to use THE TIME TIMER + TODO ?</h3>
+          <ol class="article-list">
+            <li class="article-list__item">Create some tasks for today or for your project</li>
+            <li class="article-list__item">Select a task to work on</li>
+            <li class="article-list__item">Set your timer for 25 minutes, and focus on a single task until the timer rings</li>
+            <li class="article-list__item">When your session ends, you will see one pomodoro completed on you active task and on the indicator just under the timer</li>
+            <li class="article-list__item">Then enjoy a five-minute break</li>
+            <li class="article-list__item">After four pomodoros, take a longer, more restorative 15-30 minute break. The timer will automaticaly switch for a long break</li>
+          </ol>
+        </div>
+      </main>
+      <footer>
+        <div class="footer-top">
+          THE TIME TIMER + TODO ENGINEERED BY LGKLSV
+        </div>
+        <div class="footer-bottom">
+          &#169 2022
+        </div>
+      </footer>
     </div>
 </body>
 </html>
