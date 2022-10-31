@@ -24,6 +24,11 @@ export const state = {
     alarmVolume: 100,
 }
 
+export const persistThemes = function() {
+    localStorage.setItem('theme', JSON.stringify(state.theme));
+    localStorage.setItem('themes', JSON.stringify(state.themes));
+}
+
 // ///////////////
 // TEMPORARY INIT
 const getMin = function(timer) {

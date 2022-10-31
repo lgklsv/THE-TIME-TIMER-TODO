@@ -105,6 +105,7 @@ const controlThemeSwitch = function() {
 
 const controlChangeTheme = function(theme) {
     model.state.theme = theme;
+    model.persistThemes();
 }
 
 const controlSettings = function(data, seconds, minutes, indicator) {
@@ -127,6 +128,7 @@ const initRendelLists = function() {
     model.initLists();
     listView.render(model.state.lists);
     tasksView.render(model.state.lists[0]);
+    model.persistThemes();
 }
 
 const init = function() {

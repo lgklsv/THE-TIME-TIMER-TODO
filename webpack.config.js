@@ -70,7 +70,10 @@ module.exports = {
             template: 'src/pages/about.html',
             chunks: ['about']
         }),
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name].[hash:8].css',
+        }  
+        ),
         new FaviconsWebpackPlugin({
             logo: 'src/assets/img/tttt-icon.png',
             mode: 'webapp',
