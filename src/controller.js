@@ -121,9 +121,24 @@ const initState = function() {
     if(storage)  {
         model.state.theme = JSON.parse(storage);
     }
+    const stateStorage = localStorage.getItem('state');
+    if(stateStorage) {
+        model.state.pomodoro = JSON.parse(stateStorage).pomodoro;
+        model.state.counterValue = JSON.parse(stateStorage).counterValue;
+        model.state.counter = JSON.parse(stateStorage).counter;
+        model.state.shortBreak = JSON.parse(stateStorage).shortBreak;
+        model.state.longBreak = JSON.parse(stateStorage).longBreak;
+        model.state.mode = JSON.parse(stateStorage).mode;
+        model.state.lists = JSON.parse(stateStorage).lists;
+        model.state.dots = JSON.parse(stateStorage).dots;
+        model.state.longBreakCounter = JSON.parse(stateStorage).longBreakCounter;
+        model.state.completeAudio = JSON.parse(stateStorage).completeAudio;
+        model.state.audios = JSON.parse(stateStorage).audios;
+        model.state.alarmVolume = JSON.parse(stateStorage).alarmVolume;
+    }
     
     // timer alarm init
-    model.state.completeAudio.volume = model.state.alarmVolume / 100;
+    model.audiosArr[model.state.completeAudio].volume = model.state.alarmVolume / 100;
     document.getElementById('timer-volume').value = model.state.alarmVolume;
     document.querySelector('.timer-volume__cur').textContent = model.state.alarmVolume;
 
@@ -131,10 +146,18 @@ const initState = function() {
     document.documentElement.setAttribute('data-theme', model.state.theme);
 
     // lists init
-    model.initLists();
+    if(model.state.lists.length == 0) {
+        model.initLists();
+    }
+
+    // timer init
+    model.initTimer();
+
     listView.render(model.state.lists);
     tasksView.render(model.state.lists[0]);
+
     model.persistThemes();
+    model.persistState();
 }
 
 const init = function() {

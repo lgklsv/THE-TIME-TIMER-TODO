@@ -6,6 +6,12 @@ import doorbell from './assets/audio/doorbell.mp3';
 import done from './assets/audio/done.mp3';
 import clicking from './assets/audio/clicking.mp3';
 
+export const audiosArr = {
+    original: new Audio(original), 
+    doorbell: new Audio(doorbell), 
+    done: new Audio(done), 
+    clicking: new Audio(clicking)
+};
 
 export const state = {
     pomodoro: 0.1 * 60,
@@ -19,14 +25,18 @@ export const state = {
     themes: ['dark', 'light', 'vscode', 'oneDark', 'playingCards', 'purple', 'coffee', 'strawberry'],
     dots: 0,
     longBreakCounter: 4,
-    completeAudio: new Audio(original),
-    audios: [new Audio(original), new Audio(doorbell), new Audio(done), new Audio(clicking)],
+    completeAudio: 'original',
+    audios: ['original','doorbell', 'done', 'clicking'],
     alarmVolume: 100,
 }
 
 export const persistThemes = function() {
     localStorage.setItem('theme', JSON.stringify(state.theme));
     localStorage.setItem('themes', JSON.stringify(state.themes));
+}
+
+export const persistState = function() {
+    localStorage.setItem('state', JSON.stringify(state));
 }
 
 // ///////////////
@@ -48,8 +58,18 @@ export const initLists = function() {
         initialList: true,
         completed: 0,
     });
+}
+
+export const initTimer = function() {
     document.querySelector('.minutes').textContent = getMin(state.pomodoro);
     document.querySelector('.seconds').textContent = getSec(state.pomodoro);
+    const dotsArr = Array.from(document.querySelectorAll('.dot'));
+    for(let i = 0; i < state.dots; i++) {
+        dotsArr[i].classList.add('dot_active');
+    }
+
+    helpers.activateTimerBtn(document.getElementById(`${state.mode}`));
+    resetTimer(document.querySelector('.seconds'), document.querySelector('.minutes'), document.querySelector('.indicator'));
 }
 
 export const addList = function(list) {
@@ -59,6 +79,7 @@ export const addList = function(list) {
     list.id = Math.random().toString(36);
     list.completed = 0;
     state.lists.push(list);
+    persistState();
 }
 
 export const addTask = function(taskObj) {
@@ -70,7 +91,7 @@ export const addTask = function(taskObj) {
     taskObj.completedPom = 0;
     
     activeList.tasks.push(taskObj);
-    
+    persistState();
     return activeList;
 }
 
@@ -92,6 +113,7 @@ export const activateTask = function(id) {
     };
     const data = activeListObj.tasks.find(taskObj => taskObj.id === id);
     data.active = true;
+    persistState();
     return activeListObj;
 }
 
@@ -107,12 +129,14 @@ export const checkTask = function(id, check) {
         }
     })
     activeListObj.completed = countCompleted;
+    persistState();
     return activeListObj;
 }
 
 export const editList = function(data) {
     const curList = state.lists.find(obj => obj.id === data.id);
     curList.listName = data.editedListValue;
+    persistState();
     return curList;
 }
 
@@ -123,9 +147,11 @@ export const deleteList = function(id) {
     if (indexToDelete - 1 >= 0 && (listToDelete.active || prevList.active)) {
         prevList.active = true;
         state.lists.splice(indexToDelete, 1);
+        persistState();
         return prevList;
     } else {
         state.lists.splice(indexToDelete, 1);
+        persistState();
     }
 }
 
@@ -135,6 +161,7 @@ export const editTask = function(data) {
     taskToEdit.taskName = data.editedTaskValue;
     taskToEdit.subName = data.editedTaskSubtitleValue;
     taskToEdit.estPom = data.estPom;
+    persistState();
     return curList;
 }
 
@@ -153,6 +180,7 @@ export const deleteTask = function(id) {
         nextTask.active = true;
     }
     curList.tasks.splice(indexToDelete, 1);
+    persistState();
     return curList;
 }
 
@@ -161,6 +189,7 @@ export const deleteCompleted = function() {
     const clearedTasks = curList.tasks.filter(el => el.checked == false);
     curList.tasks = clearedTasks;
     curList.completed = 0;
+    persistState();
     return curList;
 }
 
@@ -175,6 +204,7 @@ const checkMode = function() {
     if(state.mode == 'long-break') {
         curTimer = state.longBreak;
     }
+    persistState();
     return curTimer;
 }
 
@@ -192,6 +222,7 @@ export const setMode =  function(mode) {
         state.counterValue = state.longBreak;
         setTitle(getSec(state.longBreak), getMin(state.longBreak));
     }
+    persistState();
 } 
 
 export const setTitle = function(sec, min) {
@@ -225,7 +256,9 @@ export const startTimer = function(seconds, minutes, indicator) {
                 if (state.mode == 'pomodoro' && state.dots != 4) {
                     state.mode = 'short-break';
                     state.dots++;
-                    state.completeAudio.play();
+                    
+                    audiosArr[state.completeAudio].play();
+
                     for(let i = 0; i < state.dots; i++) {
                         dotsArr[i].classList.add('dot_active');
                     }
@@ -233,12 +266,12 @@ export const startTimer = function(seconds, minutes, indicator) {
                 }
                 else if (state.mode == 'short-break') {
                     state.mode = 'pomodoro';
-                    state.completeAudio.play();
+                    audiosArr[state.completeAudio].play();
                     helpers.activateTimerBtn(document.getElementById('pomodoro'));
                 }
                 else if (state.mode == 'pomodoro' && state.dots == state.longBreakCounter) {
                     state.mode = 'long-break';
-                    state.completeAudio.play();
+                    audiosArr[state.completeAudio].play();
                     helpers.activateTimerBtn(document.getElementById('long-break'));
                     for(let i = 0; i < state.dots; i++) {
                         dotsArr[i].classList.remove('dot_active');
@@ -247,7 +280,7 @@ export const startTimer = function(seconds, minutes, indicator) {
                 }
                 else if (state.mode == 'long-break') {
                     state.mode = 'pomodoro';
-                    state.completeAudio.play();
+                    audiosArr[state.completeAudio].play();
                     helpers.activateTimerBtn(document.getElementById('pomodoro'));
                 }
                 document.querySelector('.pause-btn').classList.add('really-hidden');
@@ -266,6 +299,7 @@ export const resetTimer = function(seconds, minutes, indicator) {
     state.counterValue = curTimer;
     let min = Math.floor(state.counterValue / 60);
     let sec = Math.floor(state.counterValue % 60);
+
     setTitle(sec, min);
     seconds.textContent = sec.toString().padStart(2, '0');
     minutes.textContent = min.toString().padStart(2, '0');
@@ -282,4 +316,5 @@ export const setSettings = function(data) {
     state.counterValue = +data.pomodoro * 60;
     state.shortBreak = +data.shortBreak * 60;
     state.longBreak = +data.longBreak * 60;
+    persistState();
 }
