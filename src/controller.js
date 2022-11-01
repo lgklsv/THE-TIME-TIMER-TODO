@@ -183,7 +183,7 @@ const init = function() {
     menuView._addHandlerShowThemes(controlThemeSwitch);
     menuView._addHandlerChangeTheme(controlChangeTheme);
 
-    settingsView._addHandlerUploadNewTask(controlSettings);
+    settingsView._addHandlerUploadSettings(controlSettings);
 
 
 }

@@ -39,8 +39,7 @@ export const persistState = function() {
     localStorage.setItem('state', JSON.stringify(state));
 }
 
-// ///////////////
-// TEMPORARY INIT
+
 const getMin = function(timer) {
     return timer < 60 ? '00' : (Math.floor(timer / 60)).toString().padStart(2, '0')
 }
@@ -316,5 +315,7 @@ export const setSettings = function(data) {
     state.counterValue = +data.pomodoro * 60;
     state.shortBreak = +data.shortBreak * 60;
     state.longBreak = +data.longBreak * 60;
+    state.alarmVolume = +data.volume;
+    state.completeAudio = state.audios[+data.sound];
     persistState();
 }

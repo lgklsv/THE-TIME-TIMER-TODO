@@ -1,5 +1,6 @@
 import View from "./View";
 import { state as state } from '../model';
+import { audiosArr as audiosArr } from '../model';
 
 class SettingsView extends View {
     _parentElement = document.querySelector('.upload-settings');
@@ -31,6 +32,7 @@ class SettingsView extends View {
             this._pomodoroInput.value = state.pomodoro / 60;
             this._shortBreakInput.value = state.shortBreak / 60;
             this._longBreakInput.value = state.longBreak / 60;
+            this._selectVolumeInput.value = state.audios.indexOf(state.completeAudio);
         } 
         this._window.classList.toggle('active');
         this._overlay.classList.toggle('hidden');
@@ -67,8 +69,8 @@ class SettingsView extends View {
         let curVolumeValue = e.target.value;
         this._curVolumeIndic.textContent = curVolumeValue;
         
-        state.completeAudio.volume = curVolumeValue / 100;
-        state.completeAudio.play();
+        audiosArr[state.completeAudio].volume = curVolumeValue / 100;
+        audiosArr[state.completeAudio].play();
     }
 
     _addHandlerVolume() {
@@ -78,13 +80,13 @@ class SettingsView extends View {
     _addHandlerChangeSound() {
         this._selectVolumeInput.addEventListener('change', function(e) {
             let sound = e.target.value;
-            if(!state.audios[+sound]) return;
+            if(!audiosArr[state.audios[+sound]]) return;
             state.completeAudio = state.audios[+sound];
-            state.completeAudio.play();
+            audiosArr[state.completeAudio].play();
         })
     }
 
-    _addHandlerUploadNewTask(handler) {
+    _addHandlerUploadSettings(handler) {
         this._parentElement.addEventListener('submit', function(e){
             e.preventDefault();
             const dataArr = [...new FormData(this)];
@@ -98,6 +100,8 @@ class SettingsView extends View {
             if(!data.pomodoro) return;
             if(!data.shortBreak) return;
             if(!data.longBreak) return;
+            if(!data.sound) return;
+            if(!data.volume) return;
             handler(data, seconds, minutes, indicator);
         })
     }
