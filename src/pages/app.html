@@ -54,6 +54,7 @@
                 <dic class="text-btn signInOut">
                   <div class="icon icon-login">
                     <i class="fa-solid fa-right-to-bracket"></i>
+                    <p class="username-btn"></p>
                   </div>
                 </dic>
               </li>
@@ -169,117 +170,119 @@
       </footer>
     </div>
 
-    <div class="overlay hidden"></div>
-    <div class="modal add-list-window">
-      <form class="upload" novalidate>
-        <h3 class="upload-heading">New List</h3>
-        <label id="list-imput-label">Name:</label>
-        <input type="submit" class="hidden-submit">
-        <input id="list-name-input" class="name-input" type="text" required name="listName" autofocus>
-        <div class="add-list-control-btns">
-          <button class="list-name-btn cancel-btn upload-btn">Cancel</button>
-          <button type="submit" class="list-name-btn upload-btn">Ok</button>
-        </div>
-      </form>
-    </div>
-    <div class="taskOverlay hidden"></div>
-    <div class="modal add-task-window">
-      <form class="uploadTask" novalidate>
-        <h3 class="upload-heading">New Task</h3>
-        <label id="task-imput-label">Name:</label>
-        <input type="submit" class="hidden-submit">
-        <input id="task-name-input" class="name-input" type="text" required name="taskName" autofocus>
-        <label id="task-imput-label">Notes:</label>
-        <input id="task-subName-input" class="name-input sub-input" type="text" name="subName">
-        <label id="task-est-pomodoros">Est Pomodoros:</label>
-        <input type="number" value="1" min="0" class="name-input est-pom-input" required name="estPom">
-        <button type="button" class="est-pom-controls control-up"><i class="fa-solid fa-caret-up"></i></button>
-        <button type="button" class="est-pom-controls control-down"><i class="fa-solid fa-caret-down"></i></button>
-        <div class="add-task-control-btns">
-          <button class="task-name-btn cancel-addTask-btn upload-btn">Cancel</button>
-          <button type="submit" class="task-name-btn upload-btn">Ok</button>
-        </div>
-      </form>
-    </div>
-
-    <div class="settings-overlay hidden"></div>
-    <div class="modal add-settings-window">
-      <form class="upload-settings" novalidate>
-        <h3 class="upload-heading">Timers:</h3>
-
-        <div class="timers-settings"> 
-          <div class="timers-settings__numbers">
-            <label class="timers-settings__heading">Pomodoro</label>
-            <input id="pomodoro-input" type="number" value="25" min="0" class="name-input timers-settings__input" required name="pomodoro">
-            <label class="timers-settings__subheading">minutes</label>
-          </div>
-          <div class="timers-settings__numbers">
-            <label class="timers-settings__heading">Short Break</label>
-            <input id="shortbreak-input" type="number" value="5" min="0" class="name-input timers-settings__input" required name="shortBreak">
-            <label class="timers-settings__subheading">minutes</label>
-          </div>
-          <div class="timers-settings__numbers">
-            <label class="timers-settings__heading">Long Break</label>
-            <input id="longbreak-input" type="number" value="10" min="0" class="name-input timers-settings__input" required name="longBreak">
-            <label class="timers-settings__subheading">minutes</label>
-          </div>
-        </div>
-        <h3 class="upload-heading sounds-heading">Sounds:</h3>
-        <div class="timer-sounds">
-          <h3 class="timers-settings__heading">Select alarm sound:</h3>
-          <select name="sound" id="timer-sound" class="timers-settings__sound">
-            <option value="0">Original</option>
-            <option value="1">Doorbell</option>
-            <option value="2">Done</option>
-            <option value="3">Clicking</option>
-          </select>
-          <div class="timer-volume">
-            <div class="timer-volume__container">
-              <h3 class="timers-settings__heading">Alarm volume:</h3><span class="timer-volume__cur"></span>
-            </div>
-            <input name="volume" type="range" id="timer-volume" value="50">
-          </div>
-        </div>
-        
-        <div class="add-task-control-btns">
-          <button class="settings-name-btn cancel-settings-btn upload-btn">Cancel</button>
-          <button type="submit" class="settings-name-btn submit-settings-btn upload-btn">Ok</button>
-        </div>
-      </form>
-    </div>
-
-    <div class="loginOverlay hidden"></div>
-    <div class="modal login">
-      <div class="logo">
-        <h1 class="logo-text">
-          THE TIME TIMER + <span class="logo-letter1">T</span
-          ><span class="logo-letter2">O</span
-          ><span class="logo-letter3">D</span
-          ><span class="logo-letter4">O</span>
-        </h1>
-      </div>
-      <div class="login__forms">
-        <form class="signin" novalidate>
-          <h3 class="upload-heading">Sign in</h3>
+    <div class="popups">
+      <div class="overlay hidden"></div>
+      <div class="modal add-list-window">
+        <form class="upload" novalidate>
+          <h3 class="upload-heading">New List</h3>
+          <label id="list-imput-label">Name:</label>
           <input type="submit" class="hidden-submit">
-          <input class="name-input login__input" type="email" required name="email" placeholder="Email:" autofocus>
-          <input class="name-input login__input" type="password" placeholder="Password:" name="password">
-          <button type="submit" class="login__btn">Sign in</button>
+          <input id="list-name-input" class="name-input" type="text" required name="listName" autofocus>
+          <div class="add-list-control-btns">
+            <button class="list-name-btn cancel-btn upload-btn">Cancel</button>
+            <button type="submit" class="list-name-btn upload-btn">Ok</button>
+          </div>
         </form>
-
-        <div class="login__line"></div>
+      </div>
+      <div class="taskOverlay hidden"></div>
+      <div class="modal add-task-window">
+        <form class="uploadTask" novalidate>
+          <h3 class="upload-heading">New Task</h3>
+          <label id="task-imput-label">Name:</label>
+          <input type="submit" class="hidden-submit">
+          <input id="task-name-input" class="name-input" type="text" required name="taskName" autofocus>
+          <label id="task-imput-label">Notes:</label>
+          <input id="task-subName-input" class="name-input sub-input" type="text" name="subName">
+          <label id="task-est-pomodoros">Est Pomodoros:</label>
+          <input type="number" value="1" min="0" class="name-input est-pom-input" required name="estPom">
+          <button type="button" class="est-pom-controls control-up"><i class="fa-solid fa-caret-up"></i></button>
+          <button type="button" class="est-pom-controls control-down"><i class="fa-solid fa-caret-down"></i></button>
+          <div class="add-task-control-btns">
+            <button class="task-name-btn cancel-addTask-btn upload-btn">Cancel</button>
+            <button type="submit" class="task-name-btn upload-btn">Ok</button>
+          </div>
+        </form>
+      </div>
   
-        <form class="signup" novalidate>
-          <h3 class="upload-heading">Sign up</h3>
-          <input type="submit" class="hidden-submit">
-          <input class="name-input login__input" type="text" required name="username" placeholder="Username:" autofocus>
-          <input class="name-input login__input" type="email" required name="email" placeholder="Email:" autofocus>
-          <input class="name-input login__input" type="password" placeholder="Password:" name="password">
-          <button type="submit" class="login__btn">Sign up</button>
+      <div class="settings-overlay hidden"></div>
+      <div class="modal add-settings-window">
+        <form class="upload-settings" novalidate>
+          <h3 class="upload-heading">Timers:</h3>
+  
+          <div class="timers-settings"> 
+            <div class="timers-settings__numbers">
+              <label class="timers-settings__heading">Pomodoro</label>
+              <input id="pomodoro-input" type="number" value="25" min="0" class="name-input timers-settings__input" required name="pomodoro">
+              <label class="timers-settings__subheading">minutes</label>
+            </div>
+            <div class="timers-settings__numbers">
+              <label class="timers-settings__heading">Short Break</label>
+              <input id="shortbreak-input" type="number" value="5" min="0" class="name-input timers-settings__input" required name="shortBreak">
+              <label class="timers-settings__subheading">minutes</label>
+            </div>
+            <div class="timers-settings__numbers">
+              <label class="timers-settings__heading">Long Break</label>
+              <input id="longbreak-input" type="number" value="10" min="0" class="name-input timers-settings__input" required name="longBreak">
+              <label class="timers-settings__subheading">minutes</label>
+            </div>
+          </div>
+          <h3 class="upload-heading sounds-heading">Sounds:</h3>
+          <div class="timer-sounds">
+            <h3 class="timers-settings__heading">Select alarm sound:</h3>
+            <select name="sound" id="timer-sound" class="timers-settings__sound">
+              <option value="0">Original</option>
+              <option value="1">Doorbell</option>
+              <option value="2">Done</option>
+              <option value="3">Clicking</option>
+            </select>
+            <div class="timer-volume">
+              <div class="timer-volume__container">
+                <h3 class="timers-settings__heading">Alarm volume:</h3><span class="timer-volume__cur"></span>
+              </div>
+              <input name="volume" type="range" id="timer-volume" value="50">
+            </div>
+          </div>
+          
+          <div class="add-task-control-btns">
+            <button class="settings-name-btn cancel-settings-btn upload-btn">Cancel</button>
+            <button type="submit" class="settings-name-btn submit-settings-btn upload-btn">Ok</button>
+          </div>
         </form>
       </div>
-
-      <button class="task-name-btn upload-btn logout">Logout</button>
+  
+      <div class="loginOverlay hidden"></div>
+      <div class="modal login">
+        <div class="logo">
+          <h1 class="logo-text">
+            THE TIME TIMER + <span class="logo-letter1">T</span
+            ><span class="logo-letter2">O</span
+            ><span class="logo-letter3">D</span
+            ><span class="logo-letter4">O</span>
+          </h1>
+        </div>
+        <div class="login__forms">
+          <form class="signin" novalidate>
+            <h3 class="upload-heading">Sign in</h3>
+            <input type="submit" class="hidden-submit">
+            <input class="name-input login__input" type="email" required name="email" placeholder="Email:" autofocus>
+            <input class="name-input login__input" type="password" placeholder="Password:" name="password">
+            <button type="submit" class="login__btn">Sign in</button>
+          </form>
+  
+          <div class="login__line"></div>
+    
+          <form class="signup" novalidate>
+            <h3 class="upload-heading">Sign up</h3>
+            <input type="submit" class="hidden-submit">
+            <input class="name-input login__input" type="text" required name="username" placeholder="Username:" autofocus>
+            <input class="name-input login__input" type="email" required name="email" placeholder="Email:" autofocus>
+            <input class="name-input login__input" type="password" placeholder="Password:" name="password">
+            <button type="submit" class="login__btn">Sign up</button>
+          </form>
+        </div>
+  
+        <button class="task-name-btn upload-btn logout">Logout</button>
+      </div>
     </div>
   </body>
 </html>

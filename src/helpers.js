@@ -11,3 +11,8 @@ export const activateTimerBtn = function(btn) {
     });
     btn.classList.add('active-timer-btn');
 }
+
+export const toggleLoginModal = function() {
+    document.querySelector('.login').classList.toggle('active');
+    document.querySelector('.loginOverlay').classList.toggle('hidden');
+}

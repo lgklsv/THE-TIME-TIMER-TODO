@@ -26,16 +26,14 @@ class MenuView extends View {
     _addHandlerShowLogin(handler) {
         this._menuList.addEventListener('click', function(e) {
             if(e.target.classList.contains('signInOut')) {
-                document.querySelector('.login').classList.toggle('active');
-                document.querySelector('.loginOverlay').classList.toggle('hidden');
+                helpers.toggleLoginModal();
                 handler();
             }
         })
     }
 
     toggleLogin() {
-        this._loginEl.classList.toggle('active');
-        this._overlay.classList.toggle('hidden');
+        helpers.toggleLoginModal();
     }
 
     _addHandlerHideLogin() {

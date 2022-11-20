@@ -14,6 +14,7 @@ export const audiosArr = {
 };
 
 export const state = {
+    login: false,
     pomodoro: 0.1 * 60,
     counter: -1,
     counterValue: 0.1 * 60,

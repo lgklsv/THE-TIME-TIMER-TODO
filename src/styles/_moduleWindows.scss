@@ -59,6 +59,7 @@ input[type="text"]:focus {
     height: auto;
     border-radius: 15px;
     z-index: 10;
+    border: 1px solid var(--light-color);
 }
 
 .active {
