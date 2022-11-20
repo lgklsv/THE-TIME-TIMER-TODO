@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "arrive": "^2.4.1",
+    "firebase": "^9.14.0",
     "handlebars": "^4.7.7",
     "navigo": "^8.11.1",
     "path": "^0.12.7"

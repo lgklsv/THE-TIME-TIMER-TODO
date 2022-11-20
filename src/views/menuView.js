@@ -5,6 +5,13 @@ import arrive from 'arrive';
 class MenuView extends View {
     _parentElement = document.querySelector('.dropdown-themes');
     _menuList = document.querySelector('.menu-list');
+    _overlay = document.querySelector('.loginOverlay');
+    _loginEl = document.querySelector('.login');
+
+    constructor() {
+        super();
+        this._addHandlerHideLogin();
+    }
 
     _addHandlerShowThemes(handler) {
         this._menuList.addEventListener('click', function(e) {
@@ -14,6 +21,25 @@ class MenuView extends View {
                 handler();
             }
         })
+    }
+
+    _addHandlerShowLogin(handler) {
+        this._menuList.addEventListener('click', function(e) {
+            if(e.target.classList.contains('signInOut')) {
+                document.querySelector('.login').classList.toggle('active');
+                document.querySelector('.loginOverlay').classList.toggle('hidden');
+                handler();
+            }
+        })
+    }
+
+    toggleLogin() {
+        this._loginEl.classList.toggle('active');
+        this._overlay.classList.toggle('hidden');
+    }
+
+    _addHandlerHideLogin() {
+        this._overlay.addEventListener('click', this.toggleLogin.bind(this));
     }
 
     _addHandlerChangeTheme(handler) {

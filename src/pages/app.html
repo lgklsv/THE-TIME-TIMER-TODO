@@ -51,11 +51,11 @@
                 </a>
               </li>
               <li class="menu-item">
-                <a href="" class="text-btn signInOut">
-                  <div class="icon">
+                <dic class="text-btn signInOut">
+                  <div class="icon icon-login">
                     <i class="fa-solid fa-right-to-bracket"></i>
                   </div>
-                </a>
+                </dic>
               </li>
             </ul>
           </div>
@@ -170,7 +170,7 @@
     </div>
 
     <div class="overlay hidden"></div>
-    <div class="add-list-window">
+    <div class="modal add-list-window">
       <form class="upload" novalidate>
         <h3 class="upload-heading">New List</h3>
         <label id="list-imput-label">Name:</label>
@@ -183,7 +183,7 @@
       </form>
     </div>
     <div class="taskOverlay hidden"></div>
-    <div class="add-task-window">
+    <div class="modal add-task-window">
       <form class="uploadTask" novalidate>
         <h3 class="upload-heading">New Task</h3>
         <label id="task-imput-label">Name:</label>
@@ -203,7 +203,7 @@
     </div>
 
     <div class="settings-overlay hidden"></div>
-    <div class="add-settings-window">
+    <div class="modal add-settings-window">
       <form class="upload-settings" novalidate>
         <h3 class="upload-heading">Timers:</h3>
 
@@ -246,6 +246,40 @@
           <button type="submit" class="settings-name-btn submit-settings-btn upload-btn">Ok</button>
         </div>
       </form>
+    </div>
+
+    <div class="loginOverlay hidden"></div>
+    <div class="modal login">
+      <div class="logo">
+        <h1 class="logo-text">
+          THE TIME TIMER + <span class="logo-letter1">T</span
+          ><span class="logo-letter2">O</span
+          ><span class="logo-letter3">D</span
+          ><span class="logo-letter4">O</span>
+        </h1>
+      </div>
+      <div class="login__forms">
+        <form class="signin" novalidate>
+          <h3 class="upload-heading">Sign in</h3>
+          <input type="submit" class="hidden-submit">
+          <input class="name-input login__input" type="email" required name="email" placeholder="Email:" autofocus>
+          <input class="name-input login__input" type="password" placeholder="Password:" name="password">
+          <button type="submit" class="login__btn">Sign in</button>
+        </form>
+
+        <div class="login__line"></div>
+  
+        <form class="signup" novalidate>
+          <h3 class="upload-heading">Sign up</h3>
+          <input type="submit" class="hidden-submit">
+          <input class="name-input login__input" type="text" required name="username" placeholder="Username:" autofocus>
+          <input class="name-input login__input" type="email" required name="email" placeholder="Email:" autofocus>
+          <input class="name-input login__input" type="password" placeholder="Password:" name="password">
+          <button type="submit" class="login__btn">Sign up</button>
+        </form>
+      </div>
+
+      <button class="task-name-btn upload-btn logout">Logout</button>
     </div>
   </body>
 </html>
