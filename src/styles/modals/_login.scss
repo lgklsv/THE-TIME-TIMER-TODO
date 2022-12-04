@@ -66,3 +66,32 @@
     display: flex;
 }
 
+.account {
+    .account__el {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover .account__username, &:hover .fa-user{
+            color: var(--active-color);
+        }
+    
+        .account__username {
+            font-size: 1.2rem;
+            color: var(--light-color);
+            text-decoration: none;
+            padding: 0.5em;
+            pointer-events: none; 
+        }
+    
+        .fa-user {
+            color: var(--light-color);
+            pointer-events: none;
+        }
+    }
+}
+
+
+
+
+

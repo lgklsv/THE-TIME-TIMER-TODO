@@ -13,6 +13,11 @@
     .menu-list {
       list-style: none;
       display: flex;
+
+      .menu-item {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }

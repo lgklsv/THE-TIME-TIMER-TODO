@@ -53,7 +53,8 @@ getDocs(colRef).then((snapshot) => {
     console.log(err);
 })
 
-const usernameEl = document.querySelector('.username-btn');
+const usernameEl = document.querySelector('.account__username');
+const accountBtn = document.querySelector('.account');
 const signupForm = document.querySelector('.signup');
 signupForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -77,6 +78,7 @@ signupForm.addEventListener('submit', e => {
             })
         })
         .then(() => {
+            accountBtn.classList.remove('really-hidden');
             usernameEl.textContent = username;
             signupForm.reset();
             helpers.toggleLoginModal();
@@ -90,6 +92,7 @@ const logoutButton = document.querySelector('.logout');
 logoutButton.addEventListener('click', () => {
     signOut(auth)
         .then(() => {
+            accountBtn.classList.add('really-hidden');
             usernameEl.textContent = '';
             console.log('The user signed out');
         }).catch((err) => {
@@ -112,12 +115,15 @@ loginForm.addEventListener('submit', e => {
 
     signInWithEmailAndPassword(auth, email, password)
         .then((cred) => {
+            
             const docRef = doc(db, 'users', cred.user.uid);
             console.log('user logged in:', cred.user);
             return getDoc(docRef);
         })
         .then((docSnap) => {
             const dataObj = docSnap.data();
+            accountBtn.classList.remove('really-hidden');
+            usernameEl.textContent = dataObj.username;
             console.log(dataObj);
             // state = dataObj.data;
             state.login = true;
