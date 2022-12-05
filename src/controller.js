@@ -124,11 +124,13 @@ const controlLogout = function() {
 // TEMPORARY INIT
 export const initState = function() {
     // Set theme form themeState
-    const storage = localStorage.getItem('theme');
+    // const storage = localStorage.getItem('theme');
+    const storage = null;
     if(storage && !model.state.login)  {
         model.state.theme = JSON.parse(storage);
     }
-    const stateStorage = localStorage.getItem('state');
+    // const stateStorage = localStorage.getItem('state');
+    const stateStorage = null;
     if(stateStorage && !model.state.login) {
         model.state.pomodoro = JSON.parse(stateStorage).pomodoro;
         model.state.counterValue = JSON.parse(stateStorage).counterValue;

@@ -16,10 +16,12 @@ import {
 
 import {
     getAuth,
+    setPersistence,
     createUserWithEmailAndPassword,
     signOut,
     signInWithEmailAndPassword,
-    updateProfile
+    updateProfile,
+    browserLocalPersistence
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -119,9 +121,11 @@ loginForm.addEventListener('submit', e => {
     const email = loginForm.email.value;
     const password = loginForm.password.value;
 
-    signInWithEmailAndPassword(auth, email, password)
+    setPersistence(auth, browserLocalPersistence)
+        .then(() => {
+            return signInWithEmailAndPassword(auth, email, password);
+        })
         .then((cred) => {
-            
             const docRef = doc(db, 'users', cred.user.uid);
             console.log('user logged in:', cred.user);
             return getDoc(docRef);
@@ -158,8 +162,38 @@ loginForm.addEventListener('submit', e => {
         })
 }) 
 
-// auth.onAuthStateChanged(user => {
-//     if (user) {
-//         getUserData(user.uid);
-//     }
-// })
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        console.log('user is here');
+        const docRef = doc(db, 'users', user.uid);
+        console.log('user logged in:', user);
+        getDoc(docRef)
+        .then((docSnap) => {
+            const dataObj = docSnap.data();
+            accountBtn.classList.remove('really-hidden');
+            usernameEl.textContent = dataObj.username;
+            signInBtn.classList.remove('signInBtn_login');
+            signInBtn.classList.add('signInBtn_logout');
+            state.login = true;
+            state.theme = dataObj.data.theme;
+            state.pomodoro = dataObj.data.pomodoro;
+            state.counterValue = dataObj.data.counterValue;
+            state.counter = dataObj.data.counter;
+            state.shortBreak = dataObj.data.shortBreak;
+            state.longBreak = dataObj.data.longBreak;
+            state.mode = dataObj.data.mode;
+            state.lists = dataObj.data.lists;
+            state.dots = dataObj.data.dots;
+            state.longBreakCounter = dataObj.data.longBreakCounter;
+            state.completeAudio = dataObj.data.completeAudio;
+            state.audios = dataObj.data.audios;
+            state.alarmVolume = dataObj.data.alarmVolume;
+            initState();
+        })
+        .catch((err) => {
+            console.log(err.message);
+        })
+    } else {
+        console.log('no user');
+    }
+})
