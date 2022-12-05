@@ -10,6 +10,10 @@
 @import './modals/login';
 @import './modals/settingsModule';
 
+:root {
+  --color-danger-fg: #f85149;
+}
+
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;

@@ -12,7 +12,13 @@ export const activateTimerBtn = function(btn) {
     btn.classList.add('active-timer-btn');
 }
 
-export const toggleLoginModal = function() {
-    document.querySelector('.login').classList.toggle('active');
-    document.querySelector('.loginOverlay').classList.toggle('hidden');
+export const toggleLoginModal = function(modal) {
+    if(modal === 'login') {
+        document.querySelector('.login').classList.toggle('active');
+        document.querySelector('.loginOverlay').classList.toggle('hidden');
+    }
+    else if (modal === 'logout') {
+        document.querySelector('.logout').classList.toggle('active');
+        document.querySelector('.logoutOverlay').classList.toggle('hidden');
+    }
 }

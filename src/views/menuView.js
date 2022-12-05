@@ -5,12 +5,15 @@ import arrive from 'arrive';
 class MenuView extends View {
     _parentElement = document.querySelector('.dropdown-themes');
     _menuList = document.querySelector('.menu-list');
-    _overlay = document.querySelector('.loginOverlay');
+    _overlayLogin = document.querySelector('.loginOverlay');
+    _overlayLogout = document.querySelector('.logoutOverlay');
     _loginEl = document.querySelector('.login');
+    _logoutBtnClose = document.querySelector('.logout__cancelBtn');
 
     constructor() {
         super();
         this._addHandlerHideLogin();
+        this._addHandlerHideLogout();
     }
 
     _addHandlerShowThemes(handler) {
@@ -25,19 +28,38 @@ class MenuView extends View {
 
     _addHandlerShowLogin(handler) {
         this._menuList.addEventListener('click', function(e) {
-            if(e.target.classList.contains('signInOut')) {
-                helpers.toggleLoginModal();
+            if(e.target.classList.contains('signInBtn_login')) {
+                helpers.toggleLoginModal('login');
+                handler();
+            }
+        })
+    }
+
+    _addHandlerShowLogout(handler) {
+        this._menuList.addEventListener('click', function(e) {
+            if(e.target.classList.contains('signInBtn_logout')) {
+                helpers.toggleLoginModal('logout');
                 handler();
             }
         })
     }
 
     toggleLogin() {
-        helpers.toggleLoginModal();
+        helpers.toggleLoginModal('login');
+    }
+
+    toggleLogout() {
+        console.log('ji');
+        helpers.toggleLoginModal('logout');
     }
 
     _addHandlerHideLogin() {
-        this._overlay.addEventListener('click', this.toggleLogin.bind(this));
+        this._overlayLogin.addEventListener('click', this.toggleLogin.bind(this));
+    }
+
+    _addHandlerHideLogout() {
+        this._logoutBtnClose.addEventListener('click', this.toggleLogout.bind(this));
+        this._overlayLogout.addEventListener('click', this.toggleLogout.bind(this));
     }
 
     _addHandlerChangeTheme(handler) {

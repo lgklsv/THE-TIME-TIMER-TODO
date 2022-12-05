@@ -115,6 +115,10 @@ const controlSettings = function(data, seconds, minutes, indicator) {
 const controlLogin = function() {
     console.log('hi');
 }
+
+const controlLogout = function() {
+    console.log('logout');
+}
  
 // ///////////////
 // TEMPORARY INIT
@@ -186,9 +190,8 @@ const init = function() {
     menuView._addHandlerShowThemes(controlThemeSwitch);
     menuView._addHandlerChangeTheme(controlChangeTheme);
     menuView._addHandlerShowLogin(controlLogin);
+    menuView._addHandlerShowLogout(controlLogout);
 
     settingsView._addHandlerUploadSettings(controlSettings);
-
-
 }
 init();

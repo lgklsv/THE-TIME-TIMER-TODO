@@ -22,7 +22,11 @@ module.exports = {
             directory: path.resolve(__dirname, 'dist')
         },
         port: 3000,
-        open: true,
+        open: {
+            app: {
+              name: 'Google Chrome',
+            },
+        },
         hot: true,
         compress: true,
         historyApiFallback: true,
@@ -70,9 +74,7 @@ module.exports = {
             template: 'src/pages/about.html',
             chunks: ['about']
         }),
-        new MiniCssExtractPlugin({
-            filename: '[name].[hash:8].css',
-        }  
+        new MiniCssExtractPlugin({}  
         ),
         new FaviconsWebpackPlugin({
             logo: 'src/assets/img/tttt-icon.png',

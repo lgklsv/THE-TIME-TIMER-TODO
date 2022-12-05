@@ -1,6 +1,5 @@
 .login {
     width: 60%;
-    height: 60%;
     display: flex; 
     flex-direction: column;
     justify-content: flex-start;
@@ -45,7 +44,7 @@
 
     .login__line { 
         width: 1px;
-        height: 80%;
+        height: 200px;
         background-color: var(--light-color);
     }
 
@@ -59,7 +58,6 @@
         box-shadow: 0 0 0 2px var(--circle-color);
     }
 }
-
 
 .icon-login {
     pointer-events: none;
@@ -91,7 +89,20 @@
     }
 }
 
+.logout__container {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 
+    .logout__btn {
+        color: var(--color-danger-fg);
+        border: 1px solid var(--color-danger-fg);
 
-
-
+        &:hover {
+            color: var(--active-color);
+            background-color: var(--color-danger-fg);
+        }
+    }
+}

@@ -43,19 +43,20 @@ const auth = getAuth();
 const colRef = collection(db, 'users');
 
 // get collection data
-getDocs(colRef).then((snapshot) => {
-    let users = [];
-    snapshot.docs.forEach((doc) => {
-        users.push({ ...doc.data(), id: doc.id });
-    })
-    console.log(users);
-}).catch(err => {
-    console.log(err);
-})
+// getDocs(colRef).then((snapshot) => {
+//     let users = [];
+//     snapshot.docs.forEach((doc) => {
+//         users.push({ ...doc.data(), id: doc.id });
+//     })
+//     console.log(users);
+// }).catch(err => {
+//     console.log(err);
+// })
 
 const usernameEl = document.querySelector('.account__username');
 const accountBtn = document.querySelector('.account');
 const signupForm = document.querySelector('.signup');
+const signInBtn = document.querySelector('.signInBtn');
 signupForm.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -79,22 +80,27 @@ signupForm.addEventListener('submit', e => {
         })
         .then(() => {
             accountBtn.classList.remove('really-hidden');
+            signInBtn.classList.remove('signInBtn_login');
+            signInBtn.classList.add('signInBtn_logout');
             usernameEl.textContent = username;
             signupForm.reset();
-            helpers.toggleLoginModal();
+            helpers.toggleLoginModal('login');
         })
         .catch ((err) => {
             console.log(err.message);
         })
-}) 
+})
 
-const logoutButton = document.querySelector('.logout');
+const logoutButton = document.querySelector('.logout__btn');
 logoutButton.addEventListener('click', () => {
     signOut(auth)
         .then(() => {
             accountBtn.classList.add('really-hidden');
             usernameEl.textContent = '';
+            signInBtn.classList.remove('signInBtn_logout');
+            signInBtn.classList.add('signInBtn_login');
             console.log('The user signed out');
+            helpers.toggleLoginModal('logout');
         }).catch((err) => {
             console.log(err.message);
         })
@@ -124,6 +130,8 @@ loginForm.addEventListener('submit', e => {
             const dataObj = docSnap.data();
             accountBtn.classList.remove('really-hidden');
             usernameEl.textContent = dataObj.username;
+            signInBtn.classList.remove('signInBtn_login');
+            signInBtn.classList.add('signInBtn_logout');
             console.log(dataObj);
             // state = dataObj.data;
             state.login = true;
@@ -142,7 +150,7 @@ loginForm.addEventListener('submit', e => {
             state.alarmVolume = dataObj.data.alarmVolume;
 
             loginForm.reset();
-            helpers.toggleLoginModal();
+            helpers.toggleLoginModal('login');
             initState();
         })
         .catch((err) => {

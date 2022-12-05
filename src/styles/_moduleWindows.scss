@@ -2,7 +2,8 @@
 .taskOverlay, 
 .transparentOverlay,
 .settings-overlay,
-.loginOverlay {
+.loginOverlay,
+.logoutOverlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -15,7 +16,8 @@
 .overlay, 
 .taskOverlay,
 .settings-overlay, 
-.loginOverlay {
+.loginOverlay,
+.logoutOverlay {
     background-color: rgba(0, 0, 0, .5);
     z-index: 6;
 }

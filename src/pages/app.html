@@ -58,7 +58,7 @@
                 </a>
               </li>
               <li class="menu-item">
-                <dic class="text-btn signInOut">
+                <dic class="text-btn signInBtn signInBtn_login">
                   <div class="icon icon-login">
                     <i class="fa-solid fa-right-to-bracket"></i>
                     <p class="username-btn"></p>
@@ -287,8 +287,18 @@
             <button type="submit" class="login__btn">Sign up</button>
           </form>
         </div>
-  
-        <button class="task-name-btn upload-btn logout">Logout</button>
+      </div>
+
+      <div class="logoutOverlay hidden"></div>
+      <div class="modal logout">
+        <div class="logout__container">
+          <p class="logout__statement upload-heading">Do you want to logout?</p>
+          
+          <div class="add-task-control-btns">
+            <button class="task-name-btn logout__cancelBtn upload-btn">Cancel</button>
+            <button class="task-name-btn upload-btn logout__btn">Logout</button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
